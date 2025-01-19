@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Colors */
+:root {
+    --default-font: "Poppins", sans-serif;
+    --heading-font: "Raleway", sans-serif;
+    --nav-font: "Poppins", sans-serif;
+}
+
+/* Global Colors */
+:root {
+    --black-color: #131313; /* Warna gelap utama */
+    --accent-color: #1b6146; /* Warna utama atau aksen */
+    --contrast-color: #ffffff; /* Warna kontras */
+}
+
+a,
+li,
+ul,
+p {
+    font-family: "Poppins", "sans-serif";
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    color: inherit;
+}
+
+a.logo {
+    font-weight: 600;
+    font-size: 25px;
+    transition: font-size 0.3s ease;
+    color: var(--accent-color);
+}
+
+a.logo:hover {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+li {
+    color: var(--black-color);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+li:hover {
+    color: var(--accent-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
+}
