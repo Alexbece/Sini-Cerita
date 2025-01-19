@@ -19,7 +19,8 @@
 a,
 li,
 ul,
-p {
+p,
+input {
     font-family: "Poppins", "sans-serif";
 }
 
@@ -59,4 +60,41 @@ h4,
 h5,
 h6 {
     font-family: var(--heading-font);
+}
+
+/* Sign Up Page */
+
+.container-signup {
+    width: 372px;
+    background-color: white;
+    height: 632px;
+    border-radius: 20px;
+}
+
+.form-signup {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    max-width: 372px;
+    font-family: "Poppins", "sans-serif";
+}
+
+/* Sign Up Page */
+
+.container-login {
+    width: 372px;
+    background-color: white;
+    height: 632px;
+    border-radius: 20px;
+}
+
+.form-login {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    max-width: 372px;
+    font-family: "Poppins", "sans-serif";
+}
+
+.img-login {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
