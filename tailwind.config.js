@@ -12,23 +12,19 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                poppins: ["Poppins", "sans-serif"],
-                raleway: ["Raleway", "sans-serif"],
+                raleway: ['"Raleway"', '"sans-serif"'],
+                jkt: ['"Plus Jakarta Sans"', 'sans-serif'],
             },
             colors: {
                 black: "#131313",
-                // Hijau
-                "hijau-50": "#EFFAF4",
-                "hijau-100": "#d9f2e2",
-                "hijau-200": "#b6e4ca",
-                "hijau-300": "#86cfab",
-                "hijau-400": "#54b386",
-                "hijau-500": "#32976c",
-                "hijau-600": "#227955",
-                accent: "#1b6146",
-                "hijau-800": "#184d39",
-                "hijau-900": "#144030",
-                "hijau-950": "#0a241b",
+
+                //Biru
+                "biru-1": "#D2EDF0",
+                "biru-2": "#BCE4E8",
+                "biru-3": "#A5DAE0",
+                "biru-4": "#8FD1D9",
+                "biru-5": "#78C8D1",
+                "biru-6": "#4BB5C1",
 
                 // Hitam
 
@@ -42,6 +38,14 @@ export default {
                 "hitam-700": "#4f4f4f",
                 "hitam-800": "#454545",
                 "hitam-900": "#3d3d3d",
+
+                //Pink
+                "pink-1": "#FEF4FA",
+                "pink-2": "#FEE8F5",
+                "pink-3": "#FDDCEF",
+                "pink-4": "#FCC3E3",
+                "pink-5": "#FBAAD8",
+                "pink-6": "#F991CC",
             },
         },
     },

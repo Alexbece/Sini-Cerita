@@ -1,9 +1,9 @@
-<nav class="relative flex items-center justify-between py-4 bg-transparent">
-    <a class="text-3xl font-bold leading-none logo" href="#">
+
+    <a class="text-2xl font-bold leading-none logo text-biru-6 hover:text-biru-5" href="#">
         Sini Cerita
     </a>
     <div class="lg:hidden">
-        <button class="flex items-center p-3 text-accent navbar-burger">
+        <button class="flex items-center p-3 text-biru-6 navbar-burger">
             <svg class="block w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <title>Mobile menu</title>
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
@@ -11,26 +11,75 @@
         </button>
 
     </div>
-    <ul
-        class="absolute hidden transform -translate-x-1/2 -translate-y-1/2 nav-menu top-1/2 left-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-4 gap-9 lg:gap-4">
-        <li class="text-accent"><a class="text-sm" href="#">Home</a></li>
-        <li><a class="text-sm" href="#">About Us</a></li>
-        <li><a class="text-sm" href="#">Services</a></li>
-        <li><a class="text-sm" href="#">Pricing</a></li>
-        <li><a class="text-sm" href="#">Contact</a></li>
+    <ul class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:w-fit lg:space-x-4 gap-9 lg:gap-4">
+        <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="{{route ('home')}}">Beranda</a></li>
+        <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="{{route ('page_konselor')}}">Konselor</a></li>
+        <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6">
+            <div class="flex flex-col items-center">
+                <div class="flex items-center" id="artikelmenuButton">
+                    <a class="text-sm" href="#">Artikel Edukasi</a><i class='text-lg bx bx-chevron-down'></i>
+                </div>
+                <div class="w-[280px] absolute top-[70px] grid bg-white h-max px-3 py-3 gap-1 z-10 rounded-xl hidden shadow-2xl"
+                    id="artikelMenu">
+                    <a href="{{route ('artikel')}}"
+                        class="px-3 py-3 text-sm transition-all rounded-md text-hitam-600 hover:bg-biru-2 hover:text-biru-6">Umum</a>
+                    <a href=""
+                        class="px-3 py-3 text-sm transition-all rounded-md text-hitam-600 hover:bg-biru-2 hover:text-biru-6">Burnout</a>
+                    <a href=""
+                        class="px-3 py-3 text-sm transition-all rounded-md text-hitam-600 hover:bg-biru-2 hover:text-biru-6">Gangguan
+                        Mood</a>
+                    <a href=""
+                        class="px-3 py-3 text-sm transition-all rounded-md text-hitam-600 hover:bg-biru-2 hover:text-biru-6">Depresi</a>
+                    <a href=""
+                        class="px-3 py-3 text-sm transition-all rounded-md text-hitam-600 hover:bg-biru-2 hover:text-biru-6">Keluarga
+                        &
+                        Hubungan</a>
+                </div>
+            </div>
+        </li>
+        <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="#">Konsultasi</a></li>
+        <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="#">Tantangan</a></li>
     </ul>
-    <a class="hidden px-6 py-2 text-sm font-bold transition bg-gray-200 hover:bg-gray-300 lg:inline-block lg:ml-auto lg:mr-3 rounded-xl"
-        href="#">Sign In</a>
-    <a class="hidden px-6 py-2 text-sm font-bold text-white transition lg:inline-block rounded-xl bg-accent hover:bg-hijau-600"
-        href="#">Sign up</a>
+
+    <div class="hidden lg:flex">
+        <div class="grid place-items-end">
+            <div id="profilemenuButton" class="flex items-center gap-1 cursor-pointer">
+                <div class="rounded-full w-9 h-9 bg-biru-6"></div>
+                <i class="text-3xl bx bx-chevron-down text-hitam-700"></i>
+            </div>
+
+            <div class="absolute top-[75px] w-max bg-white rounded-xl hidden shadow-2xl z-10" id="profileMenu">
+                <div class="flex items-center flex-1 gap-2 p-3 border-b-2">
+                    <div class="w-12 h-12 rounded-full bg-biru-6"></div>
+                    <div class="flex-1 gap-1">
+                        <h3 class="text-base font-semibold">Farrel Yassar Kurniawan</h3>
+                        <p class="text-xs font-normal text-hitam-600">farrel26yassar@gmail.com</p>
+                    </div>
+                </div>
+                <div class="grid w-full gap-4 p-3 border-b-2">
+                    <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
+                        <i class='text-xl bx bx-user'></i><a href="">Lihat akun</a>
+                    </div>
+                    <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
+                        <i class='text-xl bx bx-cog'></i><a href="">Pengaturan</a>
+                    </div>
+                    <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
+                        <i class='text-xl bx bx-history'></i><a href="">Riwayat</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-1 p-3 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
+                    <i class='text-xl bx bx-log-out'></i><a href="">Keluar</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </nav>
+
 <div class="relative z-50 hidden navbar-menu">
     <div class="fixed inset-0 bg-gray-800 opacity-25 navbar-backdrop"></div>
-    <nav class="fixed top-0 bottom-0 left-0 flex flex-col w-5/6 max-w-sm px-6 py-6 overflow-y-auto bg-white border-r">
-        <div class="flex items-center mb-8">
-            <a class="mr-auto text-3xl font-bold leading-none" href="#">
-                Sini Cerita
-            </a>
+    <nav
+        class="fixed top-0 bottom-0 left-0 flex flex-col w-5/6 max-w-sm gap-4 px-6 py-6 overflow-y-auto bg-white border-r">
+        <div class="flex items-center">
             <button class="navbar-close">
                 <svg class="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -39,40 +88,82 @@
                 </svg>
             </button>
         </div>
+
+        <div class="w-full">
+            <div class="flex items-center gap-3 px-2 pb-3 border-b-2">
+                <div class="rounded-full h-14 w-14 bg-biru-6"></div>
+                <div class="grid place-items-start place-content-center">
+                    <p class="text-xl font-semibold font-raleway">Farrel Yassar Kurniawan</p>
+                    <p class="text-sm font-medium text-hitam-400">farrel26yassar@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
         <div>
             <ul>
                 <li class="mb-1">
-                    <a class="block p-4 text-sm font-semibold rounded hover:bg-hijau-50 hover:text-accent"
-                        href="#">Home</a>
+                    <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-2 hover:text-biru-6"
+                        href="#">Beranda</a>
                 </li>
                 <li class="mb-1">
-                    <a class="block p-4 text-sm font-semibold rounded hover:bg-hijau-50 hover:text-accent"
-                        href="#">About Us</a>
+                    <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-2 hover:text-biru-6"
+                        href="#">Konselor</a>
                 </li>
                 <li class="mb-1">
-                    <a class="block p-4 text-sm font-semibold rounded hover:bg-hijau-50 hover:text-accent"
-                        href="#">Services</a>
+                    <div class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-2 hover:text-biru-6" href="#">
+                        Artikel Edukasi</div>
                 </li>
                 <li class="mb-1">
-                    <a class="block p-4 text-sm font-semibold rounded hover:bg-hijau-50 hover:text-accent"
-                        href="#">Pricing</a>
+                    <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-2 hover:text-biru-6"
+                        href="#">Konsultasi</a>
                 </li>
                 <li class="mb-1">
-                    <a class="block p-4 text-sm font-semibold rounded hover:bg-hijau-50 hover:text-accent"
-                        href="#">Contact</a>
+                    <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-2 hover:text-biru-6"
+                        href="#">Tantangan</a>
                 </li>
             </ul>
         </div>
-        <div class="mt-auto">
-            <div class="pt-6">
-                <a class="block px-4 py-3 mb-3 text-xs font-semibold text-center bg-gray-100 hover:bg-gray-200 rounded-xl"
-                    href="#">Sign in</a>
-                <a class="block px-4 py-3 mb-2 text-xs font-semibold leading-loose text-center text-white bg-hijau-600 hover:bg-accent rounded-xl"
-                    href="#">Sign Up</a>
-            </div>
-        </div>
-    </nav>
+
+
 </div>
+
+<!-- Profile Menu Dropdown -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const profilemenuButton = document.getElementById('profilemenuButton');
+        const profileMenu = document.getElementById('profileMenu');
+
+        profilemenuButton.addEventListener('click', () => {
+            profileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!profilemenuButton.contains(event.target) && !profileMenu.contains(event.target)) {
+                profileMenu.classList.add('hidden');
+            }
+        });
+    })
+</script>
+
+<!-- Artikel Menu Dropdown -->
+<script>
+    // Toggle Dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+        const artikelmenuButton = document.getElementById('artikelmenuButton');
+        const artikelMenu = document.getElementById('artikelMenu');
+
+        artikelmenuButton.addEventListener('click', () => {
+            artikelMenu.classList.toggle('hidden');
+        });
+
+        // Tutup dropdown jika klik di luar
+        document.addEventListener('click', (event) => {
+            if (!artikelmenuButton.contains(event.target) && !artikelMenu.contains(event.target)) {
+                artikelMenu.classList.add('hidden');
+            }
+        });
+    });
+</script>
 
 <script>
     // Burger menus

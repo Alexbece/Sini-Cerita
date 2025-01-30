@@ -1,3 +1,196 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --default-font: "Plus Jakarta Sans", sans-serif;
+    --heading-font: "Raleway", sans-serif;
+
+    --contrast-color: #ffffff;
+
+    --biru-1: #D2EDF0;
+    --biru-2: #BCE4E8;
+    --biru-3: #A5DAE0;
+    --biru-4: #8FD1D9;
+    --biru-5: #78C8D1;
+    --biru-6: #4BB5C1;
+
+    --pink-1: #FEF4FA;
+    --pink-2: #FEE8F5;
+    --pink-3: #FDDCEF;
+    --pink-4: #FCC3E3;
+    --pink-5: #FBAAD8;
+    --pink-6: #F991CC;
+
+    --hitam-50: #f6f6f6;
+    --hitam-100: #e7e7e7;
+    --hitam-200: #d1d1d1;
+    --hitam-300: #b0b0b0;
+    --hitam-400: #888888;
+    --hitam-500: #6d6d6d;
+    --hitam-600: #5d5d5d;
+    --hitam-700: #4f4f4f;
+    --hitam-800: #454545;
+    --hitam-900: #3d3d3d;
+}
+
+body {
+    font-family: var(--default-font);
+    background-color: #d2edf0;
+    padding: 1.5rem 6rem;
+}
+
+@media (width <= 48rem) {
+    body {
+        padding: 1.5rem 2rem;
+    }
+}
+
+p,
+a,
+li,
+ul,
+input,
+button {
+    font-family: var(--default-font);
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+li {
+    color: var(--black-color);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
+}
+
+/* Sign Up Page */
+
+.container-signup {
+    width: 372px;
+    background-color: white;
+    height: 632px;
+    border-radius: 20px;
+}
+
+.form-signup {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    max-width: 372px;
+    font-family: var(--default-font);
+}
+
+/* Login Page */
+
+.container-login {
+    width: 372px;
+    background-color: white;
+    height: 632px;
+    border-radius: 20px;
+}
+
+.form-login {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    max-width: 372px;
+    font-family: var(--default-font);
+}
+
+.img-login {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: cover;
+    background: center;
+}
+
+.blog-header h1 {
+    font-size: 36px;
+    tet-wrap: wrap;
+    font-weight: bold;
+    color: var(--hitam-900);
+}
+
+.blog-header p {
+    color: var(--hitam-500);
+    font-size: 15px;
+}
+
+.blog-header-2 {
+    margin-top: 20px;   
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-header-2 p {
+    color: var(--biru-6);
+    font-size: 15px;
+}
+
+.blog-content img {
+    max-width: auto;
+    max-height: 580px;
+    object-fit: cover;
+    background: black;
+    border-radius: 20px;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
+    font-weight: bold;
+    font-family: var(--default-font);
+    color: var(--hitam-700);
+    text-wrap: wrap;
+}
+
+.blog-content h1 {
+    font-size: 28px;
+}
+.blog-content h2 {
+    font-size: 26px;
+}
+.blog-content h3 {
+    font-size: 24px;
+}
+.blog-content h4 {
+    font-size: 22px;
+}
+.blog-content h5 {
+    font-size: 20px;
+}
+.blog-content h6 {
+    font-size: 18px;
+}
+
+.blog-content p,
+.blog-content span,
+.blog-content a,
+.blog-content ul,
+.blog-content li {
+    font-family: var(--default-font);
+    font-weight: 300;
+    font-size: 15px;
+    text-wrap: wrap;
+    color: var(--hitam-700);
+}
+
+
+.blog-content ul,
+.blog-content li {
+    margin-left: 15px;
+}
