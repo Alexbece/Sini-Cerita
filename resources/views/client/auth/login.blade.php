@@ -4,8 +4,7 @@
 @include ('_head')
 
 
-<body>
-    <div class="flex items-center justify-center w-full h-screen bg-biru-1">
+<body class="flex items-center justify-center h-screen">
         <div class="flex items-center container-login lg:w-[1008px] rounded-[20px]">
 
             <div class="relative hidden h-full shadow-2xl lg:block rounded-l-2xl">
@@ -16,7 +15,7 @@
                     Mari sehat <br>dengan<br>bercerita.</p>
 
 
-                <img src="{{asset('client/auth/sign_up/img/trung-thanh-rzJ4TEQZe4M-unsplash 1.png')}}" alt=""
+                <img src="{{asset('client/img/trung-thanh-rzJ4TEQZe4M-unsplash 1.png')}}" alt=""
                     class="object-cover h-full img-login">
             </div>
 
@@ -55,9 +54,6 @@
                     </div>
                 </div>
             </div>
-
-
-        </div>
     </div>
 
     <script>

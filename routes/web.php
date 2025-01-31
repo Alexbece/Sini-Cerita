@@ -24,9 +24,18 @@ Route::get('/konselor', function () {
 
 // Page Artikel
 Route::get('/artikel', function() {
-    return view     ('client.artikel.index');
+    return view('client.artikel.index');
 })->name('artikel');
 
 Route::get('/judul-artikel', function() {
     return view     ('client.artikel.blog_page');
 })->name('blog_page');
+
+// Account Pasien
+Route::get('/profil', function() {
+    return view('client.profil.profil_user.index');
+})->name('profil_user');
+
+Route::get('/riwayat', function() {
+    return view('client.profil.profil_user.riwayat_user');
+})->name('riwayat_user');

@@ -3,7 +3,7 @@
 
 @include ('_head')
 
-<body class="bg-white">
+<body class="blog_index">
     <nav class="relative flex items-center justify-between px-8 py-4 bg-biru-1 rounded-[20px] w-full">
         @include ('components.navbar')
     </nav>
@@ -11,11 +11,11 @@
 
         <div class="flex flex-col items-center justify-center w-full mt-12 gap-14">
             <h1 class="w-full text-3xl font-semibold text-center text-biru-6">Halaman Edukasi</h1>
-            <div class="xl:flex xl:flex-row flex flex-col-reverse gap-6 w-full px-20 justify-between items-center">
+            <div class="flex flex-col-reverse items-center justify-between w-full gap-6 px-20 xl:flex xl:flex-row">
                 <div
-                    class="flex xl:justify-start justify-center lg:w-full w-max text-hitam-700 lg:gap-4 gap-2 lg:text-base text-sm transition-all duration-300 ease-out ">
+                    class="flex justify-center gap-2 text-sm transition-all duration-300 ease-out xl:justify-start lg:w-full w-max text-hitam-700 lg:gap-4 lg:text-base ">
                     <a href=""
-                        class="px-3 py-2 transition-all duration-500 ease-out rounded-full text-nowrap w-max h-max bg-biru-6 hover:bg-biru-6 hover:text-white text-white">Umum</a>
+                        class="px-3 py-2 text-white transition-all duration-500 ease-out rounded-full text-nowrap w-max h-max bg-biru-6 hover:bg-biru-6 hover:text-white">Umum</a>
                     <a href=""
                         class="px-3 py-2 transition-all duration-500 ease-out rounded-full text-nowrap w-max h-max hover:bg-biru-6 hover:text-white">Burnout</a>
                     <a href=""
@@ -28,9 +28,9 @@
                         & Hubungan</a>
                 </div>
 
-                <div class="flex items-center border-2 border-hitam-400 rounded-full py-2 px-4 w-80 justify-between">
+                <div class="flex items-center justify-between px-4 py-2 border-2 rounded-full border-hitam-400 w-80">
                     <input type="text" placeholder="Search" class="text-hitam-400">
-                    <i class="bx bx-search cursor-pointer right-0 text-hitam-400"></i>
+                    <i class="right-0 cursor-pointer bx bx-search text-hitam-400"></i>
                 </div>
             </div>
 
@@ -41,8 +41,9 @@
         </div>
     </div>
 
-    <footer class="bg-biru-1 mt-12 rounded-[30px] grid xl:grid-cols-2 gap-12 place-items-center h-max justify-center p-16 transition-all ease-out duration-300">
-    @include ('components.footer')
+    <footer
+        class="bg-biru-1 mt-12 rounded-[30px] grid xl:grid-cols-2 gap-12 place-items-center h-max justify-center p-16 transition-all ease-out duration-300">
+        @include ('components.footer')
     </footer>
 </body>
 

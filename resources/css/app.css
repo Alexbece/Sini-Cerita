@@ -8,19 +8,19 @@
 
     --contrast-color: #ffffff;
 
-    --biru-1: #D2EDF0;
-    --biru-2: #BCE4E8;
-    --biru-3: #A5DAE0;
-    --biru-4: #8FD1D9;
-    --biru-5: #78C8D1;
-    --biru-6: #4BB5C1;
+    --biru-1: #d2edf0;
+    --biru-2: #bce4e8;
+    --biru-3: #a5dae0;
+    --biru-4: #8fd1d9;
+    --biru-5: #78c8d1;
+    --biru-6: #4bb5c1;
 
-    --pink-1: #FEF4FA;
-    --pink-2: #FEE8F5;
-    --pink-3: #FDDCEF;
-    --pink-4: #FCC3E3;
-    --pink-5: #FBAAD8;
-    --pink-6: #F991CC;
+    --pink-1: #fef4fa;
+    --pink-2: #fee8f5;
+    --pink-3: #fddcef;
+    --pink-4: #fcc3e3;
+    --pink-5: #fbaad8;
+    --pink-6: #f991cc;
 
     --hitam-50: #f6f6f6;
     --hitam-100: #e7e7e7;
@@ -34,10 +34,25 @@
     --hitam-900: #3d3d3d;
 }
 
-body {
+body:not(.blog_index) {
     font-family: var(--default-font);
-    background-color: #d2edf0;
     padding: 1.5rem 6rem;
+    background: linear-gradient(
+        to top,
+        var(--biru-1),
+        var(--biru-3),
+        var(--biru-4),
+        var(--biru-6)
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.blog_index {
+    font-family: var(--default-font);
+    padding: 1.5rem 6rem;
+    background-color: white;
 }
 
 @media (width <= 48rem) {
@@ -128,9 +143,9 @@ h6 {
 }
 
 .blog-header-2 {
-    margin-top: 20px;   
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
 }
 
 .blog-header-2 p {
@@ -187,10 +202,36 @@ h6 {
     font-size: 15px;
     text-wrap: wrap;
     color: var(--hitam-700);
+    text-align: justify;
 }
-
 
 .blog-content ul,
 .blog-content li {
     margin-left: 15px;
+    cursor: auto;
+}
+
+.blog-content a {
+    color: var(--biru-6);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.blog-content a:hover {
+    color: var(--biru-4);
+}
+
+/* Profile Pasien */
+
+.profile_pasien {
+    background: linear-gradient(
+        to top,
+        var(--biru-1),
+        var(--biru-3),
+        var(--biru-4),
+        var(--biru-6)
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }

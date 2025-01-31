@@ -4,7 +4,7 @@
 @include ('_head')
 
 <body>
-    <header class="rounded-[30px] bg-white h-max flex flex-col items-center pb-40 mb-[273px]">
+    <header class="rounded-[30px] bg-white h-max flex flex-col items-center pb-40 w-full mb-[273px]">
         <nav class="relative flex items-center justify-between px-8 py-4 rounded-[20px] w-full">
             @include ('components.navbar')
         </nav>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="flex flex-col max-w-[270px] gap-3">
                         <h2 class="text-2xl font-semibold text-white">Layanan Konsultasi</h2>
-                        <p class="text-sm font-light text-wrap text-white">Terhubung langsung dengan psikolog
+                        <p class="text-sm font-light text-white text-wrap">Terhubung langsung dengan psikolog
                             dan konselor berlisensi untuk
                             mendiskusikan tantangan
                             kesehatan mental yang dihadapi.
@@ -59,7 +59,7 @@
                     </div>
                     <div class="flex flex-col max-w-[270px] gap-3">
                         <h2 class="text-lg font-semibold text-white">Tantangan Kesehatan Mental</h2>
-                        <p class="text-sm font-light text-wrap text-white">Terhubung langsung dengan psikolog
+                        <p class="text-sm font-light text-white text-wrap">Terhubung langsung dengan psikolog
                             dan konselor berlisensi untuk mendiskusikan tantangan kesehatan mental yang dihadapi.
                         </p>
                     </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="flex flex-col max-w-[270px] gap-3">
                         <h2 class="text-2xl font-semibold text-white">Blog Edukasi Mental</h2>
-                        <p class="text-sm font-light text-wrap text-white">Kisah nyata dari individu yang
+                        <p class="text-sm font-light text-white text-wrap">Kisah nyata dari individu yang
                             berhasil menghadapi tantangan
                             kesehatan mental, memberikan motivasi dan harapan bagi pembaca.
                         </p>

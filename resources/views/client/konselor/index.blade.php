@@ -3,12 +3,12 @@
 
 @include ('_head')
 
-<body class="bg-white">
-    <nav class="relative flex items-center justify-between px-8 py-4 bg-biru-1 rounded-[20px] w-full">
+<body class="bg-biru-1">
+    <nav class="relative flex items-center justify-between px-8 py-4 bg-white  drop-shadow-lg rounded-[20px] w-full">
         @include ('components.navbar')
     </nav>
     <div class="grid w-full place-content-center">
-        <div class="mt-12 w-max grid 2xl:flex gap-5 p-4 rounded-[40px] border-2 border-hitam-200">
+        <div class="bg-white mt-12 w-full grid 2xl:flex gap-5 p-4 rounded-[30px] shadow-lg">
             <div class="grid h-max gap-10 max-w-[494px]">
                 <h2 class="text-3xl font-semibold text-hitam-900">Cara Konsultasi</h2>
                 <div class="grid gap-4 ">
@@ -51,22 +51,24 @@
                 <div class="grid gap-6">
                     <div class="flex gap-3">
                         <button
-                            class="px-3 py-2 text-sm transition-all duration-500 ease-out rounded-full bg-biru-6 text-white focus:outline-none ">Semua</button>
+                            class="px-3 py-2 text-sm text-white transition-all duration-500 ease-out rounded-full bg-biru-6 focus:outline-none ">Semua</button>
                         <button
                             class="px-3 py-2 text-sm transition-all duration-500 ease-out rounded-full text-hitam-500 hover:bg-biru-6 hover:text-white focus:outline-none ">Psikiater</button>
                         <button
                             class="px-3 py-2 text-sm transition-all duration-500 ease-out rounded-full text-hitam-500 hover:bg-biru-6 hover:text-white focus:outline-none ">Psikolog</button>
                     </div>
-
-                    @include ('client.konselor.list_konselor')
-
                 </div>
-            </div>
-            <!-- @include ('client.konselor.modal_konselor') -->
-        </div>
 
-        <footer class="bg-biru-1 mt-12 rounded-[30px] grid xl:grid-cols-2 gap-12 place-items-center h-max justify-center p-16 transition-all ease-out duration-300">
-    @include ('components.footer')
+                @include ('client.konselor.list_konselor')
+
+            </div>
+        </div>
+        <!-- @include ('client.konselor.modal_konselor') -->
+    </div>
+
+    <footer
+        class="bg-white shadow-lg mt-12 rounded-[30px] grid xl:grid-cols-2 gap-12 place-items-center h-max justify-center p-16 transition-all ease-out duration-300">
+        @include ('components.footer')
     </footer>
 </body>
 

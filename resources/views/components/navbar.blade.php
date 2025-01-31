@@ -58,7 +58,7 @@
                 </div>
                 <div class="grid w-full gap-4 p-3 border-b-2">
                     <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
-                        <i class='text-xl bx bx-user'></i><a href="">Lihat akun</a>
+                        <i class='text-xl bx bx-user'></i><a href="{{route ('profil_user')}}">Lihat akun</a>
                     </div>
                     <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
                         <i class='text-xl bx bx-cog'></i><a href="">Pengaturan</a>
@@ -103,14 +103,14 @@
             <ul>
                 <li class="mb-1">
                     <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-2 hover:text-biru-6"
-                        href="#">Beranda</a>
+                        href="{{route ('home')}}">Beranda</a>
                 </li>
                 <li class="mb-1">
                     <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-2 hover:text-biru-6"
-                        href="#">Konselor</a>
+                        href="{{route ('page_konselor')}}">Konselor</a>
                 </li>
                 <li class="mb-1">
-                    <div class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-2 hover:text-biru-6" href="#">
+                    <div class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-2 hover:text-biru-6" href="{{route ('artikel')}}">
                         Artikel Edukasi</div>
                 </li>
                 <li class="mb-1">

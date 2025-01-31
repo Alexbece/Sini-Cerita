@@ -4,8 +4,7 @@
 @include ('_head')
 
 
-<body>
-    <div class="flex items-center justify-center w-full h-screen bg-biru-1">
+<body class="flex items-center justify-center h-screen">
         <div class="flex items-center container-signup lg:flex-start lg:w-[1008px] bg-white">
             <div class="flex flex-col justify-center w-full h-full py-12 shadow-md shadow-4xl form-signup px-14">
                 <span class="inline-block mt-2 text-lg font-semibold text-center text-biru-6 lg:hidden">Sini
@@ -64,10 +63,9 @@
                 <p
                     class="absolute bottom-0 left-0 px-6 py-4 text-4xl font-semibold w-72  bg-hitam-600/40 backdrop-grayscale backdrop-blur-[2px] m-7 text-white rounded-2xl">
                     Sini Sehat, <br><span class="text-4xl text-biru-4">Sini Cerita</span>.</p>
-                <img src="{{asset('client/auth/sign_up/img/s-b-vonlanthen-FaiZNiofP-U-unsplash 1.png')}}" alt=""
+                <img src="{{asset('client/img/s-b-vonlanthen-FaiZNiofP-U-unsplash 1.png')}}" alt=""
                     class="object-cover rounded-r-[20px]">
             </div>
-        </div>
     </div>
 
     <script>

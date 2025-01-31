@@ -2,7 +2,7 @@
 <html lang="en">
 @include ('_head')
 
-<body class="bg-white">
+<body class="blog_index">
     <nav class="relative flex items-center justify-between px-8 py-4 bg-biru-1 rounded-[20px] w-full">
         @include ('components.navbar')
     </nav>
@@ -18,13 +18,13 @@
             </div>
         </section>
         <section class="flex flex-col justify-start gap-4 mt-10 blog-content">
-            <img src="{{asset('client/auth/sign_up/img/trung-thanh-rzJ4TEQZe4M-unsplash 1.png')}}" alt="">
+            <img src="{{asset('client/img/trung-thanh-rzJ4TEQZe4M-unsplash 1.png')}}" alt="">
 
             <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus, aliquam.</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate a eos excepturi omnis esse numquam
                 molestiae. Reprehenderit harum nulla repellat sapiente aliquid accusamus, deleniti rem amet, tempore
                 earum
-                voluptatibus velit laborum molestias illum molestiae et odio iusto recusandae. Reprehenderit quod
+                voluptatibus velit laborum <a href="">molestias</a> illum molestiae et odio iusto recusandae. Reprehenderit quod
                 deserunt
                 ipsum aspernatur nihil minima minus facere rerum exercitationem sed.</p>
 
