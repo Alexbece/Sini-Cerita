@@ -1,0 +1,20 @@
+name: Sini Cerita Updates
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Sini Cerita auto-commit
+        run: |
+          git config --global user.name "Alexbece"
+          git config --global user.email "farrel26yassar@gmail.com"
+          git add .
+          git commit -m "Sini Cerita Update" || exit 0
+          git push origin main
