@@ -34,8 +34,12 @@ Route::get('/judul-artikel', function() {
 // Account Pasien
 Route::get('/profil', function() {
     return view('client.profil.profil_user.index');
-})->name('profil_user');
+})->name('profil');
 
-Route::get('/riwayat', function() {
-    return view('client.profil.profil_user.riwayat_user');
-})->name('riwayat_user');
+Route::get('/profil/identitas', function() {
+    return view('client.profil.profil_user.identitas');
+});
+
+Route::get('/profil/riwayat', function() {
+    return view('client.profil.profil_user.riwayat');
+});

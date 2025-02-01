@@ -58,7 +58,7 @@
                 </div>
                 <div class="grid w-full gap-4 p-3 border-b-2">
                     <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
-                        <i class='text-xl bx bx-user'></i><a href="{{route ('profil_user')}}">Lihat akun</a>
+                        <i class='text-xl bx bx-user'></i><a href="{{route ('profil')}}">Lihat akun</a>
                     </div>
                     <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
                         <i class='text-xl bx bx-cog'></i><a href="">Pengaturan</a>

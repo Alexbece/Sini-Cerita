@@ -47,9 +47,9 @@
                         </p>
                     </div>
                 </div>
-                <button class="flex items-center gap-1 text-white font-jkt">
+                <a href="{{route ('page_konselor')}}" class="flex items-center gap-1 text-white transition-all duration-150 ease-out hover:gap-3 hover:text-white font-jkt">
                     Disini<i class='text-base bx bx-right-arrow-alt'></i>
-                </button>
+                </a>
             </div>
 
             <div class="flex flex-col gap-3 p-3 bg-biru-6 h-max w-max rounded-3xl">
@@ -64,9 +64,9 @@
                         </p>
                     </div>
                 </div>
-                <button class="flex items-center gap-1 text-white font-jkt">
+                <a href="{{route ('page_konselor')}}" class="flex items-center gap-1 text-white transition-all duration-150 ease-out hover:gap-3 hover:text-white font-jkt">
                     Disini<i class='text-base bx bx-right-arrow-alt'></i>
-                </button>
+                </a>
             </div>
 
             <div class="flex flex-col gap-3 p-3 bg-biru-6 h-max w-max rounded-3xl">
@@ -82,9 +82,9 @@
                         </p>
                     </div>
                 </div>
-                <button class="flex items-center gap-1 text-white font-jkt">
+                <a href="{{route ('artikel')}}" class="flex items-center gap-1 text-white transition-all duration-150 ease-out hover:gap-3 hover:text-white font-jkt">
                     Disini<i class='text-base bx bx-right-arrow-alt'></i>
-                </button>
+                </a>
             </div>
         </div>
     </header>

@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <button
+        <button id="editmodalButton"
             class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Edit
             <i class="transform translate-y-[1px] bx bx-pencil"></i></button>
     </div>
@@ -53,11 +53,10 @@
             class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Edit
             <i class="transform translate-y-[1px] bx bx-pencil"></i></button>
     </div>
-
-    <div class="flex items-center gap-3 mt-4 lg:hidden ">
-        <div class="px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer hover:text-biru-6 text-hitam-700 w-max" id="modalkeluarButton">Keluar</div>
-        <a href=""
-            class="px-3 py-2 text-sm font-semibold text-red-500 transition-all duration-200 ease-out hover:text-red-700 w-max">Hapus
-            Akun</a>
-    </div>
 </div>
+
+<script>
+    document.getElementById('editmodalButton').addEventListener('click', function () {
+        localStorage.setItem('showEditModal', 'true'); // Set showEditModal flag to true
+    });
+</script>
