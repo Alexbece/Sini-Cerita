@@ -11,9 +11,9 @@
             </div>
         </div>
 
-        <button id="editmodalButton"
-            class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Edit
-            <i class="transform translate-y-[1px] bx bx-pencil"></i></button>
+        <a href="{{route ('home')}}"><button
+            class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg editmodalButton h-max w-max text-hitam-600">Edit
+            <i class="transform translate-y-[1px] bx bx-pencil"></i></button></a>
     </div>
 
     <div class="flex items-start justify-between w-full gap-4 p-6 mt-6 border-2 border-hitam-100 rounded-xl h-max">
@@ -54,9 +54,3 @@
             <i class="transform translate-y-[1px] bx bx-pencil"></i></button>
     </div>
 </div>
-
-<script>
-    document.getElementById('editmodalButton').addEventListener('click', function () {
-        localStorage.setItem('showEditModal', 'true'); // Set showEditModal flag to true
-    });
-</script>

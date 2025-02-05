@@ -17,8 +17,8 @@
                                             </div>
                                             <div class="flex items-center justify-between gap-2">
                                                 <p class="text-sm text-black">Rp 75.000 / Jam</p>
-                                                <button
-                                                    class="px-3 py-2 text-sm font-medium transition-all duration-300 ease-linear rounded-full text-white bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
+                                                <button id="modalkonselorButton"
+                                                    class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-linear rounded-full bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
                                                     Detail</button>
                                             </div>
                                         </div>
@@ -43,7 +43,7 @@
                                             <div class="flex items-center justify-between gap-2">
                                                 <p class="text-sm text-black">Rp 75.000 / Jam</p>
                                                 <button
-                                                    class="px-3 py-2 text-sm font-medium transition-all duration-300 ease-linear rounded-full text-white bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
+                                                    class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-linear rounded-full bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
                                                     Detail</button>
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                                             <div class="flex items-center justify-between gap-2">
                                                 <p class="text-sm text-black">Rp 75.000 / Jam</p>
                                                 <button
-                                                    class="px-3 py-2 text-sm font-medium transition-all duration-300 ease-linear rounded-full text-white bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
+                                                    class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-linear rounded-full bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
                                                     Detail</button>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@
                                             <div class="flex items-center justify-between gap-2">
                                                 <p class="text-sm text-black">Rp 75.000 / Jam</p>
                                                 <button
-                                                    class="px-3 py-2 text-sm font-medium transition-all duration-300 ease-linear rounded-full text-white bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
+                                                    class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-linear rounded-full bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
                                                     Detail</button>
                                             </div>
                                         </div>
@@ -117,7 +117,7 @@
                                             <div class="flex items-center justify-between gap-2">
                                                 <p class="text-sm text-black">Rp 75.000 / Jam</p>
                                                 <button
-                                                    class="px-3 py-2 text-sm font-medium transition-all duration-300 ease-linear rounded-full text-white bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
+                                                    class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-linear rounded-full bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
                                                     Detail</button>
                                             </div>
                                         </div>
@@ -142,7 +142,7 @@
                                             <div class="flex items-center justify-between gap-2">
                                                 <p class="text-sm text-black">Rp 75.000 / Jam</p>
                                                 <button
-                                                    class="px-3 py-2 text-sm font-medium transition-all duration-300 ease-linear rounded-full text-white bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
+                                                    class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-linear rounded-full bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
                                                     Detail</button>
                                             </div>
                                         </div>
@@ -166,7 +166,7 @@
                                             <div class="flex items-center justify-between gap-2">
                                                 <p class="text-sm text-black">Rp 75.000 / Jam</p>
                                                 <button
-                                                    class="px-3 py-2 text-sm font-medium transition-all duration-300 ease-linear rounded-full text-white bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
+                                                    class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-linear rounded-full bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
                                                     Detail</button>
                                             </div>
                                         </div>
@@ -191,7 +191,7 @@
                                             <div class="flex items-center justify-between gap-2">
                                                 <p class="text-sm text-black">Rp 75.000 / Jam</p>
                                                 <button
-                                                    class="px-3 py-2 text-sm font-medium transition-all duration-300 ease-linear rounded-full text-white bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
+                                                    class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-linear rounded-full bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
                                                     Detail</button>
                                             </div>
                                         </div>

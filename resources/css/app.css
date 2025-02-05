@@ -34,7 +34,7 @@
     --hitam-900: #3d3d3d;
 }
 
-body:not(.blog_index) {
+body:not(.blog_index):not(.pageKonsultasi):not(.konselorSignUp) {
     font-family: var(--default-font);
     padding: 1.5rem 6rem;
     background: linear-gradient(
@@ -53,6 +53,32 @@ body:not(.blog_index) {
     font-family: var(--default-font);
     padding: 1.5rem 6rem;
     background-color: white;
+}
+
+.pageKonsultasi {
+    position: relative;
+    font-family: var(--default-font);
+    width: 100%;
+    background: linear-gradient(to bottom, var(--biru-3), white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.konselorSignUp {
+    background: linear-gradient(
+        to top,
+        var(--biru-1),
+        var(--biru-3),
+        var(--biru-4),
+        var(--biru-6)
+    );
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (width <= 48rem) {
@@ -234,4 +260,44 @@ h6 {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+/* Page Konsultasi */
+.chatInput {
+    position: fixed; /* Agar tetap di bawah layar */
+    bottom: 16px;
+    border-radius: 28px;
+    left: 50%;
+    gap: 10px;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 60px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border: 2px solid var(--biru-6);
+    z-index: 1000; /* Pastikan tetap di atas */
+}
+
+.bubblechatContainer {
+    width: 100%;
+    overflow-y: auto; /* Hanya scroll dalam container */
+    padding-bottom: 100px; /* Mencegah ketutupan chatInput */
+}
+
+/* About Us */
+
+.aboutUs-header {
+    background: linear-gradient(to bottom, white, white, transparent);
+}
+
+.hp-aboutUs {
+    background: linear-gradient(to bottom, var(--biru-4), var(--biru-4), white);
+}
+
+.team-card {
+    border-radius: 10px;
+    background: linear-gradient(to top, black, var(--biru-6));
 }

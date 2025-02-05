@@ -60,17 +60,48 @@
                 </div>
 
                 @include ('client.konselor.list_konselor')
+                @include ('client.konselor.modal_konselor')
 
             </div>
         </div>
-        <!-- @include ('client.konselor.modal_konselor') -->
+
     </div>
 
     <footer
         class="bg-white shadow-lg mt-12 rounded-[30px] grid xl:grid-cols-2 gap-12 place-items-center h-max justify-center p-16 transition-all ease-out duration-300">
         @include ('components.footer')
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modalkonselorButton = document.getElementById('modalkonselorButton');
+            const modalkonselor = document.getElementById('modalkonselor');
+            const batalButton = document.getElementById('batalkonselorButton');
+
+            if (modalkonselorButton && modalkonselor) {
+                modalkonselorButton.addEventListener('click', () => {
+                    modalkonselor.classList.remove('hidden');
+                });
+
+                if (batalButton) {
+                    batalButton.addEventListener('click', () => {
+                        modalkonselor.classList.add('hidden');
+                    });
+                }
+
+                document.addEventListener('click', (event) => {
+                    // Jika klik di luar modal, modal ditutup
+                    if (modalkonselor && !modalkonselor.contains(event.target) && event.target !== modalkonselorButton) {
+                        modalkonselor.classList.add('hidden');
+                    }
+                });
+            }
+        });
+
+    </script>
 </body>
+
+
 
 
 </html>

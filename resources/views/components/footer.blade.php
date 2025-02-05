@@ -1,25 +1,27 @@
-<div class="h-full w-full flex flex-col justify-center gap-4 transition-all ease-out duration-300">
+<div class="flex flex-col justify-center w-full h-full gap-4 transition-all duration-300 ease-out">
     <h3 class="text-5xl font-bold text-biru-6">Sini Cerita</h3>
-    <p class="text-wrap text-hitam-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque aspernatur veritatis sit
+    <p class="text-wrap text-hitam-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque aspernatur
+        veritatis sit
         laborum, nobis illo quae
         dolores beatae sunt reiciendis fugiat explicabo ducimus fugit maxime!</p>
 </div>
 
-<div class="md:grid-cols-3 grid gap-6 place-content-between w-full transition-all ease-out duration-300">
-    <div class="w-max text-nowrap grid gap-6">
-        <h5 class="text-biru-6 font-semibold">Sitemap</h5>
-        <div class="list-none text-hitam-600 text-nowrap grid gap-3">
+<div class="grid w-full gap-6 transition-all duration-300 ease-out md:grid-cols-3 place-content-between">
+    <div class="grid gap-6 w-max text-nowrap">
+        <h5 class="font-semibold text-biru-6">Sitemap</h5>
+        <div class="grid gap-3 list-none text-hitam-600 text-nowrap">
             <li><a href="{{route('home')}}">Beranda</a></li>
-            <li><a href="">Konselor</a></li>
-            <li><a href="">Artikel Edukasi</a></li>
-            <li><a href="">Konsultasi</a></li>
+            <li><a href="{{route('page_konselor')}}">Konselor</a></li>
+            <li><a href="{{route('artikel')}}">Artikel Edukasi</a></li>
+            <li><a href="{{route('pagekonsultasi')}}">Konsultasi</a></li>
             <li><a href="">Tantangan</a></li>
+            <li><a href="{{route('tentangkami')}}">Tentang Kami</a></li>
         </div>
     </div>
 
-    <div class="w-max text-nowrap grid gap-6">
-        <h5 class="text-biru-6 font-semibold">Kategori Artikel</h5>
-        <div class="list-none text-hitam-600 text-nowrap grid gap-3">
+    <div class="grid gap-6 w-max text-nowrap">
+        <h5 class="font-semibold text-biru-6">Kategori Artikel</h5>
+        <div class="grid gap-3 list-none text-hitam-600 text-nowrap">
             <li><a href="">Umum</a></li>
             <li><a href="">Burnout</a></li>
             <li><a href="">Gangguan Mood</a></li>
@@ -28,13 +30,13 @@
         </div>
     </div>
 
-    <div class="w-max text-nowrap grid gap-6 place-content-start">
-        <h5 class="text-biru-6 font-semibold">Metode Pembayaran</h5>
-        <div class="list-none text-hitam-600 text-nowrap grid grid-cols-2 gap-2 place-content-start">
-            <li><a href=""><i class='bx bxl-paypal text-3xl'></i></a></li>
-            <li><a href=""><i class='bx bxl-paypal text-3xl'></i></a></li>
-            <li><a href=""><i class='bx bxl-paypal text-3xl'></i></a></li>
-            <li><a href=""><i class='bx bxl-paypal text-3xl'></i></a></li>
+    <div class="grid gap-6 w-max text-nowrap place-content-start">
+        <h5 class="font-semibold text-biru-6">Metode Pembayaran</h5>
+        <div class="grid grid-cols-2 gap-2 list-none text-hitam-600 text-nowrap place-content-start">
+            <li><a href=""><i class='text-3xl bx bxl-paypal'></i></a></li>
+            <li><a href=""><i class='text-3xl bx bxl-paypal'></i></a></li>
+            <li><a href=""><i class='text-3xl bx bxl-paypal'></i></a></li>
+            <li><a href=""><i class='text-3xl bx bxl-paypal'></i></a></li>
         </div>
     </div>
 </div>

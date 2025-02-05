@@ -16,8 +16,7 @@
                 </div>
 
                 <button
-                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Konsultasi
-                    lagi
+                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Lihat rincian chat
                     <i class="transform translate-y-[1px] text-lg bx bx-chevron-right"></i></button>
             </div>
         </div>
@@ -36,8 +35,7 @@
                 </div>
 
                 <button
-                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Konsultasi
-                    lagi
+                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Lihat rincian chat
                     <i class="transform translate-y-[1px] text-lg bx bx-chevron-right"></i></button>
             </div>
         </div>
@@ -56,8 +54,7 @@
                 </div>
 
                 <button
-                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Konsultasi
-                    lagi
+                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Lihat rincian chat
                     <i class="transform translate-y-[1px] text-lg bx bx-chevron-right"></i></button>
             </div>
         </div>
@@ -76,8 +73,7 @@
                 </div>
 
                 <button
-                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Konsultasi
-                    lagi
+                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Lihat rincian chat
                     <i class="transform translate-y-[1px] text-lg bx bx-chevron-right"></i></button>
             </div>
         </div>
