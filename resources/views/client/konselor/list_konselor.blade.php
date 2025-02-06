@@ -3,7 +3,7 @@
                         <div class="flex flex-col gap-8 ">
                             <div class="grid w-full gap-3 lg:flex">
                                 <div class="flex items-center gap-2 w-max">
-                                    <div class="w-[125px] h-[154px] bg-biru-4 rounded-2xl "></div>
+                                    <div class="w-[125px] h-[155px] bg-biru-4 rounded-2xl "></div>
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
@@ -28,7 +28,7 @@
                                 <div class="h-auto w-[1px] bg-hitam-300"></div>
 
                                 <div class="flex items-center gap-2 w-max">
-                                    <div class="w-[125px] h-[154px] bg-biru-4 rounded-2xl "></div>
+                                    <div class="w-[125px] h-[155px] bg-biru-4 rounded-2xl "></div>
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
@@ -52,7 +52,7 @@
                             </div>
                             <div class="grid w-full gap-3 lg:flex">
                                 <div class="flex items-center gap-2 w-max">
-                                    <div class="w-[125px] h-[154px] bg-biru-4 rounded-2xl "></div>
+                                    <div class="w-[125px] h-[155px] bg-biru-4 rounded-2xl "></div>
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
@@ -77,7 +77,7 @@
                                 <div class="h-auto w-[1px] bg-hitam-300"></div>
 
                                 <div class="flex items-center gap-2 w-max">
-                                    <div class="w-[125px] h-[154px] bg-biru-4 rounded-2xl "></div>
+                                    <div class="w-[125px] h-[155px] bg-biru-4 rounded-2xl "></div>
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
@@ -102,7 +102,7 @@
 
                             <div class="grid w-full gap-3 lg:flex">
                                 <div class="flex items-center gap-2 w-max">
-                                    <div class="w-[125px] h-[154px] bg-biru-4 rounded-2xl "></div>
+                                    <div class="w-[125px] h-[155px] bg-biru-4 rounded-2xl "></div>
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
@@ -127,7 +127,7 @@
                                 <div class="h-auto w-[1px] bg-hitam-300"></div>
 
                                 <div class="flex items-center gap-2 w-max">
-                                    <div class="w-[125px] h-[154px] bg-biru-4 rounded-2xl "></div>
+                                    <div class="w-[125px] h-[155px] bg-biru-4 rounded-2xl "></div>
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
@@ -151,7 +151,7 @@
                             </div>
                             <div class="grid w-full gap-3 lg:flex">
                                 <div class="flex items-center gap-2 w-max">
-                                    <div class="w-[125px] h-[154px] bg-biru-4 rounded-2xl "></div>
+                                    <div class="w-[125px] h-[155px] bg-biru-4 rounded-2xl "></div>
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
@@ -176,7 +176,7 @@
                                 <div class="h-auto w-[1px] bg-hitam-300"></div>
 
                                 <div class="flex items-center gap-2 w-max">
-                                    <div class="w-[125px] h-[154px] bg-biru-4 rounded-2xl"></div>
+                                    <div class="w-[125px] h-[155px] bg-biru-4 rounded-2xl"></div>
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">

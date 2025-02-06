@@ -68,17 +68,12 @@ body:not(.blog_index):not(.pageKonsultasi):not(.konselorSignUp) {
 }
 
 .konselorSignUp {
-    background: linear-gradient(
-        to top,
-        var(--biru-1),
-        var(--biru-3),
-        var(--biru-4),
-        var(--biru-6)
-    );
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--default-font);
+    background-color: var(--biru-4)
 }
 
 @media (width <= 48rem) {
