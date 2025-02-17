@@ -6,7 +6,7 @@
 <body>
     <header class="rounded-[30px] bg-white h-max flex flex-col items-center pb-40 w-full mb-[273px]">
         <nav class="relative flex items-center justify-between px-8 py-4 rounded-[20px] w-full">
-            @include ('components.navbar')
+            @include ('components.navbarKonselor')
         </nav>
         <div class="flex flex-col items-center justify-center gap-4 h-[611px]">
             <p class="px-4 text-xl text-center rounded-full ring-2 ring-hitam-400 w-max">Sini Sehat, <span

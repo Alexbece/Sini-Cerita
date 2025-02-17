@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('client.landing.home');
 })->name('home');
-Route::get('/home', function () {
-    return view('client.landing.landing');
-})->name('landing');
+Route::get('/', function () {
+    return view('client.landing.home');
+})->name('home');
 
 // Page Auth
 Route::get('/signup', function () {
@@ -31,6 +31,9 @@ Route::get('/signup-konselor', function () {
 Route::get('/konselor', function () {
     return view('client.konselor.index');
 })->name('page_konselor');
+Route::get('/identitas-konselor', function () {
+    return view('client.konselor.profilKonselor');
+})->name('profilKonselor');
 
 // Page Artikel
 Route::get('/artikel', function () {
@@ -41,10 +44,10 @@ Route::get('/judul-artikel', function () {
     return view('client.artikel.blog_page');
 })->name('blog_page');
 
-// Account Pasien
-Route::get('/profil', function () {
+// Profil Pasien
+Route::get('/profil-user', function () {
     return view('client.profil.profil_user.index');
-})->name('profil');
+})->name('profil-user');
 
 Route::get('/profil/identitas', function () {
     return view('client.profil.profil_user.identitas');
@@ -54,12 +57,71 @@ Route::get('/profil/riwayat', function () {
     return view('client.profil.profil_user.riwayat');
 });
 
+// Profil Konselor
+Route::get('/profil-konselor', function () {
+    return view('client.profil.profil_konselor.index');
+})->name('profil-konselor');
+Route::get('/keuangan-konselor', function () {
+    return view('client.profil.profil_konselor.keuangan');
+})->name('keuangan-konselor');
+
 // Konsultasi
 Route::get('/konsultasi', function () {
     return view('client.konsultasi.index');
 })->name('pagekonsultasi');
 
-// Tentang Kami
+// ------------------- Tantangan
+Route::get('/tantangan', function () {
+    return view('client.tantangan.tantangan');
+})->name('tantangan');
+
+// -------- Kategori Tantangan
+Route::get('/tantangan/yoga', function () {
+    return view('client.tantangan.yoga');
+})->name('yoga');
+Route::get('/tantangan/meditasi', function () {
+    return view('client.tantangan.meditasi');
+})->name('meditasi');
+Route::get('/tantangan/rawat-diri', function () {
+    return view('client.tantangan.rawat-diri');
+})->name('rawat-diri');
+
+// Page-Tantangan
+Route::get('/tantangan/yoga/morning-magic', function () {
+    return view('client.tantangan.tantangan-yoga');
+})->name('tantangan-yoga');
+
+
+// -------------------Tentang Kami
 Route::get('/tentang-kami', function () {
     return view('client.tentangkami.index');
 })->name('tentangkami');
+
+// --------------- Admin 
+// ---------- Menu Konselor 
+
+// ----- Daftar Konselor
+Route::get('/daftar-konselor', function () {
+    return view('admin.konselor.daftar-konselor');
+})->name('daftar-konselor');
+Route::get('/detail-konselor', function () {
+    return view('admin.konselor.detail-konselor');
+})->name('detail-konselor');
+
+// ----- Pendaftaran
+Route::get('/pendaftaran-konselor', function () {
+    return view('admin.konselor.verifikasi-konselor.pendaftaran');
+})->name('pendaftaran');
+Route::get('/verifikasi-konselor', function () {
+    return view('admin.konselor.verifikasi-konselor.verifikasi');
+})->name('verifikasi');
+
+// ----- Klaim Saldo
+Route::get('/daftar-klaim', function () {
+    return view('admin.konselor.klaim-saldo.daftar-klaim');
+})->name('daftar-klaim');
+
+// ---------- Menu Riwayat Konsultasi
+Route::get('/riwayat-konsultasi', function () {
+    return view('admin.riwayat-konsultasi');
+})->name('riwayat-konsultasi');

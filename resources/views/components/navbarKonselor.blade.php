@@ -1,4 +1,4 @@
-<a class="text-2xl font-bold leading-none logo text-biru-6 hover:text-biru-5" href="#">
+<a class="text-2xl font-bold leading-none logo text-biru-6 hover:text-biru-5 text-nowrap" href="#">
     Sini Cerita
 </a>
 <div class="lg:hidden">
@@ -13,8 +13,6 @@
 <ul class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center lg:w-fit lg:space-x-4 gap-9 lg:gap-4">
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{route('home')}}">Beranda</a></li>
-    <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
-            href="{{route('page_konselor')}}">Konselor</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6">
         <div class="flex flex-col items-center">
             <div class="flex items-center" id="artikelmenuButton">
@@ -41,15 +39,41 @@
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{route('pagekonsultasi')}}">
             Konsultasi</a></li>
-    <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="#">Tantangan</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{ route('tentangkami')}}">Tentang Kami</a></li>
 </ul>
-<div class="flex items-center gap-2">
-    <button class="px-5 py-2 font-semibold border-2 rounded-full text-biru-6 border-biru-6 h-[45px] w-max"><a
-            href="{{route('login')}}">Masuk</a></button>
-    <button class="px-5 py-2 font-semibold text-white rounded-full h-[45px] w-max bg-biru-6"><a
-            href="{{route('signup')}}">Daftar</a></button>
+
+<div class="hidden lg:flex">
+    <div class="grid place-items-end">
+        <div id="profilemenuButton" class="flex items-center gap-1 cursor-pointer">
+            <div class="rounded-full w-9 h-9 bg-biru-6"></div>
+            <i class="text-3xl bx bx-chevron-down text-hitam-700"></i>
+        </div>
+
+        <div class="absolute top-[75px] w-max bg-white rounded-xl hidden shadow-2xl z-10" id="profileMenu">
+            <div class="flex items-center flex-1 gap-2 p-3 border-b-2">
+                <div class="w-12 h-12 rounded-full bg-biru-6"></div>
+                <div class="flex-1 gap-1">
+                    <h3 class="text-base font-semibold text-hitam-800">Dr. Mamen S,Psi</h3>
+                    <p class="text-xs font-normal text-hitam-600">Psikolog</p>
+                </div>
+            </div>
+            <div class="grid w-full gap-4 p-3 border-b-2">
+                <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
+                    <i class='text-xl bx bx-user'></i><a href="{{route('profil-konselor')}}">Lihat akun</a>
+                </div>
+                <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
+                    <i class='text-xl bx bx-cog'></i><a href="">Pengaturan</a>
+                </div>
+                <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
+                    <i class='text-xl bx bx-history'></i><a href="">Riwayat</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-1 p-3 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
+                <i class='text-xl bx bx-log-out'></i><a href="{{route ('login')}}">Keluar</a>
+            </div>
+        </div>
+    </div>
 </div>
 </nav>
 
@@ -69,14 +93,10 @@
 
         <div class="w-full">
             <div class="flex items-center gap-3 px-2 pb-3 border-b-2">
-                <a href="{{route('profil-konselor')}}">
-                    <div class="rounded-full h-14 w-14 bg-biru-6"></div>
-                </a>
+                <a href="{{route ('profil-konselor')}}"><div class="rounded-full h-14 w-14 bg-biru-6"></div></a>
                 <div class="grid place-items-start place-content-center">
-                    <p class="text-xl font-semibold font-raleway"><a href="{{route('profil-konselor')}}">Farrel Yassar
-                            Kurniawan</a></p>
-                    <p class="text-sm font-medium text-hitam-400"><a
-                            href="{{route('profil-konselor')}}">farrel26yassar@gmail.com</a></p>
+                    <p class="text-xl font-semibold font-raleway text-hitam-800"><a href="{{route ('profil-konselor')}}">Farrel Yassar Kurniawan</a></p>
+                    <p class="text-sm font-medium text-hitam-400"><a href="{{route ('profil-konselor')}}">farrel26yassar@gmail.com</a></p>
                 </div>
             </div>
         </div>

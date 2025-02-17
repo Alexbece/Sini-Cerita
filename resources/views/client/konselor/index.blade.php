@@ -62,6 +62,51 @@
                 @include ('client.konselor.list_konselor')
                 @include ('client.konselor.modal_konselor')
 
+                <ul class="flex items-center justify-center w-full h-10 -space-x-px text-base">
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center h-10 px-4 leading-tight text-white border ms-0 border-e-0 rounded-s-lg border-biru-6 bg-biru-6 hover:bg-white hover:text-biru-6">
+                            <span class="sr-only">Previous</span>
+                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M5 1 1 5l4 4" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-current="page"
+                            class="z-10 flex items-center justify-center h-10 px-4 leading-tight bg-white border text-biru-6 border-biru-6">1</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center justify-center h-10 px-4 leading-tight text-white border border-biru-6 bg-biru-6 hover:bg-white hover:text-biru-6">2</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                        class="flex items-center justify-center h-10 px-4 leading-tight text-white border border-biru-6 bg-biru-6 hover:bg-white hover:text-biru-6">3</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                        class="flex items-center justify-center h-10 px-4 leading-tight text-white border border-biru-6 bg-biru-6 hover:bg-white hover:text-biru-6">4</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                        class="flex items-center justify-center h-10 px-4 leading-tight text-white border border-biru-6 bg-biru-6 hover:bg-white hover:text-biru-6">5</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                        class="flex items-center justify-center h-10 px-4 leading-tight text-white border border-biru-6 bg-biru-6 hover:bg-white hover:text-biru-6 rounded-e-lg">
+                            <span class="sr-only">Next</span>
+                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+
             </div>
         </div>
 

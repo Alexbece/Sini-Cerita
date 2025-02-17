@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
 
 :root {
     --default-font: "Plus Jakarta Sans", sans-serif;
@@ -34,7 +37,9 @@
     --hitam-900: #3d3d3d;
 }
 
-body:not(.blog_index):not(.pageKonsultasi):not(.konselorSignUp) {
+body:not(.blog_index):not(.pageKonsultasi):not(.konselorSignUp):not(
+        .tantangan
+    ):not(.kategori-tantangan):not(.page-tantangan) {
     font-family: var(--default-font);
     padding: 1.5rem 6rem;
     background: linear-gradient(
@@ -47,6 +52,12 @@ body:not(.blog_index):not(.pageKonsultasi):not(.konselorSignUp) {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 2rem !important;
+    }
 }
 
 .blog_index {
@@ -73,13 +84,12 @@ body:not(.blog_index):not(.pageKonsultasi):not(.konselorSignUp) {
     align-items: center;
     justify-content: center;
     font-family: var(--default-font);
-    background-color: var(--biru-4)
-}
-
-@media (width <= 48rem) {
-    body {
-        padding: 1.5rem 2rem;
-    }
+    background: linear-gradient(
+        to bottom left,
+        var(--biru-6),
+        var(--biru-2),
+        var(--biru-6)
+    );
 }
 
 p,
@@ -295,4 +305,45 @@ h6 {
 .team-card {
     border-radius: 10px;
     background: linear-gradient(to top, black, var(--biru-6));
+}
+
+/* Tantangan */
+
+body.tantangan {
+    background: linear-gradient(
+        to top,
+        var(--biru-1),
+        var(--biru-3),
+        var(--biru-4),
+        var(--biru-6)
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    background-attachment: fixed;
+    font-family: var(--default-font);
+}
+
+body.kategori-tantangan {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: var(--default-font);
+    min-height: 100vh;
+}
+
+body.page-tantangan {
+    background: linear-gradient(
+        to top,
+        var(--biru-1),
+        var(--biru-3),
+        var(--biru-4),
+        var(--biru-6)
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: var(--default-font);
 }

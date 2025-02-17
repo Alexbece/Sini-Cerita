@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --default-font: "Plus Jakarta Sans", sans-serif;
+    --heading-font: "Raleway", sans-serif;
+
+    --contrast-color: #ffffff;
+
+    --biru-1: #d2edf0;
+    --biru-2: #bce4e8;
+    --biru-3: #a5dae0;
+    --biru-4: #8fd1d9;
+    --biru-5: #78c8d1;
+    --biru-6: #4bb5c1;
+
+    --pink-1: #fef4fa;
+    --pink-2: #fee8f5;
+    --pink-3: #fddcef;
+    --pink-4: #fcc3e3;
+    --pink-5: #fbaad8;
+    --pink-6: #f991cc;
+
+    --hitam-50: #f6f6f6;
+    --hitam-100: #e7e7e7;
+    --hitam-200: #d1d1d1;
+    --hitam-300: #b0b0b0;
+    --hitam-400: #888888;
+    --hitam-500: #6d6d6d;
+    --hitam-600: #5d5d5d;
+    --hitam-700: #4f4f4f;
+    --hitam-800: #454545;
+    --hitam-900: #3d3d3d;
+}
+
+body {
+    background: #282332;
+    font-family: var(--default-font);
+}
+
+p,
+a,
+li,
+ul,
+input,
+button {
+    font-family: var(--default-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
+}

@@ -17,7 +17,7 @@
             <div class="px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer hover:text-biru-6 w-max"
                 id="riwayatButton">
                 Riwayat Konsultasi</div>
-            <div class="hidden px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer lg:block hover:text-biru-6 text-hitam-700 w-max"
+            <div class="hidden px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer lg:block hover:text-biru-6 w-max"
                 id="modalkeluarButton">
                 Keluar</div>
             <div href="" id="deleteaccountButton"
@@ -89,6 +89,7 @@
         </div>
     </div>
 
+    <!-- Modal Keluar -->
     <div class="fixed inset-0 flex items-center justify-center hidden w-screen h-screen sign_out bg-hitam-800/40"
         id="modalkeluar">
         <div class="w-[500px] h-max bg-white rounded-[20px] p-6 flex flex-col justify-between">
@@ -107,21 +108,22 @@
         </div>
     </div>
 
+    <!-- Modal Delete Akun -->
     <div class="fixed inset-0 flex items-center justify-center hidden w-screen h-screen sign_out bg-hitam-800/40"
         id="deleteaccount">
         <div class="w-[500px] h-max bg-white rounded-[20px] p-6 flex flex-col justify-between">
             <i class="w-full text-5xl text-center text-red-500 bx bx-error h-max"></i>
             <div class="grid gap-2 mt-4 mb-8 text-center place-content-center">
-                <h2 class="text-2xl font-bold font-jkt text-hitam-900">Keluar dari akun</h2>
+                <h2 class="text-2xl font-bold font-jkt text-hitam-900">Hapus akun</h2>
                 <p class="text-sm text-hitam-900">Tindakan ini akan menghapus seluruh data dan aktivitas Anda dari
                     aplikasi Sini Cerita. Apakah Anda benar-benar yakin untuk menghapus akun?</p>
             </div>
             <div class="flex items-center justify-center w-full gap-3">
                 <button
-                    class="px-4 py-2 text-lg font-semibold text-white transition-all duration-200 rounded-full bg-biru-6 hover:bg-biru-5"
+                    class="px-4 py-2 font-semibold text-white transition-all duration-200 rounded-full bg-biru-6 hover:bg-biru-5"
                     id="bataldeleteButton">Batal</button>
                 <button
-                    class="px-4 py-2 text-lg font-semibold text-red-500 transition-all duration-200 rounded-full bg-hitam-50 hover:bg-hitam-100">Hapus
+                    class="px-4 py-2 font-semibold text-red-500 transition-all duration-200 rounded-full bg-hitam-50 hover:bg-hitam-100">Hapus
                     Akun</button>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<a class="text-2xl font-bold leading-none logo text-biru-6 hover:text-biru-5" href="#">
+<a class="text-2xl font-bold leading-none logo text-biru-6 hover:text-biru-5 text-nowrap" href="#">
     Sini Cerita
 </a>
 <div class="lg:hidden">
@@ -41,7 +41,7 @@
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{route('pagekonsultasi')}}">
             Konsultasi</a></li>
-    <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="#">Tantangan</a></li>
+    <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="{{route('tantangan')}}">Tantangan</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{ route('tentangkami')}}">Tentang Kami</a></li>
 </ul>
@@ -57,13 +57,13 @@
             <div class="flex items-center flex-1 gap-2 p-3 border-b-2">
                 <div class="w-12 h-12 rounded-full bg-biru-6"></div>
                 <div class="flex-1 gap-1">
-                    <h3 class="text-base font-semibold">Farrel Yassar Kurniawan</h3>
+                    <h3 class="text-base font-semibold text-hitam-800">Farrel Yassar Kurniawan</h3>
                     <p class="text-xs font-normal text-hitam-600">farrel26yassar@gmail.com</p>
                 </div>
             </div>
             <div class="grid w-full gap-4 p-3 border-b-2">
                 <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
-                    <i class='text-xl bx bx-user'></i><a href="{{route('profil')}}">Lihat akun</a>
+                    <i class='text-xl bx bx-user'></i><a href="{{route('profil-user')}}">Lihat akun</a>
                 </div>
                 <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
                     <i class='text-xl bx bx-cog'></i><a href="">Pengaturan</a>
@@ -96,10 +96,10 @@
 
         <div class="w-full">
             <div class="flex items-center gap-3 px-2 pb-3 border-b-2">
-                <a href="{{route ('profil')}}"><div class="rounded-full h-14 w-14 bg-biru-6"></div></a>
+                <a href="{{route ('profil-user')}}"><div class="rounded-full h-14 w-14 bg-biru-6"></div></a>
                 <div class="grid place-items-start place-content-center">
-                    <p class="text-xl font-semibold font-raleway"><a href="{{route ('profil')}}">Farrel Yassar Kurniawan</a></p>
-                    <p class="text-sm font-medium text-hitam-400"><a href="{{route ('profil')}}">farrel26yassar@gmail.com</a></p>
+                    <p class="text-xl font-semibold font-raleway text-hitam-800"><a href="{{route ('profil-user')}}">Farrel Yassar Kurniawan</a></p>
+                    <p class="text-sm font-medium text-hitam-400"><a href="{{route ('profil-user')}}">farrel26yassar@gmail.com</a></p>
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
                 </li>
                 <li class="mb-1">
                     <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-6/70 hover:text-white"
-                        href="#">Tantangan</a>
+                        href="{{route('tantangan')}}">Tantangan</a>
                 </li>
                 <li class="mb-1">
                     <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-6/70 hover:text-white"

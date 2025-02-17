@@ -1,4 +1,4 @@
-<div class="max-h-[500px] overflow-y-scroll w-full">
+<div class="w-full">
 
                         <div class="flex flex-col gap-8 ">
                             <div class="grid w-full gap-3 lg:flex">
@@ -7,7 +7,7 @@
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
-                                                <h3 class="text-xl font-semibold ">Dr. Farrel Yassar S,Psi.</h3>
+                                                <h3 class="text-xl font-semibold text-hitam-800">Dr. Farrel Yassar S,Psi.</h3>
                                                 <p class="text-sm text-hitam-500">Psikolog</p>
                                             </div>
                                             <div
@@ -32,7 +32,7 @@
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
-                                                <h3 class="text-xl font-semibold ">Dr. Farrel Yassar S,Psi.</h3>
+                                                <h3 class="text-xl font-semibold text-hitam-800">Dr. Farrel Yassar S,Psi.</h3>
                                                 <p class="text-sm text-hitam-500">Psikolog</p>
                                             </div>
                                             <div
@@ -44,7 +44,7 @@
                                                 <p class="text-sm text-black">Rp 75.000 / Jam</p>
                                                 <button
                                                     class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-linear rounded-full bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
-                                                    Detail</button>
+                                                    <a href="{{route ('profilKonselor')}}">Detail</a></button>
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
-                                                <h3 class="text-xl font-semibold ">Dr. Farrel Yassar S,Psi.</h3>
+                                                <h3 class="text-xl font-semibold text-hitam-800">Dr. Farrel Yassar S,Psi.</h3>
                                                 <p class="text-sm text-hitam-500">Psikolog</p>
                                             </div>
                                             <div
@@ -81,7 +81,7 @@
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
-                                                <h3 class="text-xl font-semibold ">Dr. Farrel Yassar S,Psi.</h3>
+                                                <h3 class="text-xl font-semibold text-hitam-800">Dr. Farrel Yassar S,Psi.</h3>
                                                 <p class="text-sm text-hitam-500">Psikolog</p>
                                             </div>
                                             <div
@@ -106,7 +106,7 @@
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
-                                                <h3 class="text-xl font-semibold ">Dr. Farrel Yassar S,Psi.</h3>
+                                                <h3 class="text-xl font-semibold text-hitam-800">Dr. Farrel Yassar S,Psi.</h3>
                                                 <p class="text-sm text-hitam-500">Psikolog</p>
                                             </div>
                                             <div
@@ -131,7 +131,7 @@
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
-                                                <h3 class="text-xl font-semibold ">Dr. Farrel Yassar S,Psi.</h3>
+                                                <h3 class="text-xl font-semibold text-hitam-800">Dr. Farrel Yassar S,Psi.</h3>
                                                 <p class="text-sm text-hitam-500">Psikolog</p>
                                             </div>
                                             <div
@@ -155,7 +155,7 @@
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
-                                                <h3 class="text-xl font-semibold ">Dr. Farrel Yassar S,Psi.</h3>
+                                                <h3 class="text-xl font-semibold text-hitam-800">Dr. Farrel Yassar S,Psi.</h3>
                                                 <p class="text-sm text-hitam-500">Psikolog</p>
                                             </div>
                                             <div
@@ -180,7 +180,7 @@
                                     <div class="grid gap-3">
                                         <div class="grid gap-3">
                                             <div class="h-max">
-                                                <h3 class="text-xl font-semibold ">Dr. Farrel Yassar S,Psi.</h3>
+                                                <h3 class="text-xl font-semibold text-hitam-800">Dr. Farrel Yassar S,Psi.</h3>
                                                 <p class="text-sm text-hitam-500">Psikolog</p>
                                             </div>
                                             <div

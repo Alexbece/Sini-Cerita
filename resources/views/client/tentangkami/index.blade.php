@@ -18,7 +18,7 @@
                     dolores quae repudiandae.</p>
             </div>
             <div class="w-[50%] flex justify-center items-center h-max">
-                <img src="{{asset('client\aboutUs\img-hero.png')}}" alt=""
+                <img src="{{asset('client/img/aboutUs/img-hero.png')}}" alt=""
                     class="object-cover object-center w-full h-[500px]">
             </div>
         </section>

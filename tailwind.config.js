@@ -1,4 +1,5 @@
 import defaultTheme from "tailwindcss/defaultTheme";
+const { addDynamicIconSelectors } = require("@iconify/tailwind");
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -8,12 +9,15 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/flyonui/dist/js/*.js",
+        "./node_modules/flyonui/dist/js/accordion.js",
     ],
     theme: {
         extend: {
             fontFamily: {
                 raleway: ['"Raleway"', '"sans-serif"'],
-                jkt: ['"Plus Jakarta Sans"', 'sans-serif'],
+                jkt: ['"Plus Jakarta Sans"', "sans-serif"],
+                satoshi: ["Satoshi", "sans-serif"],
             },
             colors: {
                 black: "#131313",
@@ -49,5 +53,9 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [
+        require("flyonui"),
+        require("flyonui/plugin"),
+        addDynamicIconSelectors(),
+    ],
 };
