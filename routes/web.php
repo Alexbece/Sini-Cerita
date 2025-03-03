@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DokterController;
+use App\Http\Controllers\OauthController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\SignupDokter;
 
 Route::get('/', function () {
     return view('client.landing.home');
@@ -40,14 +46,14 @@ Route::get('/artikel', function () {
     return view('client.artikel.index');
 })->name('artikel');
 
-Route::get('/judul-artikel', function () {
+Route::get('/judul-artikel1', function () {
     return view('client.artikel.blog_page');
 })->name('blog_page');
 
 // Profil Pasien
-Route::get('/profil-user', function () {
+Route::get('/profil-user1', function () {
     return view('client.profil.profil_user.index');
-})->name('profil-user');
+})->name('profil-user1');
 
 Route::get('/profil/identitas', function () {
     return view('client.profil.profil_user.identitas');
@@ -66,12 +72,12 @@ Route::get('/keuangan-konselor', function () {
 })->name('keuangan-konselor');
 
 // Konsultasi
-Route::get('/konsultasi', function () {
+Route::get('/konsultasi1', function () {
     return view('client.konsultasi.index');
 })->name('pagekonsultasi');
 
 // ------------------- Tantangan
-Route::get('/tantangan', function () {
+Route::get('/tantangan1', function () {
     return view('client.tantangan.tantangan');
 })->name('tantangan');
 
@@ -89,7 +95,7 @@ Route::get('/tantangan/rawat-diri', function () {
 // Page-Tantangan
 Route::get('/tantangan/yoga/morning-magic', function () {
     return view('client.tantangan.tantangan-yoga');
-})->name('tantangan-yoga');
+})->name('tantangan-yoga1');
 
 
 // -------------------Tentang Kami
@@ -104,9 +110,9 @@ Route::get('/tentang-kami', function () {
 Route::get('/daftar-konselor', function () {
     return view('admin.konselor.daftar-konselor');
 })->name('daftar-konselor');
-Route::get('/detail-konselor', function () {
+Route::get('/detail-konselor1', function () {
     return view('admin.konselor.detail-konselor');
-})->name('detail-konselor');
+})->name('detail-konselor1  ');
 
 // ----- Pendaftaran
 Route::get('/pendaftaran-konselor', function () {
@@ -125,3 +131,77 @@ Route::get('/daftar-klaim', function () {
 Route::get('/riwayat-konsultasi', function () {
     return view('admin.riwayat-konsultasi');
 })->name('riwayat-konsultasi');
+
+// LAYOUT FOLDER BARU
+// INDEX APP
+Route::get('/beranda', function () {
+    return view('pasien.index');
+})->name('app-index');
+
+// AUTENTIKASI
+// SIGN UP
+Route::get('/daftar', [AuthController::class, 'showSignup'])->name('signup-user');
+Route::post('/daftar', [AuthController::class, 'signup'])->name('proses-signup-user');
+// LOGIN
+Route::get('/masuk', [AuthController::class, 'showLogin'])->name('login-user');
+Route::post('/masuk', [AuthController::class, 'login'])->name('proses-login-user');
+// LOGOUT
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout-user');
+
+// OAUTH GOOGLE
+Route::get('/oauth/google', [OauthController::class, 'redirect']);
+Route::get('/oauth/google/callback', [OauthController::class, 'callback']);
+// END OAUTH GOOGLE
+
+// SIGNUP DOKTER
+Route::get('/daftar-dokter', SignupDokter::class);
+Route::get('/pendaftaran-konselor', [DokterController::class, 'showSignup'])->name('pendaftaran-konselor');
+Route::post('/pendaftaran-konselor', [DokterController::class, 'store'])->name('proses-pendaftaran-konselor');
+
+// PROFIL PASIEN
+Route::get('/profil-user', function () {
+    return view('pasien.profil.index');
+})->name('profil-user');
+
+
+// KONSULTASI
+// LIST KONSELOR
+Route::get('/konsultasi', function () {
+    return view('pasien.konsultasi.index');
+})->name('konsultasi-index');
+// DETAIL KONSELOR
+Route::get('/detail-konselor', function () {
+    return view('pasien.konsultasi.detail_konselor');
+})->name('detail-konselor');
+
+// ARTIKEL EDUKASI
+Route::get('/artikel-edukasi', [ArtikelController::class, 'showPasien'])->name('artikel-edukasi');
+Route::get('/artikel/{id_artikel}', [ArtikelController::class, 'Artikel'])->name('app-artikel');
+
+
+// TANTANGAN
+Route::get('/tantangan', function () {
+    return view('pasien.tantangan.index');
+})->name('app-tantangan');
+// TANTANGAN YOGA
+Route::get('/tantangan-yoga', function () {
+    return view('pasien.tantangan.yoga.index');
+})->name('tantangan-yoga');
+// PAGE TANTANGAN YOGA
+Route::get('/nama-tantangan-yoga', function () {
+    return view('pasien.tantangan.yoga.page_tantangan');
+})->name('page-tantangan-yoga');
+
+// ADMIN
+// DASHBOARD ADMIN
+Route::get('/dashboard-admin', function () {
+    return view('client.admin.index');
+})->name('dashboard-admin');
+
+// ARTIKEL
+// LIST ARTIKEL
+Route::get('/daftar-artikel', [ArtikelController::class, 'listArtikel'])->name('list-artikel');
+Route::delete('/daftar-artikel/{id_artikel}', [ArtikelController::class, 'deleteArtikel'])->name('delete-artikel');
+// ADD ARTIKEL
+Route::get('/tambah-artikel', [ArtikelController::class, 'showAdmin'])->name('add-artikel');
+Route::post('/tambah-artikel', [ArtikelController::class, 'addArtikel'])->name('proses-add-artikel');

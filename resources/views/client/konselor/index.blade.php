@@ -60,7 +60,6 @@
                 </div>
 
                 @include ('client.konselor.list_konselor')
-                @include ('client.konselor.modal_konselor')
 
                 <ul class="flex items-center justify-center w-full h-10 -space-x-px text-base">
                     <li>

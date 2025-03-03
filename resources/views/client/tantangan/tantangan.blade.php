@@ -10,7 +10,7 @@
                 @include ('components.navbar')
             </nav>
 
-            <section class="flex justify-center w-full py-8 px-28 h-max hero-section gap-7">
+            <section class="flex items-center justify-center w-full px-28 h-max hero-section gap-7">
                 <div class="w-[50%] flex flex-col items-start justify-center gap-3">
                     <p class="text-5xl font-bold text-hitam-800 max-w-[80%]">Sini Sehat Dengan Tantangan</p>
                     <p class="text-wrap text-hitam-800 max-w-[400px]"> Bahagia dengan sehatkan pikiran, tubuh, dan
@@ -21,7 +21,7 @@
                             class="icon-[line-md--arrow-down]"></span></button>
                 </div>
                 <div class="w-[50%] flex justify-center items-center h-max">
-                    <img src="{{asset('client/img/tantangan/tantangan_hero.png')}}" alt=""
+                    <img src="{{ asset('client/img/tantangan/tantangan_hero.png') }}" alt=""
                         class="object-cover object-center w-auto h-[400px]">
                 </div>
                 <div class="absolute z-10 rounded-full h-52 w-52 -bottom-10 -left-12 bg-biru-4"></div>
@@ -73,7 +73,7 @@
                             elit. Repudiandae
                             temporibus saepe
                             exercitationem voluptas asperiores.</p>
-                        <a href="{{ route('yoga') }}"
+                        <a href="{{ route('tantangan-yoga') }}"
                             class="flex items-center mt-2 text-white border-none bg-biru-6 btn w-max">Lihat
                             Selengkapnya <span class=" text-lg icon-[ep--right]"></span></a>
                     </div>
@@ -143,13 +143,16 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const scrollButton = document.getElementById("to-kategori-tantangan");
             const targetSection = document.getElementById("kategori-tantangan");
 
-            scrollButton.addEventListener("click", function (event) {
+            scrollButton.addEventListener("click", function(event) {
                 event.preventDefault(); // Mencegah navigasi default
-                targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                targetSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
             });
         });
     </script>

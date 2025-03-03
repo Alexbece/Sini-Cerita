@@ -129,12 +129,6 @@
         </div>
     </div>
 
-    @include ('client.profil.profil_user.edit')
-
-    <div id="loading" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-hitam-800/40">
-        <div class="text-xl text-white">Loading...</div>
-    </div>
-
     <script>
 
         // Sign Out Modal

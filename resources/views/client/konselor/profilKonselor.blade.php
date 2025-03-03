@@ -11,7 +11,7 @@
     <section class="container-profil px-4 py-6 w-full h-max bg-white mt-10 rounded-[20px] grid gap-2">
         <div class="grid w-full gap-4 lg:flex h-max">
             <div class="flex gap-4 lg:w-[500px] w-full place-items-center bg-hitam-50 rounded-xl p-4">
-                <img src="{{asset('client/img/foto_dokter/foto_doctor_1.jpg')}}" alt=""
+                <img src="{{ asset('client/img/foto_dokter/foto_doctor_1.jpg') }}" alt=""
                     class="rounded-lg object-center object-cover w-110px] h-[150px] border-2 top-0 p-1 border-biru-6">
                 <div>
                     <h1 class="text-xl font-semibold text-hitam-900">Dr. Peri S,Psi.</h1>
@@ -295,8 +295,8 @@
             <div class="bg-white modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title text-hitam-800">Ulasan Lengkap</h3>
-                    <button type="button" class="absolute btn btn-text btn-circle btn-sm end-3 top-3" aria-label="Close"
-                        data-overlay="#BacaUlasanLengkap">
+                    <button type="button" class="absolute btn btn-text btn-circle btn-sm end-3 top-3"
+                        aria-label="Close" data-overlay="#BacaUlasanLengkap">
                         <span class="icon-[tabler--x] size-4"></span>
                     </button>
                 </div>
@@ -313,13 +313,21 @@
                                 <p class="text-sm text-hitam-400">Pengguna Sini Cerita</p>
                             </div>
                         </div>
-                        <p class="mb-4 text-sm text-hitam-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quo exercitationem quas, dolore vitae animi doloribus fuga veniam ipsum. Obcaecati, explicabo! Libero voluptas molestias adipisci saepe corporis aperiam repudiandae quo. Est voluptate, quisquam nesciunt minima nisi dolorem magnam ipsum impedit vel officiis. Ipsam odit quae est sequi dolor corrupti, sapiente ullam voluptatibus voluptatum exercitationem aliquam officia modi dolorum officiis laudantium cumque incidunt, saepe quod praesentium reiciendis et at doloremque quasi ex? Repellendus odit eos, ut magnam pariatur labore. Harum, suscipit!</p>
+                        <p class="mb-4 text-sm text-hitam-600">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Sit quo exercitationem quas, dolore vitae animi doloribus fuga veniam ipsum. Obcaecati,
+                            explicabo! Libero voluptas molestias adipisci saepe corporis aperiam repudiandae quo. Est
+                            voluptate, quisquam nesciunt minima nisi dolorem magnam ipsum impedit vel officiis. Ipsam
+                            odit quae est sequi dolor corrupti, sapiente ullam voluptatibus voluptatum exercitationem
+                            aliquam officia modi dolorum officiis laudantium cumque incidunt, saepe quod praesentium
+                            reiciendis et at doloremque quasi ex? Repellendus odit eos, ut magnam pariatur labore.
+                            Harum, suscipit!</p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <scripts src="C:\Users\DELL\Documents\Vs Code\nama_proyek\node_modules\flowbite\dist\flowbite.min.js"></scripts>
+    <scripts src="node_modules\flowbite\dist\flowbite.min.js"></scripts>
 </body>
 
 </html>

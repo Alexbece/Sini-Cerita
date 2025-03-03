@@ -1,7 +1,3 @@
-import './bootstrap';
-import 'flowbite';
-import Alpine from 'alpinejs';
+import "./bootstrap";
+import "flowbite";
 import "flyonui/flyonui";
-
-window.Alpine = Alpine;
-Alpine.start();

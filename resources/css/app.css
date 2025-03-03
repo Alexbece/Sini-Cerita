@@ -1,9 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "flowbite/src/themes/default";
-@plugin "flowbite/plugin";
-@source "../../node_modules/flowbite";
 
 :root {
     --default-font: "Plus Jakarta Sans", sans-serif;
@@ -37,11 +34,8 @@
     --hitam-900: #3d3d3d;
 }
 
-body:not(.blog_index):not(.pageKonsultasi):not(.konselorSignUp):not(
-        .tantangan
-    ):not(.kategori-tantangan):not(.page-tantangan) {
+body:not(.blog_index):not(.livewire-body) {
     font-family: var(--default-font);
-    padding: 1.5rem 6rem;
     background: linear-gradient(
         to top,
         var(--biru-1),
@@ -49,6 +43,7 @@ body:not(.blog_index):not(.pageKonsultasi):not(.konselorSignUp):not(
         var(--biru-4),
         var(--biru-6)
     );
+    min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -62,8 +57,8 @@ body:not(.blog_index):not(.pageKonsultasi):not(.konselorSignUp):not(
 
 .blog_index {
     font-family: var(--default-font);
-    padding: 1.5rem 6rem;
     background-color: white;
+    min-height: 100vh;
 }
 
 .pageKonsultasi {
@@ -184,9 +179,11 @@ h6 {
     font-size: 15px;
 }
 
-.blog-content img {
-    max-width: auto;
-    max-height: 580px;
+.blog-content img,
+.blog-content figure {
+    width: 100%;
+    height: 580px;
+    text-align: center;
     object-fit: cover;
     background: black;
     border-radius: 20px;

@@ -134,12 +134,9 @@
                 Daftar
             </button>
             <p class="w-full mt-2 text-xs text-left text-hitam-500">Sudah mempunyai akun? <a
-                    href="{{route('konselorLogin')}}" class="text-biru-6">Masuk sebagai konselor</a>.</p>
+                    href="{{ route('konselorLogin') }}" class="text-biru-6">Masuk sebagai konselor</a>.</p>
         </div>
     </div>
-
-    <script src="../path/to/lodash/lodash.js"></script>
-    <script src="../path/to/dropzone/dist/dropzone-min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 </body>
