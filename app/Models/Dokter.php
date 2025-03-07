@@ -24,7 +24,6 @@ class Dokter extends Model
         'foto_ktp',
         'foto_strpk',
         'no_strpk',
-        'strpk_expired',
         'foto_sippk',
         'no_sippk',
     ];

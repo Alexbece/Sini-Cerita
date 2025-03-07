@@ -4,14 +4,13 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\OauthController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\SignupDokter;
 
-Route::get('/', function () {
+Route::get('/beranda', function () {
     return view('client.landing.home');
 })->name('home');
-Route::get('/', function () {
+Route::get('/beranda', function () {
     return view('client.landing.home');
 })->name('home');
 
@@ -134,8 +133,8 @@ Route::get('/riwayat-konsultasi', function () {
 
 // LAYOUT FOLDER BARU
 // INDEX APP
-Route::get('/beranda', function () {
-    return view('pasien.index');
+Route::get('/', function () {
+    return view('client.pasien.index');
 })->name('app-index');
 
 // AUTENTIKASI
@@ -154,24 +153,27 @@ Route::get('/oauth/google/callback', [OauthController::class, 'callback']);
 // END OAUTH GOOGLE
 
 // SIGNUP DOKTER
-Route::get('/daftar-dokter', SignupDokter::class);
+Route::get('/signup-dokter', [function () {
+    return view('components.layouts.app');
+}]);
 Route::get('/pendaftaran-konselor', [DokterController::class, 'showSignup'])->name('pendaftaran-konselor');
 Route::post('/pendaftaran-konselor', [DokterController::class, 'store'])->name('proses-pendaftaran-konselor');
 
+
 // PROFIL PASIEN
 Route::get('/profil-user', function () {
-    return view('pasien.profil.index');
+    return view('client.pasien.profil.index');
 })->name('profil-user');
 
 
 // KONSULTASI
 // LIST KONSELOR
 Route::get('/konsultasi', function () {
-    return view('pasien.konsultasi.index');
+    return view('client.pasien.konsultasi.index');
 })->name('konsultasi-index');
 // DETAIL KONSELOR
 Route::get('/detail-konselor', function () {
-    return view('pasien.konsultasi.detail_konselor');
+    return view('client.pasien.konsultasi.detail_konselor');
 })->name('detail-konselor');
 
 // ARTIKEL EDUKASI
@@ -181,15 +183,15 @@ Route::get('/artikel/{id_artikel}', [ArtikelController::class, 'Artikel'])->name
 
 // TANTANGAN
 Route::get('/tantangan', function () {
-    return view('pasien.tantangan.index');
+    return view('client.pasien.tantangan.index');
 })->name('app-tantangan');
 // TANTANGAN YOGA
 Route::get('/tantangan-yoga', function () {
-    return view('pasien.tantangan.yoga.index');
+    return view('client.pasien.tantangan.yoga.index');
 })->name('tantangan-yoga');
 // PAGE TANTANGAN YOGA
 Route::get('/nama-tantangan-yoga', function () {
-    return view('pasien.tantangan.yoga.page_tantangan');
+    return view('client.pasien.tantangan.yoga.page_tantangan');
 })->name('page-tantangan-yoga');
 
 // ADMIN

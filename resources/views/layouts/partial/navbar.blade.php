@@ -87,10 +87,36 @@
     </div>
 @else
     <div class="flex items-center gap-2">
-        <button class="px-5 py-2 font-semibold border-2 rounded-full text-biru-6 border-biru-6 h-[45px] w-max"><a
+        <div class="dropdown relative inline-flex rtl:[--placement:bottom-end]">
+            <button id="dropdown-default" type="button" class="text-white border-none rounded-full dropdown-toggle bg-biru-6 btn hover:bg-biru-5" aria-haspopup="menu"
+                aria-expanded="false" aria-label="Dropdown">
+                Masuk
+                <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
+            </button>
+            <ul class="hidden bg-white dropdown-menu text-hitam-800 dropdown-open:opacity-100 min-w-60" role="menu"
+                aria-orientation="vertical" aria-labelledby="dropdown-default">
+                <li><a class="dropdown-item text-hitam-800" href="{{ route('login-user') }}"><span class="icon-[ix--customer-filled] text-2xl"></span> Pelanggan</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="{{ route('login-user') }}"><span class="icon-[healthicons--doctor-24px] text-2xl"></span> Konselor</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="{{ route('login-user') }}"><span class="icon-[eos-icons--admin] text-2xl"></span> Admin</a></li>
+            </ul>
+        </div>
+        <div class="dropdown relative inline-flex rtl:[--placement:bottom-end]">
+            <button id="dropdown-default" type="button" class="text-white border-none rounded-full dropdown-toggle bg-biru-6 btn hover:bg-biru-5" aria-haspopup="menu"
+                aria-expanded="false" aria-label="Dropdown">
+                Daftar
+                <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
+            </button>
+            <ul class="hidden bg-white dropdown-menu text-hitam-800 dropdown-open:opacity-100 min-w-60" role="menu"
+                aria-orientation="vertical" aria-labelledby="dropdown-default">
+                <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[ix--customer-filled] text-2xl"></span> Pelanggan</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[healthicons--doctor-24px] text-2xl"></span> Konselor</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[eos-icons--admin] text-2xl"></span> Admin</a></li>
+            </ul>
+        </div>
+        {{-- <button class="px-5 py-2 font-semibold border-2 rounded-full text-biru-6 border-biru-6 h-[45px] w-max"><a
                 href="{{ route('login-user') }}">Masuk</a></button>
         <button class="px-5 py-2 font-semibold text-white rounded-full h-[45px] w-max bg-biru-6"><a
-                href="{{ route('signup-user') }}">Daftar</a></button>
+                href="{{ route('signup-user') }}">Daftar</a></button> --}}
     </div>
 @endif
 </nav>

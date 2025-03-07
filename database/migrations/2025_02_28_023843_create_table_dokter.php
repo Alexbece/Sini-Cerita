@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Dokter;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -29,7 +28,6 @@ return new class extends Migration
             // DOKUMEN KEDOKTERAN
             $table->string('foto_strpk');
             $table->string('no_strpk')->unique();
-            $table->date('strpk_expired');
             $table->string('foto_sippk');
             $table->string('no_sippk')->unique();
             $table->timestamps();

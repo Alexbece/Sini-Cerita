@@ -26,7 +26,7 @@ class AuthController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect('/beranda')->with('berhasil-login', 'Selamat Anda Berhasil Login');
+            return redirect('/')->with('berhasil-login', 'Selamat Anda Berhasil Login');
         }
         return back()->withErrors([
             'email' => 'Periksa kembali email dan password.',

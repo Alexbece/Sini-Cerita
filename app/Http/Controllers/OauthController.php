@@ -33,10 +33,10 @@ class OauthController extends Controller
             ]);
 
             Auth::login($user);
-            return redirect('/beranda');
+            return redirect('/');
         }
 
         Auth::login($registeredUser);
-        return redirect('/beranda');
+        return redirect('/');
     }
 }

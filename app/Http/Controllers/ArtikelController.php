@@ -21,13 +21,13 @@ class ArtikelController extends Controller
         }
 
         // Kirim data artikel ke tampilan
-        return view('pasien.artikel.index', compact('artikels'));
+        return view('client.pasien.artikel.index', compact('artikels'));
     }
 
     public function Artikel($id_artikel)
     {
         $artikel = Artikel::where('id_artikel', $id_artikel)->firstOrFail();
-        return view('pasien.artikel.artikel ', compact('artikel'));
+        return view('client.pasien.artikel.artikel ', compact('artikel'));
     }
 
     // ADMIN
