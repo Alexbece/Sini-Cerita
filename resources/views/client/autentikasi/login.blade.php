@@ -11,6 +11,11 @@
 </head>
 
 <body class="flex items-center justify-center h-screen">
+    @if (session('berhasil-signup'))
+        <div id="berhasil-signup" class="absolute z-50 p-3 rounded-md top-5 left-5 alert alert-success w-max">
+            {{ session('berhasil-signup') }}
+        </div>
+    @endif
     <div class="flex items-center container-login lg:w-[1008px] rounded-[20px]">
 
         <div class="relative hidden h-full shadow-2xl lg:block rounded-l-2xl">
@@ -35,13 +40,29 @@
                         <div class="flex flex-col items-center justify-center w-full gap-5">
                             <div class="w-full">
                                 <input type="text" name="email" placeholder="Email"
-                                    class="font-raleway w-full rounded-md py-[10px] font-light text-hitam-800 text-xs border-[1px] border-hitam-200 px-3 bg-transparent focus:outline-none">
+                                    class="font-raleway w-full rounded-md py-[8px] font-light text-hitam-800 text-sm border-[1px] border-hitam-200 px-3 bg-transparent  focus:outline-none">
+                                <span class="label">
+                                    <span class="label-text-alt">
+                                        @if ($errors->has('email'))
+                                            <p class="mb-1 text-xs text-red-500">{{ $errors->first('email') }}
+                                            </p>
+                                        @endif
+                                    </span>
+                                </span>
                             </div>
-                            <div class="relative flex w-full">
+                            <div class="relative w-full">
                                 <input id="password" name="password" type="password" placeholder="Password"
-                                    class="font-raleway w-full rounded-md py-[10px] font-light text-hitam-800 text-xs border-[1px] border-hitam-200 px-3 pr-10 bg-transparent focus:outline-none">
+                                    class="font-raleway w-full rounded-md py-[8px] font-light text-hitam-800 text-sm border-[1px] border-hitam-200 px-3 pr-10 bg-transparent focus:outline-none">
                                 <i id="togglePassword"
                                     class="absolute cursor-pointer top-3 right-3 bx bx-hide text-hitam-400"></i>
+                                    <span class="label">
+                                        <span class="label-text-alt">
+                                            @if ($errors->has('password'))
+                                                <p class="mb-1 text-xs text-red-500">{{ $errors->first('password') }}
+                                                </p>
+                                            @endif
+                                        </span>
+                                    </span>
                             </div>
                             <div class="w-full text-center">
                                 <div class="w-full transition-colors rounded-md bg-biru-6 hover:bg-biru-5">
@@ -65,6 +86,13 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('berhasil-signup').style.display = 'none';
+        }, 6000); // 3000 ms = 3 detik
+    </script>
 
     <script>
         const passwordInput = document.getElementById('password');

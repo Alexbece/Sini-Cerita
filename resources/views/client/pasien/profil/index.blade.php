@@ -34,8 +34,9 @@
                         <img class="object-cover object-top w-20 h-20 border-2 rounded-full shadow-lg border-biru-6"
                             src="{{ asset('client/img/foto_dokter/foto_doctor_1.jpg') }}" alt="">
                         <div class="flex flex-col">
-                            <h4 class="text-xl font-semibold text-hitam-800">Farrel Yassar</h4>
-                            <p class="text-sm font-semibold text-hitam-400">{{ Auth::user()->role == 'pasien' ? 'Pengguna Sini Cerita' : Auth::user()->role }}</p>
+                            <h4 class="text-xl font-semibold text-hitam-800">{{ Auth::user()->nama_lengkap }}</h4>
+                            <p class="text-sm font-semibold text-hitam-400">
+                                {{ Auth::user()->role == 'pasien' ? 'Pengguna Sini Cerita' : Auth::user()->role }}</p>
                         </div>
                     </div>
 
@@ -62,12 +63,14 @@
 
                             <div class="grid gap-4 text-left place-content-start">
                                 <p class="text-sm font-semibold text-hitam-600/70">Nomor Telepon</p>
-                                <p class="font-bold text-hitam-700">{{ Auth::user()->no_telp == '' ? '-' : Auth::user()->no_telp }}</p>
+                                <p class="font-bold text-hitam-700">
+                                    {{ Auth::user()->no_telp == '' ? '-' : Auth::user()->no_telp }}</p>
                             </div>
 
                             <div class="grid gap-4 text-left place-content-start">
                                 <p class="text-sm font-semibold text-hitam-600/70">Peran</p>
-                                <p class="font-bold text-hitam-700">{{ Auth::user()->role == 'pasien' ? 'Pengguna Sini Cerita' : Auth::user()->role }}</p>
+                                <p class="font-bold text-hitam-700">
+                                    {{ Auth::user()->role == 'pasien' ? 'Pengguna Sini Cerita' : Auth::user()->role }}</p>
                             </div>
                         </div>
 
@@ -151,8 +154,11 @@
                 <button
                     class="px-4 py-2 text-lg font-semibold text-white transition-all duration-200 rounded-full bg-biru-6 hover:bg-biru-5"
                     id="batalButton">Batal</button>
-                <button
-                    class="px-4 py-2 text-lg font-semibold transition-all duration-200 rounded-full text-biru-6 bg-hitam-50 hover:bg-hitam-100">Keluar</button>
+                <form action="{{ route('logout-user') }}" method="POST">
+                    @csrf
+                    <button
+                        class="px-4 py-2 text-lg font-semibold transition-all duration-200 rounded-full text-biru-6 bg-hitam-50 hover:bg-hitam-100">Keluar</button>
+                </form>
             </div>
         </div>
     </div>
@@ -171,9 +177,12 @@
                 <button
                     class="px-4 py-2 font-semibold text-white transition-all duration-200 rounded-full bg-biru-6 hover:bg-biru-5"
                     id="bataldeleteButton">Batal</button>
-                <button
-                    class="px-4 py-2 font-semibold text-red-500 transition-all duration-200 rounded-full bg-hitam-50 hover:bg-hitam-100">Hapus
-                    Akun</button>
+                <form action="{{ route('hapus-akun') }}">
+                    @csrf
+                    <button
+                        class="px-4 py-2 font-semibold text-red-500 transition-all duration-200 rounded-full bg-hitam-50 hover:bg-hitam-100">Hapus
+                        Akun</button>
+                </form>
             </div>
         </div>
     </div>

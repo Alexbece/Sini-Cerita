@@ -13,8 +13,10 @@
         <button id="to-konten-tantangan"
             class="flex gap-1 text-lg font-semibold text-white border-none items-bottom btn bg-biru-6 hover:bg-biru-5 h-max">Mulai
             Tantangan<span class="icon-[line-md--arrow-down]"></span></button>
-        <img src="{{ asset('client/img/tantangan/Group 2104.svg') }}" class="absolute bottom-0 right-0 z-0" alt="">
-        <img src="{{ asset('client/img/tantangan/Group 2103.svg') }}" class="absolute left-0 z-0 -bottom-4" alt="">
+        <img src="{{ asset('client/img/tantangan/Group 2104.svg') }}" class="absolute bottom-0 rounded-br-[20px] right-0 z-0"
+            alt="">
+        <img src="{{ asset('client/img/tantangan/Group 2103.svg') }}"
+            class="absolute left-0 z-0 -bottom-4 rounded-bl-[20px] " alt="">
     </section>
 @endsection
 

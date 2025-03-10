@@ -134,7 +134,7 @@ Route::get('/riwayat-konsultasi', function () {
 // LAYOUT FOLDER BARU
 // INDEX APP
 Route::get('/', function () {
-    return view('client.pasien.index');
+    return view('client.index');
 })->name('app-index');
 
 // AUTENTIKASI
@@ -164,6 +164,7 @@ Route::post('/pendaftaran-konselor', [DokterController::class, 'store'])->name('
 Route::get('/profil-user', function () {
     return view('client.pasien.profil.index');
 })->name('profil-user');
+Route::get('/hapus-akun-user', [AuthController::class, 'deleteAccount'])->name('hapus-akun');
 
 
 // KONSULTASI

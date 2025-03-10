@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('no_telp', 20)->nullable();
             $table->string('email', 100)->unique();
             $table->string('password');
-            $table->string('google_id');
-            $table->string('google_token');
+            $table->string('google_id')->nullable();
+            $table->string('google_token')->nullable();
             $table->string('google_refresh_token')->nullable();
             $table->enum('role', ['pasien', 'admin', 'dokter'])->default('pasien');
             $table->rememberToken();

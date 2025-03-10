@@ -13,31 +13,64 @@
 <body class="flex items-center justify-center h-screen">
     <div class="flex items-center container-signup lg:flex-start lg:w-[1008px] bg-white">
         <div class="flex flex-col justify-center w-full h-full py-12 shadow-md shadow-4xl form-signup px-14">
-            <span class="inline-block mt-2 text-lg font-semibold text-center text-biru-6 lg:hidden">Sini
+            <span class="inline-block mt-2 mb-4 text-lg font-semibold text-center text-biru-6 lg:hidden">Sini
                 Cerita.</span>
             <div class="flex flex-col items-center justify-center h-full gap-4">
                 <div class="flex flex-col items-center justify-center w-full gap-4">
                     <h1 class="mb-3 text-3xl font-bold text-hitam-800">Daftar</h1>
                     <form action="{{ route('proses-signup-user') }}" method="POST" class="w-full">
                         @csrf
-                        <div class="flex flex-col items-center justify-center w-full gap-5">
+                        <div class="flex flex-col items-center justify-center w-full gap-3">
                             <div class="w-full">
                                 <input type="text" name="nama_lengkap" placeholder="Nama lengkap"
-                                    class="font-raleway w-full rounded-md py-[10px] font-light text-hitam-800 text-xs border-[1px]  border-hitam-200 px-3 bg-transparent  focus:outline-none">
+                                    class="font-raleway w-full rounded-md py-[8px] font-light text-hitam-800 text-sm border-[1px] border-hitam-200 px-3 bg-transparent  focus:outline-none">
+                                <span class="label">
+                                    <span class="label-text-alt">
+                                        @if ($errors->has('nama_lengkap'))
+                                            <p class="mb-1 text-xs text-red-500">{{ $errors->first('nama_lengkap') }}
+                                            </p>
+                                        @endif
+                                    </span>
+                                </span>
                             </div>
                             <div class="w-full">
                                 <input type="text" name="no_telp" placeholder="No. telp"
-                                    class="font-raleway w-full rounded-md py-[10px] font-light text-hitam-800 text-xs border-[1px]  border-hitam-200 px-3 bg-transparent  focus:outline-none">
+                                    class="font-raleway w-full rounded-md py-[8px] font-light text-hitam-800 text-sm border-[1px] border-hitam-200 px-3 bg-transparent  focus:outline-none">
+                                <span class="label">
+                                    <span class="label-text-alt">
+                                        @if ($errors->has('no_telp'))
+                                            <p class="mb-1 text-xs text-red-500">{{ $errors->first('no_telp') }}
+                                            </p>
+                                        @endif
+                                    </span>
+                                </span>
                             </div>
                             <div class="w-full">
                                 <input type="email" name="email" placeholder="Email" autocomplete="email"
-                                    class="font-raleway w-full rounded-md py-[10px] font-light text-hitam-800 text-xs border-[1px]  border-hitam-200 px-3 bg-transparent  focus:outline-none">
+                                    class="font-raleway w-full rounded-md py-[8px] font-light text-hitam-800 text-sm border-[1px] border-hitam-200 px-3 bg-transparent  focus:outline-none">
+                                <span class="label">
+                                    <span class="label-text-alt">
+                                        @if ($errors->has('email'))
+                                            <p class="mb-1 text-xs text-red-500">{{ $errors->first('email') }}
+                                            </p>
+                                        @endif
+                                    </span>
+                                </span>
                             </div>
                             <div class="relative w-full">
-                                <input id="password" type="password" autocomplete="new-password" name="password" placeholder="Password"
-                                    class="font-raleway w-full rounded-md py-[10px] font-light text-hitam-800 text-xs border-[1px] border-hitam-200 px-3 pr-10 bg-transparent focus:outline-none">
+                                <input id="password" type="password" autocomplete="new-password" name="password"
+                                    placeholder="Password"
+                                    class="font-raleway w-full rounded-md py-[8px] font-light text-hitam-800 text-sm border-[1px] border-hitam-200 px-3 pr-10 bg-transparent focus:outline-none">
                                 <i id="togglePassword"
                                     class="absolute transform cursor-pointer right-3 top-3 bx bx-hide text-hitam-400"></i>
+                                <span class="label">
+                                    <span class="label-text-alt">
+                                        @if ($errors->has('password'))
+                                            <p class="mb-1 text-xs text-red-500">{{ $errors->first('password') }}
+                                            </p>
+                                        @endif
+                                    </span>
+                                </span>
                             </div>
                             <div class="w-full text-center">
                                 <div class="w-full transition-colors rounded-md bg-biru-6 hover:bg-biru-5">
@@ -62,10 +95,6 @@
                             class="flex items-center gap-1 px-3 py-2 font-extrabold transition-all text-ld gap font-jkt bg-biru-2 hover:bg-biru-6 text-hitam-800 focus:outline-none rounded-xl"><i
                                 class='text-3xl bx bxl-google'></i> Google</button>
                     </a>
-                </div>
-                <div class="w-full text-center">
-                    <p class="text-xs font-light text-hitam-400">Saya setuju untuk mematuhi Syarat dan Ketentuan serta
-                        Kebijakan Privasinya.</p>
                 </div>
             </div>
         </div>

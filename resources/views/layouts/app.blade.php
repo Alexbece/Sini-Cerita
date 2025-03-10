@@ -12,11 +12,11 @@
 
 <body class="@yield('body-class')">
     <div class="items-center justify-center w-full px-24 py-6 h-max @yield('section-header')">
-        <div class="bg-white rounded-[20px] overflow-hidden relative shadow-lg  @yield('header-container')">
+        <div class="bg-white rounded-[20px] relative shadow-lg  @yield('header-container')">
             <nav class="@yield('navbar', 'flex items-center justify-between w-full px-8 py-4')">
                 @include ('layouts.partial.navbar')
             </nav>
-                @yield('app-hero')
+            @yield('app-hero')
         </div>
     </div>
 

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Dokter;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -26,7 +27,7 @@ class SignupDokter extends Component
         $this->validate([
             'nama_lengkap'  => 'required',
             'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required|in:pria,wanita',
+            'jenis_kelamin' => 'required|in:Pria,Wanita',
             'alamat'        => 'required',
             'email'         => 'required|unique:dokter,email',
             'no_telp'       => 'required',
@@ -38,9 +39,9 @@ class SignupDokter extends Component
         ]);
 
         $this->currentStep = 2;
-        $this->foto_profil->store('foto_profil', 'public');
-        $this->foto_wajah->store('foto_wajah', 'public');
-        $this->foto_ktp->store('foto_ktp', 'public');
+        $this->foto_profil->storeAs('dokter/foto_profil', $this->foto_profil->getClientOriginalName(), 'public');
+        $this->foto_wajah->storeAs('dokter/foto_wajah', $this->foto_profil->getClientOriginalName(), 'public');
+        $this->foto_ktp->storeAs('dokter/foto_ktp', $this->foto_profil->getClientOriginalName(), 'public');
     }
 
     public function secondStepSubmit()
@@ -53,8 +54,8 @@ class SignupDokter extends Component
         ]);
 
         $this->currentStep = 3;
-        $this->foto_strpk->store('foto_strpk', 'public');
-        $this->foto_sippk->store('foto_sippk', 'public');
+        $this->foto_strpk->storeAs('dokter/foto_strpk', $this->foto_profil->getClientOriginalName(), 'public');
+        $this->foto_sippk->storeAs('dokter/foto_sippk', $this->foto_profil->getClientOriginalName(), 'public');
     }
 
     public function submitForm()
@@ -77,8 +78,7 @@ class SignupDokter extends Component
         ]);
 
         $this->successMessage = 'Daftar Berhasil';
-        $this->clearForm();
-        $this->currentStep = 1;
+        $this->currentStep = 4;
     }
 
     public function back($step)
@@ -103,5 +103,8 @@ class SignupDokter extends Component
         $this->no_strpk      = '';
         $this->foto_sippk    = '';
         $this->no_sippk      = '';
+
+        $this->successMessage = '';
+        $this->currentStep  = 1;
     }
 }

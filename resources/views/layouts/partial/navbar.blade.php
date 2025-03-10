@@ -17,29 +17,6 @@
             href="{{ route('konsultasi-index') }}">Konsultasi</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{ route('artikel-edukasi') }}">Artikel Edukasi</a></li>
-    {{-- <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6">
-        <div class="flex flex-col items-center">
-            <div class="flex items-center" id="artikelmenuButton">
-                <p class="text-sm">Artikel Edukasi</p><i class='text-lg bx bx-chevron-down'></i>
-            </div>
-            <div class="w-[280px] absolute top-[70px] grid bg-white h-max px-3 py-3 gap-1 z-10 rounded-xl hidden shadow-2xl"
-                id="artikelMenu">
-                <a href="{{route('artikel')}}"
-                    class="px-3 py-3 text-sm transition-all rounded-md text-hitam-600 hover:bg-biru-2 hover:text-biru-6">Umum</a>
-                <a href=""
-                    class="px-3 py-3 text-sm transition-all rounded-md text-hitam-600 hover:bg-biru-2 hover:text-biru-6">Burnout</a>
-                <a href=""
-                    class="px-3 py-3 text-sm transition-all rounded-md text-hitam-600 hover:bg-biru-2 hover:text-biru-6">Gangguan
-                    Mood</a>
-                <a href=""
-                    class="px-3 py-3 text-sm transition-all rounded-md text-hitam-600 hover:bg-biru-2 hover:text-biru-6">Depresi</a>
-                <a href=""
-                    class="px-3 py-3 text-sm transition-all rounded-md text-hitam-600 hover:bg-biru-2 hover:text-biru-6">Keluarga
-                    &
-                    Hubungan</a>
-            </div>
-        </div>
-    </li> --}}
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="">
             Konsultasi</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
@@ -55,7 +32,7 @@
                 <i class="text-3xl bx bx-chevron-down text-hitam-700"></i>
             </div>
 
-            <div class="absolute top-[75px] w-max bg-white rounded-xl hidden shadow-2xl z-10" id="profileMenu">
+            <div class="absolute top-[75px] w-max bg-white rounded-xl hidden h-max shadow-2xl z-10" id="profileMenu">
                 <div class="flex items-center flex-1 gap-2 p-3 border-b-2">
                     <div class="w-12 h-12 rounded-full bg-biru-6"></div>
                     <div class="flex-1 gap-1">
@@ -74,7 +51,7 @@
                         <i class='text-xl bx bx-history'></i><a href="">Riwayat</a>
                     </div>
                 </div>
-                <form action="{{ route('logout-user') }}" method="POST">
+                <form action="{{ route('logout-user') }}" class="flex items-center h-full" method="POST">
                     @csrf
                     <button
                         class="flex items-center gap-1 p-3 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
@@ -96,27 +73,23 @@
             <ul class="hidden bg-white dropdown-menu text-hitam-800 dropdown-open:opacity-100 min-w-60" role="menu"
                 aria-orientation="vertical" aria-labelledby="dropdown-default">
                 <li><a class="dropdown-item text-hitam-800" href="{{ route('login-user') }}"><span class="icon-[ix--customer-filled] text-2xl"></span> Pelanggan</a></li>
-                <li><a class="dropdown-item text-hitam-800" href="{{ route('login-user') }}"><span class="icon-[healthicons--doctor-24px] text-2xl"></span> Konselor</a></li>
-                <li><a class="dropdown-item text-hitam-800" href="{{ route('login-user') }}"><span class="icon-[eos-icons--admin] text-2xl"></span> Admin</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[healthicons--doctor-24px] text-2xl"></span> Konselor</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[eos-icons--admin] text-2xl"></span> Admin</a></li>
             </ul>
         </div>
         <div class="dropdown relative inline-flex rtl:[--placement:bottom-end]">
-            <button id="dropdown-default" type="button" class="text-white border-none rounded-full dropdown-toggle bg-biru-6 btn hover:bg-biru-5" aria-haspopup="menu"
+            <button id="dropdown-default" type="button" class="bg-white rounded-full text-biru-6 border-biru-6 dropdown-toggle btn hover:border-biru-6 hover:bg-biru-1" aria-haspopup="menu"
                 aria-expanded="false" aria-label="Dropdown">
                 Daftar
                 <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
             </button>
             <ul class="hidden bg-white dropdown-menu text-hitam-800 dropdown-open:opacity-100 min-w-60" role="menu"
                 aria-orientation="vertical" aria-labelledby="dropdown-default">
-                <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[ix--customer-filled] text-2xl"></span> Pelanggan</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="/daftar"><span class="icon-[ix--customer-filled] text-2xl"></span> Pelanggan</a></li>
                 <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[healthicons--doctor-24px] text-2xl"></span> Konselor</a></li>
                 <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[eos-icons--admin] text-2xl"></span> Admin</a></li>
             </ul>
         </div>
-        {{-- <button class="px-5 py-2 font-semibold border-2 rounded-full text-biru-6 border-biru-6 h-[45px] w-max"><a
-                href="{{ route('login-user') }}">Masuk</a></button>
-        <button class="px-5 py-2 font-semibold text-white rounded-full h-[45px] w-max bg-biru-6"><a
-                href="{{ route('signup-user') }}">Daftar</a></button> --}}
     </div>
 @endif
 </nav>

@@ -1,5 +1,17 @@
 @extends('layouts.app')
 
+@if (session('berhasil-login'))
+    <div id="berhasil-login" class="absolute z-50 p-3 rounded-md top-5 left-5 alert alert-success w-max">
+        {{ session('berhasil-login') }}
+    </div>
+@endif
+
+@if (session('berhasil-hapus'))
+    <div id="berhasil-hapus" class="absolute z-50 p-3 rounded-md top-5 left-5 alert alert-error w-max">
+        {{ session('berhasil-hapus') }}
+    </div>
+@endif
+
 @section('app-hero')
     <div class="flex flex-col items-center justify-center gap-4 h-[611px]">
         <p class="px-4 text-xl text-center rounded-full ring-2 ring-hitam-400 w-max">Sini Sehat, <span
@@ -23,4 +35,20 @@
                     href="{{ route('konsultasi-index') }}">Mulai Konsultasi</a></button>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        setTimeout(function() {
+            let loginAlert = document.getElementById('berhasil-login');
+            let hapusAlert = document.getElementById('berhasil-hapus');
+
+            if (loginAlert) {
+                loginAlert.style.display = 'none';
+            }
+            if (hapusAlert) {
+                hapusAlert.style.display = 'none';
+            }
+        }, 6000); // 6 detik
+    </script>
 @endsection

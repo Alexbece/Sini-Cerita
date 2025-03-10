@@ -21,7 +21,6 @@
         <div class="w-7/12 bg-white rounded-lg h-max card">
             <div class="w-full mt-2 card-body">
                 <livewire:signup-dokter>
-
             </div>
         </div>
     </div>
