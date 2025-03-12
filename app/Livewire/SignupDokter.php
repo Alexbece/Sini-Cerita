@@ -3,17 +3,18 @@
 namespace App\Livewire;
 
 use App\Models\Dokter;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use Livewire\Features\SupportFileUploads\WithFileUploads;
-
+use Livewire\WithFileUploads;
 
 class SignupDokter extends Component
 {
     use WithFileUploads;
+
     public $currentStep = 1;
-    public $nama_lengkap, $tanggal_lahir, $jenis_kelamin,
-        $alamat, $email, $no_telp, $password, $foto_profil, $foto_wajah, $foto_ktp, $foto_strpk, $no_strpk, $foto_sippk, $no_sippk;
+    public $nama_lengkap, $tanggal_lahir, $jenis_kelamin, $alamat, $email, $no_telp, $password;
+    public $foto_profil, $foto_wajah, $foto_ktp, $foto_ijazah, $foto_strpk, $no_strpk, $foto_sippk, $no_sippk;
     public $successMessage = '';
 
     public function render()
@@ -21,45 +22,74 @@ class SignupDokter extends Component
         return view('livewire.signup-dokter');
     }
 
+    protected $messages = [
+        'nama_lengkap.required'  => 'Nama lengkap wajib diisi!',
+        'tanggal_lahir.required' => 'Tanggal lahir wajib diisi!',
+        'tanggal_lahir.date'     => 'Format tanggal tidak valid!',
+        'jenis_kelamin.required' => 'Jenis kelamin wajib diisi!',
+        'alamat.required'        => 'Alamat wajib diisi!',
+        'email.required'         => 'Email wajib diisi!',
+        'email.email'            => 'Format email tidak valid!',
+        'email.unique'           => 'Email sudah terdaftar!',
+        'no_telp.required'       => 'Nomor telepon wajib diisi!',
+        'no_telp.regex'          => 'Nomor telepon hanya boleh berisi angka, spasi, tanda plus, tanda kurung, atau tanda hubung.',
+        'password.required'      => 'Password wajib diisi!',
+        'password.min'           => 'Password minimal 6 karakter!',
+        'foto_profil.required'   => 'Foto profil wajib diunggah!',
+        'foto_wajah.required'    => 'Foto wajah wajib diunggah!',
+        'foto_ktp.required'      => 'Foto KTP wajib diunggah!',
+        'foto_ijazah.required'   => 'Foto Ijazah terakhir wajib diunggah!',
+        'foto_strpk.required'    => 'Foto STRPK wajib diunggah!',
+        'no_strpk.required'      => 'Nomor STRPK wajib diisi!',
+        'foto_sippk.required'    => 'Foto SIPPK wajib diunggah!',
+        'no_sippk.required'      => 'Nomor SIPPK wajib diisi!',
+    ];
+
     public function firstStepSubmit()
     {
-
-        $this->validate([
-            'nama_lengkap'  => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required|in:Pria,Wanita',
-            'alamat'        => 'required',
-            'email'         => 'required|unique:dokter,email',
-            'no_telp'       => 'required',
-            'password'      => 'required|min:6',
-            'foto_profil'   => 'required|image|mimes:jpg,jpeg|max:2048',
-            'foto_wajah'    => 'required|image|mimes:jpg,jpeg|max:2048',
-            'foto_ktp'      => 'required|image|mimes:jpg,jpeg|max:2048',
-
-        ]);
+        $this->resetErrorBag();
+        $this->validate(
+            [
+                'nama_lengkap'  => 'required',
+                'tanggal_lahir' => 'required|date',
+                'jenis_kelamin' => 'required|in:Pria,Wanita',
+                'alamat'        => 'required',
+                'email'         => 'required|email|unique:dokter,email',
+                'no_telp'       => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/'],
+                'password'      => 'required|min:6',
+                'foto_profil'   => 'required|image|mimes:jpg,jpeg,png|max:2048',
+                'foto_wajah'    => 'required|image|mimes:jpg,jpeg,png|max:2048',
+                'foto_ktp'      => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            ]
+        );
 
         $this->currentStep = 2;
-        $this->foto_profil->storeAs('dokter/foto_profil', $this->foto_profil->getClientOriginalName(), 'public');
-        $this->foto_wajah->storeAs('dokter/foto_wajah', $this->foto_profil->getClientOriginalName(), 'public');
-        $this->foto_ktp->storeAs('dokter/foto_ktp', $this->foto_profil->getClientOriginalName(), 'public');
     }
+
 
     public function secondStepSubmit()
     {
         $this->validate([
-            'foto_strpk'    => 'required|image|mimes:jpg,jpeg|max:2048',
+            'foto_ijazah'   => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'foto_strpk'    => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'no_strpk'      => 'required',
-            'foto_sippk'    => 'required|image|mimes:jpg,jpeg|max:2048',
+            'foto_sippk'    => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'no_sippk'      => 'required',
         ]);
 
         $this->currentStep = 3;
-        $this->foto_strpk->storeAs('dokter/foto_strpk', $this->foto_profil->getClientOriginalName(), 'public');
-        $this->foto_sippk->storeAs('dokter/foto_sippk', $this->foto_profil->getClientOriginalName(), 'public');
     }
 
     public function submitForm()
     {
+        // Simpan file ke storage/public/dokter dan ambil path-nya
+        $path_foto_ijazah = $this->foto_ijazah->store('dokter/foto_ijazah', 'public');
+        $path_foto_profil = $this->foto_profil->store('dokter/foto_profil', 'public');
+        $path_foto_wajah = $this->foto_wajah->store('dokter/foto_wajah', 'public');
+        $path_foto_ktp = $this->foto_ktp->store('dokter/foto_ktp', 'public');
+        $path_foto_strpk = $this->foto_strpk->store('dokter/foto_strpk', 'public');
+        $path_foto_sippk = $this->foto_sippk->store('dokter/foto_sippk', 'public');
+
         Dokter::create([
             'nama_lengkap'  => $this->nama_lengkap,
             'tanggal_lahir' => $this->tanggal_lahir,
@@ -67,17 +97,21 @@ class SignupDokter extends Component
             'alamat'        => $this->alamat,
             'email'         => $this->email,
             'no_telp'       => $this->no_telp,
-            'password'      => $this->password,
-            'foto_profil'   => $this->foto_profil,
-            'foto_wajah'    => $this->foto_wajah,
-            'foto_ktp'      => $this->foto_ktp,
-            'foto_strpk'    => $this->foto_strpk,
+            'password'      => Hash::make($this->password), // Hash password
+            'foto_profil'   => $path_foto_profil,
+            'foto_wajah'    => $path_foto_wajah,
+            'foto_ktp'      => $path_foto_ktp,
+            'foto_ijazah'   => $path_foto_ijazah,
+            'foto_strpk'    => $path_foto_strpk,
             'no_strpk'      => $this->no_strpk,
-            'foto_sippk'    => $this->foto_sippk,
+            'foto_sippk'    => $path_foto_sippk,
             'no_sippk'      => $this->no_sippk,
         ]);
 
-        $this->successMessage = 'Daftar Berhasil';
+        $this->successMessage = 'Selamat! Akun Anda telah berhasil terdaftar di aplikasi kami.
+                                Mohon bersabar sementara kami memproses validasi akun Anda. Kami akan segera mengirimkan email
+                                konfirmasi setelah akun Anda berhasil diverifikasi oleh tim kami. Pastikan untuk memeriksa kotak
+                                masuk secara berkala. Terima kasih atas kesabaran Anda! 😊';
         $this->currentStep = 4;
     }
 
@@ -88,23 +122,25 @@ class SignupDokter extends Component
 
     public function clearForm()
     {
-
-        $this->nama_lengkap  = '';
-        $this->tanggal_lahir = '';
-        $this->jenis_kelamin = '';
-        $this->alamat        = '';
-        $this->email         = '';
-        $this->no_telp       = '';
-        $this->password      = '';
-        $this->foto_profil   = '';
-        $this->foto_wajah    = '';
-        $this->foto_ktp      = '';
-        $this->foto_strpk    = '';
-        $this->no_strpk      = '';
-        $this->foto_sippk    = '';
-        $this->no_sippk      = '';
-
-        $this->successMessage = '';
-        $this->currentStep  = 1;
+        $this->reset([
+            'nama_lengkap',
+            'tanggal_lahir',
+            'jenis_kelamin',
+            'alamat',
+            'email',
+            'no_telp',
+            'password',
+            'foto_profil',
+            'foto_wajah',
+            'foto_ktp',
+            'foto_ijazah',
+            'foto_strpk',
+            'no_strpk',
+            'foto_sippk',
+            'no_sippk',
+            'successMessage',
+            'currentStep'
+        ]);
+        $this->currentStep = 1;
     }
 }

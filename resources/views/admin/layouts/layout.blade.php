@@ -11,7 +11,6 @@
 <body class="bg-gray-100">
     <div class="flex bg-[#282332]">
         {{-- Sidebar --}}
-        @include('admin.partial.sidebar')
 
         <div class="grid w-full gap-10 bg-white h-max">
             <div class="flex justify-between w-full p-4 border-b-[1px]">

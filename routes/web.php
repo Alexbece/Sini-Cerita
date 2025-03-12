@@ -4,6 +4,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\OauthController;
+use App\Http\Controllers\ValidasiDokter;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\SignupDokter;
 
@@ -113,14 +114,6 @@ Route::get('/detail-konselor1', function () {
     return view('admin.konselor.detail-konselor');
 })->name('detail-konselor1  ');
 
-// ----- Pendaftaran
-Route::get('/pendaftaran-konselor', function () {
-    return view('admin.konselor.verifikasi-konselor.pendaftaran');
-})->name('pendaftaran');
-Route::get('/verifikasi-konselor', function () {
-    return view('admin.konselor.verifikasi-konselor.verifikasi');
-})->name('verifikasi');
-
 // ----- Klaim Saldo
 Route::get('/daftar-klaim', function () {
     return view('admin.konselor.klaim-saldo.daftar-klaim');
@@ -156,9 +149,6 @@ Route::get('/oauth/google/callback', [OauthController::class, 'callback']);
 Route::get('/signup-dokter', [function () {
     return view('components.layouts.app');
 }]);
-Route::get('/pendaftaran-konselor', [DokterController::class, 'showSignup'])->name('pendaftaran-konselor');
-Route::post('/pendaftaran-konselor', [DokterController::class, 'store'])->name('proses-pendaftaran-konselor');
-
 
 // PROFIL PASIEN
 Route::get('/profil-user', function () {
@@ -200,6 +190,14 @@ Route::get('/nama-tantangan-yoga', function () {
 Route::get('/dashboard-admin', function () {
     return view('client.admin.index');
 })->name('dashboard-admin');
+
+// KONSELOR
+// VALIDASI DATA KONSELOR
+Route::get('/dokter-terdaftar', [ValidasiDokter::class, 'index'])->name('dokter-terdaftar');
+Route::get('/verifikasi-dokter/{id}', [ValidasiDokter::class, 'show'])->name('validasidokter.show');
+Route::post('/verifikasi-dokter/{id}/approve', [ValidasiDokter::class, 'approve'])->name('validasidokter.approve');
+Route::post('/verifikasi-dokter/{id}', [ValidasiDokter::class, 'reject'])->name('validasidokter.reject');
+
 
 // ARTIKEL
 // LIST ARTIKEL

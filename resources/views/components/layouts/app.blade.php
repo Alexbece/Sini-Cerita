@@ -16,7 +16,7 @@
     @include('layouts.partial.link')
 </head>
 
-<body class="">
+<body class="min-h-svh">
     <div class="container flex items-center justify-center h-svh">
         <div class="w-7/12 bg-white rounded-lg h-max card">
             <div class="w-full mt-2 card-body">

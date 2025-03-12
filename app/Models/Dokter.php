@@ -22,10 +22,13 @@ class Dokter extends Model
         'foto_profil',
         'foto_wajah',
         'foto_ktp',
+        'jenis_dokter',
+        'foto_ijazah',
         'foto_strpk',
         'no_strpk',
         'foto_sippk',
         'no_sippk',
+        'status_validasi_data',
     ];
 
     protected $casts = [

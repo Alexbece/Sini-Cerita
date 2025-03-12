@@ -1,4 +1,4 @@
-@extends ('admin.layouts.layout')
+@extends ('client.admin.layouts.admin')
 
 @section('title', 'Pendaftaran Konselor')
 
@@ -36,100 +36,30 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($dokters as $dokter)
                     <tr>
-                        <td class="text-nowrap">Dr. John Doe S,Psi</td>
-                        <td><span class="text-xs badge badge-soft badge-success">Psikolog</span></td>
-                        <td>023480923</td>
+                        <td class="text-nowrap">{{ $dokter->nama_lengkap }}</td>
+                        <td><span class="text-xs badge badge-soft badge-success">{{ $dokter->jenis_dokter }}</span></td>
+                        <td>{{ $dokter->no_strpk }}</td>
                         <td>
-                            <a href="{{route('verifikasi')}}"
+                            <a href="{{route('validasidokter.show', $dokter->id)}}"
                                 class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat Detail</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="text-nowrap">Dr. Jane Smith S,Psi</td>
-                        <td><span class="text-xs badge badge-soft badge-primary">Psikiater</span></td>
-                        <td>264234323</td>
-                        <td>
-                            <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                Detail</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-nowrap">Dr. Alice Johnso S,Psi </td>
-                        <td><span class="text-xs badge badge-soft badge-success">Psikolog</span></td>
-                        <td>2034802374</td>
-                        <td>
-                            <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                Detail</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                        <td><span class="text-xs badge badge-soft badge-primary">Psikiater</span></td>
-                        <td>293472387</td>
-                        <td>
-                            <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                Detail</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                        <td><span class="text-xs badge badge-soft badge-primary">Psikiater</span></td>
-                        <td>293472387</td>
-                        <td>
-                            <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                Detail</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                        <td><span class="text-xs badge badge-soft badge-primary">Psikiater</span></td>
-                        <td>293472387</td>
-                        <td>
-                            <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                Detail</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                        <td><span class="text-xs badge badge-soft badge-primary">Psikiater</span></td>
-                        <td>293472387</td>
-                        <td>
-                            <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                Detail</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                        <td><span class="text-xs badge badge-soft badge-success">Psikolog</span></td>
-                        <td>293472387</td>
-                        <td>
-                            <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                Detail</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                        <td><span class="text-xs badge badge-soft badge-success">Psikolog</span></td>
-                        <td>293472387</td>
-                        <td>
-                            <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                Detail</button>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
     <nav class="flex items-center px-12 gap-x-1">
-        <button type="button" class="btn btn-text">Previous</button>
+        <button type="button" class="btn btn-text"><span class="icon-[akar-icons--chevron-left]"></span></button>
         <div class="flex items-center gap-x-1">
-            <button type="button" class="btn btn-text btn-square aria-[current='page']:text-bg-primary">1</button>
             <button type="button" class="btn btn-text btn-square aria-[current='page']:text-bg-primary"
-                aria-current="page"> 2 </button>
+                aria-current="page"> 1 </button>
+            <button type="button" class="btn btn-text btn-square aria-[current='page']:text-bg-primary">2</button>
             <button type="button" class="btn btn-text btn-square aria-[current='page']:text-bg-primary">3</button>
         </div>
-        <button type="button" class="btn btn-text">Next</button>
+        <button type="button" class="btn btn-text"><span class="icon-[akar-icons--chevron-right]"></span></button>
     </nav>
 </div>
 @endsection

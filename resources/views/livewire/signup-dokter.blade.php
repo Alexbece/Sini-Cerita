@@ -1,36 +1,41 @@
 <div>
-    @if (!empty($successMessage))
-        <div class="alert alert-success">
-            {{ $successMessage }}
-        </div>
-    @endif
     <div class="flex flex-col">
         <div class="flex items-center justify-around">
             <div class="flex items-center gap-2">
-                <a class="btn btn-circle {{ $currentStep != 1 ? 'btn bg-white hover:bg-white text-hitam-800 hover:text-hitam-800 border-biru-6 hover:border-biru-6' : 'btn bg-biru-6 hover:bg-biru-6  hover:text-white text-white border-none' }}"
-                    type="button" href="#step-1">1</a>
+                <button wire:click="$set('currentStep', 1)"
+                    class="btn btn-circle {{ $currentStep != 1 ? 'btn bg-white hover:bg-white text-hitam-800 hover:text-hitam-800 border-biru-6 hover:border-biru-6' : 'btn bg-biru-6 hover:bg-biru-6  hover:text-white text-white border-none' }}"
+                    type="button" href="#step-1">1</button>
                 <p class="text-hitam-800">Biodata</p>
             </div>
             <div class="flex items-center gap-2">
-                <a class="btn btn-circle {{ $currentStep != 2 ? 'btn bg-white hover:bg-white text-hitam-800 hover:text-hitam-800 border-biru-6 hover:border-biru-6' : 'btn bg-biru-6 hover:bg-biru-6  hover:text-white text-white border-none' }}"
-                    type="button" href="#step-2">2</a>
+                <button wire:click="$set('currentStep', 2)"
+                    class="btn btn-circle {{ $currentStep != 2 ? 'btn bg-white hover:bg-white text-hitam-800 hover:text-hitam-800 border-biru-6 hover:border-biru-6' : 'btn bg-biru-6 hover:bg-biru-6  hover:text-white text-white border-none' }}"
+                    type="button" href="#step-2">2</button>
                 <p class="text-hitam-800">Dokumen Kedokteran</p>
             </div>
             <div class="flex items-center gap-2">
-                <a class="btn btn-circle {{ $currentStep != 3 ? 'btn bg-white hover:bg-white text-hitam-800 hover:text-hitam-800 border-biru-6 hover:border-biru-6' : 'btn bg-biru-6 hover:bg-biru-6  hover:text-white text-white border-none' }}"
-                    type="button" href="#step-3" disabled="disabled">3</a>
+                <p class="btn btn-circle {{ $currentStep != 3 ? 'disabled btn bg-white hover:bg-white text-hitam-800 hover:text-hitam-800 border-biru-6 hover:border-biru-6' : 'btn bg-biru-6 hover:bg-biru-6  hover:text-white text-white border-none' }}"
+                    type="button" href="#step-3">3</p>
                 <p class="text-hitam-800">Submit</p>
             </div>
         </div>
 
-        <div class="{{ $currentStep != 1 ? 'hidden' : '' }} py-4 grid gap-3 setup-content" id="step-1">
+        <form wire:submit.prevent="firstStepSubmit"
+            class="{{ $currentStep != 1 ? 'hidden' : '' }} py-4 grid gap-3 setup-content">
             <h1 class="text-2xl font-bold text-center text-hitam-800">Step 1 - Biodata</h1>
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
                     <label class="label label-text text-hitam-800" for="nama_lengkap">Nama Lengkap </label>
-                    <input id="nama_lengkap" type="text" name="nama_lengkap" wire:model="nama_lengkap"
+                    <input id="nama_lengkap" type="text" name="nama_lengkap" wire:model.defer="nama_lengkap"
                         placeholder="Noel Gallagher" class="bg-white input text-hitam-800 focus:border-biru-6"
                         required />
+                    @error('nama_lengkap')
+                        <span class="label">
+                            <span class="label-text-alt">
+                                <p class="text-xs text-red-500">{{ $message }}</p>
+                            </span>
+                        </span>
+                    @enderror
                 </div>
                 <div>
                     <label class="label label-text text-hitam-800" for="tanggal_lahir">Tanggal Lahir</label>
@@ -45,8 +50,9 @@
                 </div>
                 <div>
                     <label class="label label-text text-hitam-800" for="email">Email</label>
-                    <input id="email" wire:model="email" type="email" name="email" placeholder="email@gmail.com"
-                        class="bg-white input text-hitam-800 focus:border-biru-6" required />
+                    <input id="email" wire:model="email" autocomplete="email" type="email" name="email"
+                        placeholder="email@gmail.com" class="bg-white input text-hitam-800 focus:border-biru-6"
+                        required />
                 </div>
                 <div>
                     <div class="label label-text text-hitam-800">Jenis Kelamin</div>
@@ -66,8 +72,9 @@
                 <div>
                     <label class="label label-text text-hitam-800" for="password">Password</label>
                     <div class="relative flex items-center w-full">
-                        <input id="toggle-password" name="password" wire:model="password" type="password" id="password"
-                            class="bg-white input text-hitam-800 focus:border-biru-6" placeholder="Enter password" />
+                        <input id="toggle-password" autocomplete="new-password" name="password" wire:model="password"
+                            type="password" id="password" class="bg-white input text-hitam-800 focus:border-biru-6"
+                            placeholder="Enter password" />
                         <span class="absolute right-2">
                             <button type="button" data-toggle-password='{ "target": "#toggle-password" }'
                                 class="block" aria-label="password toggle">
@@ -81,8 +88,9 @@
                 </div>
                 <div>
                     <label class="label label-text text-hitam-800" for="no_telp">Nomor Telepon</label>
-                    <input id="no_telp" wire:model="no_telp" type="no_telp" name="no_telp" placeholder="081122223333"
-                        class="bg-white input text-hitam-800 focus:border-biru-6" required />
+                    <input id="no_telp" wire:model="no_telp" type="no_telp" name="no_telp"
+                        placeholder="081122223333" class="bg-white input text-hitam-800 focus:border-biru-6"
+                        required />
                 </div>
                 <div>
                     <label class="label label-text text-hitam-800" for="foto_profil">Foto Profil</label>
@@ -100,14 +108,13 @@
                         class="bg-white border input text-hitam-800" required />
                 </div>
             </div>
-            <button class="text-white border-none btn bg-biru-6 hover:bg-biru-5" wire:click="firstStepSubmit"
-                type="button">Next</button>
-        </div>
+            <button class="text-white border-none btn bg-biru-6 hover:bg-biru-5" type="submit">Next</button>
+        </form>
     </div>
 
-    <div class="{{ $currentStep != 2 ? 'hidden' : '' }} py-4 setup-content" id="step-2">
+    <form wire:submit.prevent="secondStepSubmit" class="{{ $currentStep != 2 ? 'hidden' : '' }} py-4 setup-content">
         <h1 class="text-2xl font-bold text-center text-hitam-800">Step 2 - Dokumen Kedokteran</h1>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2">
             <div>
                 <label class="label label-text text-hitam-800" for="foto_strpk">Foto STRPK</label>
                 <input id="foto_strpk" wire:model="foto_strpk" name="foto_strpk" wire:model="foto_strpk"
@@ -128,15 +135,34 @@
                 <input id="no_sippk" wire:model="no_sippk" type="no_sippk" name="no_sippk" placeholder="No. STRPK"
                     class="bg-white input text-hitam-800 focus:border-biru-6" required />
             </div>
+            <div>
+                <label class="label label-text text-hitam-800" for="foto_ijazah">Foto Ijazah Pendidikan Terakhir</label>
+                <input id="foto_ijazah" wire:model="foto_ijazah" name="foto_ijazah" wire:model="foto_ijazah"
+                type="file" class="bg-white border input text-hitam-800" required />
+            </div>
+            <div>
+                <div class="label label-text text-hitam-800">Jenis Ahli Kesehatan Jiwa</div>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-1">
+                        <input type="radio" id="psikolog" wire:model="jenis_dokter" value="Psikolog"
+                            class="bg-white radio radio-info" required />
+                        <label class="text-base text-hitam-800 label label-text" for="psikolog">Psikolog</label>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <input type="radio" id="Psikiater" wire:model="jenis_dokter" value="Psikiater"
+                            class="bg-white radio radio-info" required />
+                        <label class="text-base label label-text text-hitam-800" for="Psikiater">Psikiater</label>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="items-center justify-between w-full mt-3">
             <button class="btn btn-danger pull-right" type="button" wire:click="back(1)">Back</button>
-            <button class="text-white border-none btn bg-biru-6 hover:bg-biru-5" wire:click="secondStepSubmit"
-                type="button">Next</button>
+            <button class="text-white border-none btn bg-biru-6 hover:bg-biru-5" type="submit">Next</button>
         </div>
-    </div>
+    </form>
 
-    <div class="{{ $currentStep != 3 ? 'hidden' : '' }} py-4" id="step-3">
+    <form wire:submit.prevent="submitForm" class="{{ $currentStep != 3 ? 'hidden' : '' }} py-4">
         <h1 class="text-2xl font-bold text-center text-hitam-800">Step 3 - Periksa Data</h1>
         <div class="grid w-full grid-cols-2 mt-4 gap-y-3 place-items-center">
             <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
@@ -196,11 +222,21 @@
                 <p class="text-hitam-800">: {{ $no_sippk }}</p>
             </div>
         </div>
-        <div class="w-full flex items-center justify-between mt-4">
+        <div class="flex items-center justify-between w-full mt-4">
             <button class="btn btn-danger nextBtn btn-lg pull-right" type="button"
                 wire:click="back(2)">Kembali</button>
             <button class="btn btn-success btn-lg pull-right" wire:click="submitForm" type="button">Submit</button>
         </div>
+    </form>
+    <div class="{{ $currentStep != 4 ? 'hidden' : '' }} py-4" id="step-3">
+        @if (!empty($successMessage))
+            <div class="bg-[#02CA4B] p-4 mt-4 rounded">
+                <h1 class="text-2xl font-semibold text-white">Daftar Berhasil</h1>
+                <p class="mt-3 font-light text-white">
+                    {{ $successMessage }}
+                </p>
+            </div>
+        @endif
     </div>
 </div>
 

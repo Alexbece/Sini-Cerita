@@ -24,13 +24,18 @@ return new class extends Migration
             $table->string('foto_profil');
             $table->string('foto_wajah');
             $table->string('foto_ktp');
+            $table->enum('jenis_dokter', ['Psikolog', 'Psikiater']);
 
             // DOKUMEN KEDOKTERAN
+            $table->string('foto_ijazah');
             $table->string('foto_strpk');
             $table->string('no_strpk')->unique();
             $table->string('foto_sippk');
             $table->string('no_sippk')->unique();
             $table->timestamps();
+
+            // STATUS VALIDASI DATA
+            $table->string('status_validasi_data')->default('pending');
         });
     }
 

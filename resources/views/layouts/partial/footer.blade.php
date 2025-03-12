@@ -10,12 +10,12 @@
     <div class="grid gap-6 w-max text-nowrap">
         <h5 class="font-semibold text-biru-6">Sitemap</h5>
         <div class="grid gap-3 list-none text-hitam-600 text-nowrap">
-            <li><a href="{{route('home')}}">Beranda</a></li>
-            <li><a href="{{route('page_konselor')}}">Konselor</a></li>
-            <li><a href="{{route('artikel')}}">Artikel Edukasi</a></li>
-            <li><a href="{{route('pagekonsultasi')}}">Konsultasi</a></li>
+            <li><a href="{{ route('home') }}">Beranda</a></li>
+            <li><a href="{{ route('page_konselor') }}">Konselor</a></li>
+            <li><a href="{{ route('artikel') }}">Artikel Edukasi</a></li>
+            <li><a href="{{ route('pagekonsultasi') }}">Konsultasi</a></li>
             <li><a href="">Tantangan</a></li>
-            <li><a href="{{route('tentangkami')}}">Tentang Kami</a></li>
+            <li><a href="{{ route('tentangkami') }}">Tentang Kami</a></li>
         </div>
     </div>
 

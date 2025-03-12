@@ -37,6 +37,7 @@
 body {
     background: #282332;
     font-family: var(--default-font);
+    min-height: 100vh;
 }
 
 p,

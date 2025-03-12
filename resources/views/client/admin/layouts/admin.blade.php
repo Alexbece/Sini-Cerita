@@ -13,7 +13,7 @@
         {{-- Sidebar --}}
         @include('client.admin.partial.sidebar')
 
-        <div class="grid w-full gap-10 bg-white h-max">
+        <div class="grid w-full gap-10 bg-white min-h-svh">
             <div class="flex justify-between w-full p-4 border-b-[1px]">
                 <div>
                     @yield('breadcrumbs')
@@ -21,7 +21,7 @@
                 @include ('client.admin.partial.topbar')
             </div>
             {{-- Konten utama --}}
-            <div class="bg-white h-svh">
+            <div class="bg-white min-h-svh">
                 @yield('content')
             </div>
         </div>
