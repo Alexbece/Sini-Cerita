@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DokterController;
 use App\Http\Controllers\OauthController;
 use App\Http\Controllers\ValidasiDokter;
 use Illuminate\Support\Facades\Route;
@@ -196,7 +195,7 @@ Route::get('/dashboard-admin', function () {
 Route::get('/dokter-terdaftar', [ValidasiDokter::class, 'index'])->name('dokter-terdaftar');
 Route::get('/verifikasi-dokter/{id}', [ValidasiDokter::class, 'show'])->name('validasidokter.show');
 Route::post('/verifikasi-dokter/{id}/approve', [ValidasiDokter::class, 'approve'])->name('validasidokter.approve');
-Route::post('/verifikasi-dokter/{id}', [ValidasiDokter::class, 'reject'])->name('validasidokter.reject');
+Route::post('/verifikasi-dokter/{id}/reject', [ValidasiDokter::class, 'reject'])->name('validasidokter.reject');
 
 
 // ARTIKEL

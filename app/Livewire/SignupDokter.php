@@ -4,7 +4,6 @@ namespace App\Livewire;
 
 use App\Models\Dokter;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 

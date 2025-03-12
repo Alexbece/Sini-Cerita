@@ -5,8 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class ValidasiDokter extends Mailable
@@ -19,7 +17,7 @@ class ValidasiDokter extends Mailable
     public function __construct($dokter, $status_validasi_data)
     {
         $this->dokter = $dokter;
-        $this->status_validasi_data = $status_validasi_data; // Sesuai dengan parameter yang diterima
+        $this->status_validasi_data = $status_validasi_data;
     }
 
 
@@ -27,49 +25,18 @@ class ValidasiDokter extends Mailable
     {
         if ($this->dokter->status_validasi_data == 'approved') {
             return $this->subject('Pendaftaran Anda telah disetujui!')
-                ->view('emails.dokter_approved') // Pastikan path konsisten
+                ->view('client.admin.konselor.verifikasi-konselor.email-content.dokter_approved')
                 ->with([
                     'nama' => $this->dokter->nama_lengkap,
-                    'login_url' => route('login'),
+                    'login_url' => route('login-user'),
                 ]);
         } else {
             return $this->subject('Pendaftaran Anda Ditolak')
-                ->view('emails.dokter_rejected')
+                ->view('client.admin.konselor.verifikasi-konselor.email-content.dokter_rejected')
                 ->with([
                     'nama' => $this->dokter->nama_lengkap,
-                    'register_url' => route('register'),
+                    'register_url' => route('signup-user'),
                 ]);
         }
-    }
-
-
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'Validasi Dokter',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ValidasiDokter as MailValidasiDokter;
 use App\Models\Dokter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ValidasiDokter extends Controller
 {
@@ -22,16 +24,21 @@ class ValidasiDokter extends Controller
 
     public function approve($id)
     {
-        $doctor = Dokter::findOrFail($id);
-        $doctor->status_validasi_data = 'approved';
-        $doctor->save();
+        $dokter = Dokter::findOrFail($id);
+        $dokter->status_validasi_data = 'approved';
+        $dokter->save();
+
+        Mail::to($dokter->email)->send(new MailValidasiDokter($dokter, 'approved'));
 
         return redirect()->route('dokter-terdaftar')->with('approve', 'Dokter berhasil diterima!');
     }
     public function reject($id)
     {
-        $doctor = Dokter::findOrFail($id);
-        $doctor->delete();
+        $dokter = Dokter::findOrFail($id);
+        
+        Mail::to($dokter->email)->send(new MailValidasiDokter($dokter, 'rejected'));
+        
+        $dokter->delete();
 
         return redirect()->route('dokter-terdaftar')->with('reject', 'Dokter berhasil ditolak!');
     }
