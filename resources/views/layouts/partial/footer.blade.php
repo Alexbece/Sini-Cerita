@@ -10,33 +10,33 @@
     <div class="grid gap-6 w-max text-nowrap">
         <h5 class="font-semibold text-biru-6">Sitemap</h5>
         <div class="grid gap-3 list-none text-hitam-600 text-nowrap">
-            <li><a href="{{ route('home') }}">Beranda</a></li>
-            <li><a href="{{ route('page_konselor') }}">Konselor</a></li>
-            <li><a href="{{ route('artikel') }}">Artikel Edukasi</a></li>
-            <li><a href="{{ route('pagekonsultasi') }}">Konsultasi</a></li>
-            <li><a href="">Tantangan</a></li>
-            <li><a href="{{ route('tentangkami') }}">Tentang Kami</a></li>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Konselor</a></li>
+            <li><a href="#">Artikel Edukasi</a></li>
+            <li><a href="#">Konsultasi</a></li>
+            <li><a href="#">Tantangan</a></li>
+            <li><a href="#">Tentang Kami</a></li>
         </div>
     </div>
 
     <div class="grid gap-6 w-max text-nowrap">
         <h5 class="font-semibold text-biru-6">Kategori Artikel</h5>
         <div class="grid gap-3 list-none text-hitam-600 text-nowrap">
-            <li><a href="">Umum</a></li>
-            <li><a href="">Burnout</a></li>
-            <li><a href="">Gangguan Mood</a></li>
-            <li><a href="">Depresi</a></li>
-            <li><a href="">Keluarga & Hubungan</a></li>
+            <li><a href="#">Umum</a></li>
+            <li><a href="#">Burnout</a></li>
+            <li><a href="#">Gangguan Mood</a></li>
+            <li><a href="#">Depresi</a></li>
+            <li><a href="#">Keluarga & Hubungan</a></li>
         </div>
     </div>
 
     <div class="grid gap-6 w-max text-nowrap place-content-start">
         <h5 class="font-semibold text-biru-6">Metode Pembayaran</h5>
         <div class="grid grid-cols-2 gap-2 list-none text-hitam-600 text-nowrap place-content-start">
-            <li><a href=""><i class='text-3xl bx bxl-paypal'></i></a></li>
-            <li><a href=""><i class='text-3xl bx bxl-paypal'></i></a></li>
-            <li><a href=""><i class='text-3xl bx bxl-paypal'></i></a></li>
-            <li><a href=""><i class='text-3xl bx bxl-paypal'></i></a></li>
+            <li><a href="#"><i class='text-3xl bx bxl-paypal'></i></a></li>
+            <li><a href="#"><i class='text-3xl bx bxl-paypal'></i></a></li>
+            <li><a href="#"><i class='text-3xl bx bxl-paypal'></i></a></li>
+            <li><a href="#"><i class='text-3xl bx bxl-paypal'></i></a></li>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-@extends ('admin.layouts.layout')
+@extends ('client.admin.layouts.admin')
 
 @section('title', 'Detail Konselor - Sini Cerita')
 
@@ -14,7 +14,7 @@
         </li>
         <li class="breadcrumbs-separator rtl:-rotate-[40deg] text-hitam-800">/</li>
         <li>
-            <a href="{{route('daftar-konselor')}}" class="text-hitam-800">Daftar Konselor</a>
+            <a href="" class="text-hitam-800">Daftar Konselor</a>
         </li>
         <li class="breadcrumbs-separator rtl:-rotate-[40deg] text-hitam-800">/</li>
         <li aria-current="page" class="text-hitam-800">Detail Konselor</li>

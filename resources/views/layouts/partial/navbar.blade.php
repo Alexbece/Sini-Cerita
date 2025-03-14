@@ -65,35 +65,40 @@
 @else
     <div class="flex items-center gap-2">
         <div class="dropdown relative inline-flex rtl:[--placement:bottom-end]">
-            <button id="dropdown-default" type="button" class="text-white border-none rounded-full dropdown-toggle bg-biru-6 btn hover:bg-biru-5" aria-haspopup="menu"
-                aria-expanded="false" aria-label="Dropdown">
+            <button id="dropdown-default" type="button"
+                class="text-white border-none rounded-full dropdown-toggle bg-biru-6 btn hover:bg-biru-5"
+                aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
                 Masuk
                 <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
             </button>
             <ul class="hidden bg-white dropdown-menu text-hitam-800 dropdown-open:opacity-100 min-w-60" role="menu"
                 aria-orientation="vertical" aria-labelledby="dropdown-default">
-                <li><a class="dropdown-item text-hitam-800" href="{{ route('login-user') }}"><span class="icon-[ix--customer-filled] text-2xl"></span> Pelanggan</a></li>
-                <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[healthicons--doctor-24px] text-2xl"></span> Konselor</a></li>
-                <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[eos-icons--admin] text-2xl"></span> Admin</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="/masuk"><span
+                            class="icon-[ix--customer-filled] text-2xl"></span> Pelanggan</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="/masuk-konselor"><span
+                            class="icon-[healthicons--doctor-24px] text-2xl"></span> Konselor</a></li>
             </ul>
         </div>
         <div class="dropdown relative inline-flex rtl:[--placement:bottom-end]">
-            <button id="dropdown-default" type="button" class="bg-white rounded-full text-biru-6 border-biru-6 dropdown-toggle btn hover:border-biru-6 hover:bg-biru-1" aria-haspopup="menu"
-                aria-expanded="false" aria-label="Dropdown">
+            <button id="dropdown-default" type="button"
+                class="bg-white rounded-full text-biru-6 border-biru-6 dropdown-toggle btn hover:border-biru-6 hover:bg-biru-1"
+                aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
                 Daftar
                 <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
             </button>
             <ul class="hidden bg-white dropdown-menu text-hitam-800 dropdown-open:opacity-100 min-w-60" role="menu"
                 aria-orientation="vertical" aria-labelledby="dropdown-default">
-                <li><a class="dropdown-item text-hitam-800" href="/daftar"><span class="icon-[ix--customer-filled] text-2xl"></span> Pelanggan</a></li>
-                <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[healthicons--doctor-24px] text-2xl"></span> Konselor</a></li>
-                <li><a class="dropdown-item text-hitam-800" href="#"><span class="icon-[eos-icons--admin] text-2xl"></span> Admin</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="/daftar"><span
+                            class="icon-[ix--customer-filled] text-2xl"></span> Pelanggan</a></li>
+                <li><a class="dropdown-item text-hitam-800" href="/daftar-dokter"><span
+                            class="icon-[healthicons--doctor-24px] text-2xl"></span> Konselor</a></li>
             </ul>
         </div>
     </div>
 @endif
 </nav>
 
+{{-- MOBILE --}}
 <div class="relative z-50 hidden navbar-menu">
     <div class="fixed inset-0 bg-gray-800 opacity-25 navbar-backdrop"></div>
     <nav
@@ -126,28 +131,28 @@
             <ul>
                 <li class="mb-1">
                     <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-6/70 hover:text-white"
-                        href="{{ route('home') }}">Beranda</a>
+                        href="">Beranda</a>
                 </li>
                 <li class="mb-1">
                     <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-6/70 hover:text-white"
-                        href="{{ route('page_konselor') }}">Konselor</a>
+                        href="">Konselor</a>
                 </li>
                 <li class="mb-1">
                     <div class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-6/70 hover:text-white"
-                        href="{{ route('artikel') }}">
+                        href="">
                         Artikel Edukasi</div>
                 </li>
                 <li class="mb-1">
                     <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-6/70 hover:text-white"
-                        href="{{ route('pagekonsultasi') }}">Konsultasi</a>
+                        href="">Konsultasi</a>
                 </li>
                 <li class="mb-1">
                     <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-6/70 hover:text-white"
-                        href="{{ route('tantangan') }}">Tantangan</a>
+                        href="">Tantangan</a>
                 </li>
                 <li class="mb-1">
                     <a class="block p-4 text-sm font-semibold rounded-2xl hover:bg-biru-6/70 hover:text-white"
-                        href="{{ route('tentangkami') }}">Tentang Kami</a>
+                        href="">Tentang Kami</a>
                 </li>
             </ul>
         </div>

@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            @include('pasien.konsultasi.list_konselor')
+            @include('client.pasien.konsultasi.list_konselor')
             
             <ul class="flex items-center justify-center w-full h-10 -space-x-px text-base">
                 <li>

@@ -30,7 +30,7 @@
                 <a class="collapse-toggle collapse-open:bg-base-content/10" id="menu-konselor"
                     data-collapse="#menu-konselor-collapse">
                     <span class="icon-[healthicons--doctor-24px] size-5"></span>
-                    Konselor
+                    Dokter Jiwa
                     <span
                         class="icon-[tabler--chevron-down] collapse-open:rotate-180 size-4 transition-all duration-300"></span>
                 </a>
@@ -38,9 +38,9 @@
                     class="collapse hidden w-auto overflow-hidden transition-[height] duration-300"
                     aria-labelledby="menu-konselor">
                     <li>
-                        <a href="{{ route('daftar-konselor') }}">
+                        <a href="{{ route('list-dokter') }}">
                             <span class="icon-[line-md--list] size-5"></span>
-                            Daftar Konselor
+                            Daftar Dokter Jiwa
                         </a>
                     </li>
                     <li>
@@ -50,52 +50,10 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('daftar-klaim') }}">
+                        <a href="{{ route('daftar-klaim-saldo') }}">
                             <span class="icon-[icon-park-outline--funds] size-5"></span>
                             Klaim Saldo
                         </a>
-                    </li>
-                    <li class="nested-collapse-wrapper">
-                        <a class="collapse-toggle nested-collapse" id="sub-menu-academy"
-                            data-collapse="#sub-menu-academy-collapse">
-                            <span class="icon-[tabler--book] size-5"></span>
-                            Academy
-                            <span class="icon-[tabler--chevron-down] collapse-icon size-4"></span>
-                        </a>
-                        <ul id="sub-menu-academy-collapse"
-                            class="collapse hidden w-auto overflow-hidden transition-[height] duration-300"
-                            aria-labelledby="sub-menu-academy">
-                            <li>
-                                <a href="#">
-                                    <span class="icon-[tabler--books] size-5"></span>
-                                    Courses
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="icon-[tabler--list-details] size-5"></span>
-                                    Course details
-                                </a>
-                            </li>
-                            <li class="nested-collapse-wrapper">
-                                <a class="collapse-toggle nested-collapse" id="sub-menu-academy-stats"
-                                    data-collapse="#sub-menu-academy-stats-collapse">
-                                    <span class="icon-[tabler--chart-bar] size-5"></span>
-                                    Stats
-                                    <span class="icon-[tabler--chevron-down] collapse-icon size-4"></span>
-                                </a>
-                                <ul id="sub-menu-academy-stats-collapse"
-                                    class="collapse hidden w-auto overflow-hidden transition-[height] duration-300"
-                                    aria-labelledby="sub-menu-academy-stats">
-                                    <li>
-                                        <a href="#">
-                                            <span class="icon-[tabler--chart-donut] size-5"></span>
-                                            Goals
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </li>
@@ -125,54 +83,6 @@
                             Tambah Artikel
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('daftar-klaim') }}">
-                            <span class="icon-[icon-park-outline--funds] size-5"></span>
-                            Klaim Saldo
-                        </a>
-                    </li>
-                    <li class="nested-collapse-wrapper">
-                        <a class="collapse-toggle nested-collapse" id="sub-menu-academy"
-                            data-collapse="#sub-menu-academy-collapse">
-                            <span class="icon-[tabler--book] size-5"></span>
-                            Academy
-                            <span class="icon-[tabler--chevron-down] collapse-icon size-4"></span>
-                        </a>
-                        <ul id="sub-menu-academy-collapse"
-                            class="collapse hidden w-auto overflow-hidden transition-[height] duration-300"
-                            aria-labelledby="sub-menu-academy">
-                            <li>
-                                <a href="#">
-                                    <span class="icon-[tabler--books] size-5"></span>
-                                    Courses
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="icon-[tabler--list-details] size-5"></span>
-                                    Course details
-                                </a>
-                            </li>
-                            <li class="nested-collapse-wrapper">
-                                <a class="collapse-toggle nested-collapse" id="sub-menu-academy-stats"
-                                    data-collapse="#sub-menu-academy-stats-collapse">
-                                    <span class="icon-[tabler--chart-bar] size-5"></span>
-                                    Stats
-                                    <span class="icon-[tabler--chevron-down] collapse-icon size-4"></span>
-                                </a>
-                                <ul id="sub-menu-academy-stats-collapse"
-                                    class="collapse hidden w-auto overflow-hidden transition-[height] duration-300"
-                                    aria-labelledby="sub-menu-academy-stats">
-                                    <li>
-                                        <a href="#">
-                                            <span class="icon-[tabler--chart-donut] size-5"></span>
-                                            Goals
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
             </li>
             <!-- All About Artikel Dropdown -->
@@ -184,45 +94,9 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('riwayat-konsultasi') }}">
+                <a href="">
                     <span class="icon-[fluent--people-chat-16-filled] size-5"></span>
                     Riwayat Konsultasi
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon-[tabler--message] size-5"></span>
-                    Notifications
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon-[tabler--mail] size-5"></span>
-                    Email
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon-[tabler--calendar] size-5"></span>
-                    Calendar
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon-[tabler--shopping-bag] size-5"></span>
-                    Product
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon-[tabler--login] size-5"></span>
-                    Sign In
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon-[tabler--logout-2] size-5"></span>
-                    Sign Out
                 </a>
             </li>
         </ul>

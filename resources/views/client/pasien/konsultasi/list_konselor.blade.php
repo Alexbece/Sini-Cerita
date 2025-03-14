@@ -42,7 +42,7 @@
                             <p class="text-sm text-black">Rp 75.000 / Jam</p>
                             <button
                                 class="px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-linear rounded-full bg-biru-6 hover:bg-biru-5 focus:outline-none">Lihat
-                                <a href="{{ route('detail-konselor') }}">Detail</a></button>
+                                <a href="{{ route('detail-dokter') }}">Detail</a></button>
                         </div>
                     </div>
                 </div>

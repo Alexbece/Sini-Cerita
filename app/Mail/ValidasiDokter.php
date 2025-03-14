@@ -28,14 +28,14 @@ class ValidasiDokter extends Mailable
                 ->view('client.admin.konselor.verifikasi-konselor.email-content.dokter_approved')
                 ->with([
                     'nama' => $this->dokter->nama_lengkap,
-                    'login_url' => route('login-user'),
+                    'login_url' => route('login-dokter'),
                 ]);
         } else {
             return $this->subject('Pendaftaran Anda Ditolak')
                 ->view('client.admin.konselor.verifikasi-konselor.email-content.dokter_rejected')
                 ->with([
                     'nama' => $this->dokter->nama_lengkap,
-                    'register_url' => route('signup-user'),
+                    'register_url' => route('signup-dokter'),
                 ]);
         }
     }

@@ -84,7 +84,7 @@
                         elit. Repudiandae
                         temporibus saepe
                         exercitationem voluptas asperiores.</p>
-                    <a href="{{ route('meditasi') }}"
+                    <a href=""
                         class="flex items-center mt-2 text-white border-none bg-biru-6 btn w-max">Lihat
                         Selengkapnya <span class=" text-lg icon-[ep--right]"></span></a>
                 </div>
@@ -100,7 +100,7 @@
                         elit. Repudiandae
                         temporibus saepe
                         exercitationem voluptas asperiores.</p>
-                    <a href="{{ route('rawat-diri') }}"
+                    <a href=""
                         class="flex items-center mt-2 text-white border-none bg-biru-6 btn w-max">Lihat
                         Selengkapnya <span class=" text-lg icon-[ep--right]"></span></a>
                 </div>

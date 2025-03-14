@@ -4,50 +4,62 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dokter;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
+use function Laravel\Prompts\password;
+
 class DokterController extends Controller
 {
-    public function showSignup()
+    public function showLoginDokter()
     {
-        return view('client.autentikasi.signup_dokter');
+        return view('client.autentikasi.login_dokter');
     }
 
     /**
      * Simpan data dokter.
      */
-    public function store(Request $request)
+    public function loginDokter(Request $request)
     {
-        dd($request->all());
-
-        $validatedData = $request->validate([
-            // Validasi Biodata
-            'nama_lengkap'  => 'required|string|max:255',
-            'tanggal_lahir' => 'required|date',
-            'jenis_kelamin' => 'required|in:pria,wanita',
-            'alamat'        => 'required|string',
-            'email'         => 'required|email|unique:dokter,email',
-            'no_telp'       => 'required|string',
-            'password'      => 'required|string|min:8',
-            'foto_profil'   => 'nullable|image|max:1024',
-            'foto_wajah'    => 'nullable|image|max:1024',
-            'foto_ktp'      => 'nullable|image|max:1024',
-
-            // Validasi Dokumen Kedokteran
-            'foto_strpk'    => 'nullable|image|max:1024',
-            'no_strpk'      => 'required|string|unique:dokter,no_strpk',
-            'strpk_expired' => 'required|date',
-            'foto_sippk'    => 'nullable|image|max:1024',
-            'no_sippk'      => 'required|string|unique:dokter,no_sippk',
+        $request->validate([
+            'no_strpk'  => 'required',
+            'email'     => 'required|email:rfc,dns',
+            'password'  => 'required|min:6',
+        ], [
+            'no_strpk.required' => 'No. STRPK wajib diisi!',
+            'email.required'    => 'Email wajib diisi!',
+            'email.email'       => 'Isi email dengan benar!',
+            'password.required' => 'Password wajib diisi!',
+            'password.min'      => 'Password memiliki minimal 6 huruf!',
         ]);
 
-        // Hash password sebelum menyimpan
-        $validatedData['password'] = bcrypt($validatedData['password']);
+        $dokter = Dokter::where('no_strpk', $request->no_strpk)->first();
 
-        // Simpan ke database
-        Dokter::create($validatedData);
+        if (!$dokter) {
+            return back()->withErrors([
+                'no_strpk' => 'No. STRPK tidak terdaftar!',
+            ])->onlyInput('no_strpk');
+        }
 
-        return redirect()->back()->with('message', 'Daftar Berhasil');
+        if (optional($dokter)->email !== $request->email) {
+            return back()->withErrors([
+                'email' => 'Email tidak sesuai dengan No. STRPK!',
+            ])->onlyInput('email');
+        }
+
+        if ($dokter->status_validasi_data === 'pending') {
+            return back()->withErrors([
+                'no_strpk' => 'Data anda belum diverifikasi oleh pihak kami!',
+            ])->onlyInput('no_strpk');
+        }
+
+        if (!Hash::check($request->password, $dokter->password)) {
+            return back()->withErrors([
+                'password' => 'Password salah!',
+            ])->onlyInput('email');
+        }
+
+        return redirect('/');
     }
 }
