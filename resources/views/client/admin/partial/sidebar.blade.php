@@ -87,10 +87,11 @@
             </li>
             <!-- All About Artikel Dropdown -->
 
+            {{-- Daftar User --}}
             <li>
-                <a href="#">
+                <a href="/list-user">
                     <span class="icon-[tabler--user] size-5"></span>
-                    Account
+                    Daftar User
                 </a>
             </li>
             <li>

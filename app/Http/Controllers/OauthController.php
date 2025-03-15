@@ -14,6 +14,7 @@ class OauthController extends Controller
         return Socialite::driver('google')->redirect();
     }
 
+
     public function callback()
     {
         $googleUser = Socialite::driver('google')->user();
@@ -26,8 +27,8 @@ class OauthController extends Controller
             ], [
                 'nama_lengkap'           => $googleUser->name,
                 'email'                  => $googleUser->email,
-                'no_telp'                => '',
-                'password'               => Hash::make('google@123'), // Password default; biasanya tidak digunakan untuk OAuth
+                'no_telp'                => null,
+                'password'               => Hash::make('google@123'),
                 'google_token'           => $googleUser->token,
                 'google_refresh_token'   => $googleUser->refreshToken,
             ]);

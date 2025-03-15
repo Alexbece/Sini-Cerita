@@ -6,7 +6,7 @@
 <div class="breadcrumbs">
     <ul>
         <li>
-            <a href="" class="cursor-pointer text-hitam-800">Beranda</a>
+            <p href="" class="cursor-pointer text-hitam-800">Beranda</p>
         </li>
         <li class="breadcrumbs-separator rtl:-rotate-[40deg] text-hitam-800">/</li>
         <li>
@@ -14,7 +14,7 @@
         </li>
         <li class="breadcrumbs-separator rtl:-rotate-[40deg] text-hitam-800">/</li>
         <li>
-            <a href="" class="text-hitam-800">Daftar Konselor</a>
+            <p href="" class="text-hitam-800">Daftar Konselor</p>
         </li>
         <li class="breadcrumbs-separator rtl:-rotate-[40deg] text-hitam-800">/</li>
         <li aria-current="page" class="text-hitam-800">Detail Konselor</li>

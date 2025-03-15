@@ -6,21 +6,21 @@
     <div class="breadcrumbs">
         <ul>
             <li>
-                <a href="" class="cursor-pointer text-hitam-800">Beranda</a>
+                <p href="" class="cursor-pointer text-hitam-800">Beranda</p>
             </li>
             <li class="breadcrumbs-separator rtl:-rotate-[40deg] text-hitam-800">/</li>
             <li>
-                <p class="cursor-default text-hitam-800">Konselor</p>
+                <p class="cursor-default text-hitam-800">Dokter Jiwa</p>
             </li>
             <li class="breadcrumbs-separator rtl:-rotate-[40deg] text-hitam-800">/</li>
-            <li aria-current="page" class="text-hitam-800">Daftar Konselor</li>
+            <li aria-current="page" class="text-hitam-800">Daftar Dokter</li>
         </ul>
     </div>
 @endsection
 
 @section('content')
     <div class="flex flex-col justify-between gap-3 pb-8">
-        <h1 class="px-12 text-4xl font-semibold mb-7 text-hitam-800">Daftar Konselor</h1>
+        <h1 class="px-12 text-4xl font-semibold mb-7 text-hitam-800">Daftar Dokter</h1>
         <div class="px-12">
             <div class="w-full overflow-x-auto rounded-lg border-[1px]">
                 <table class="table">

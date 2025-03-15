@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DaftarUserController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DokterController;
@@ -70,7 +71,7 @@ Route::get('/nama-tantangan-yoga', function () {
     return view('client.pasien.tantangan.yoga.page_tantangan');
 })->name('page-tantangan-yoga');
 
-// ADMIN
+// -------------------- ADMIN
 // DASHBOARD ADMIN
 Route::get('/dashboard-admin', function () {
     return view('client.admin.index');
@@ -101,3 +102,7 @@ Route::delete('/daftar-artikel/{id_artikel}', [ArtikelController::class, 'delete
 // ADD ARTIKEL
 Route::get('/tambah-artikel', [ArtikelController::class, 'showAdmin'])->name('add-artikel');
 Route::post('/tambah-artikel', [ArtikelController::class, 'addArtikel'])->name('proses-add-artikel');
+
+// DAFTAR USER
+Route::get('/list-user', [DaftarUserController::class, 'show']);
+Route::delete('/list-user/{id}', [DaftarUserController::class, 'deleteUser'])->name('user.delete');
