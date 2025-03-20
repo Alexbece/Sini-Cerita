@@ -4,7 +4,7 @@
 
 <body>
     <nav class="relative flex items-center justify-between px-8 py-4 bg-white shadow-lg rounded-[20px] w-full">
-        @include ('components.navbarKonselor')
+        @include ('layouts.partial.navbar')
     </nav>
 
     <div class="bg-white rounded-[20px] mt-10 lg:flex grid overflow-hidden py-6 px-6 gap-8">
@@ -12,11 +12,11 @@
         <div class="grid h-full grid-cols-2 gap-4 lg:flex lg:flex-col border-hitam-100 w-[200px]">
             <div class="px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer text-biru-6 bg-hitam-50 hover:text-biru-6 w-max"
                 id="identitasButton">
-                <a href="{{route('profil-konselor')}}">Profil Saya</a>
+                <a href="">Profil Saya</a>
             </div>
             <div
                 class="px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer hover:text-biru-6 w-max">
-                <a href="{{route('keuangan-konselor')}}">Keuangan</a>
+                <a href="">Keuangan</a>
             </div>
             <div class="hidden px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer lg:block hover:text-biru-6 w-max"
                 id="modalkeluarButton">

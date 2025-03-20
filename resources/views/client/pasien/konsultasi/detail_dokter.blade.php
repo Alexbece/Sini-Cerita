@@ -6,11 +6,14 @@
     <section class="container-profil px-4 py-4 w-full h-max bg-white rounded-[20px] grid gap-2">
         <div class="grid w-full gap-4 lg:flex h-max">
             <div class="flex gap-4 lg:w-[500px] w-full place-items-center bg-hitam-50 rounded-xl p-4">
-                <img src="{{ asset('client/img/foto_dokter/foto_doctor_1.jpg') }}" alt=""
+                <img src="{{ asset('storage/'. $dokter->foto_profil) }}" alt=""
                     class="rounded-lg object-center object-cover w-110px] h-[150px] border-2 top-0 p-1 border-biru-6">
                 <div>
-                    <h1 class="text-xl font-semibold text-hitam-900">Dr. Peri S,Psi.</h1>
-                    <p class="text-hitam-500">Psikiater</p>
+                    @php
+                        $gelar = $dokter->jenis_dokter === 'Psikolog' ? 'S.Psi' : 'Sp.KJ';
+                    @endphp
+                    <h1 class="text-xl font-semibold text-hitam-900">dr. {{ $dokter->nama_lengkap }} {{ $gelar }}</h1>
+                    <p class="text-hitam-500">{{ $dokter->jenis_dokter }}</p>
                     <div class="flex items-center gap-2 px-2 py-1 mt-2 text-white rounded-lg h-max w-max bg-biru-6">
                         <i class=" bx bx-like"></i>
                         <p class="">100%</p>
@@ -18,26 +21,36 @@
                 </div>
             </div>
 
-            <div class="grid w-full gap-3 p-4 bg-hitam-50 rounded-xl">
-                <div class="grid grid-cols-3">
+            <div class="grid w-full grid-cols-2 gap-3 p-4 bg-hitam-50 rounded-xl">
+                <div class="grid grid-cols-[150px,8px,1fr]">
                     <p class="text-hitam-800">Nama lengkap</p>
-                    <p class="text-hitam-800">Achmad Ferry Setiawan</p>
+                    <p>:</p>
+                    <p class="text-hitam-800">{{ $dokter->nama_lengkap }}</p>
                 </div>
-                <div class="grid grid-cols-3">
-                    <p class="text-hitam-800">Nomor STR</p>
-                    <p class="text-hitam-800">01298409123</p>
+                <div class="grid grid-cols-[150px,8px,1fr]">
+                    <p class="text-hitam-800">Nomor STRPK</p>
+                    <p>:</p>
+                    <p class="text-hitam-800">{{ $dokter->no_strpk }}</p>
                 </div>
-                <div class="grid grid-cols-3">
+                <div class="grid grid-cols-[150px,8px,1fr]">
+                    <p class="text-hitam-800">Nomor SIPPK</p>
+                    <p>:</p>
+                    <p class="text-hitam-800">{{ $dokter->no_sippk }}</p>
+                </div>
+                <div class="grid grid-cols-[150px,8px,1fr]">
                     <p class="text-hitam-800">Spesialis</p>
-                    <p class="text-hitam-800">Psikolog</p>
+                    <p>:</p>
+                    <p class="text-hitam-800">{{ $dokter->jenis_dokter }}</p>
                 </div>
-                <div class="grid grid-cols-3">
-                    <p class="text-hitam-800">Pengalaman</p>
-                    <p class="text-hitam-800">18 Tahun</p>
+                <div class="grid grid-cols-[150px,8px,1fr]">
+                    <p class="text-hitam-800">Jenis Kelamin</p>
+                    <p>:</p>
+                    <p class="text-hitam-800">{{ $dokter->jenis_kelamin }}</p>
                 </div>
-                <div class="grid grid-cols-3">
+                <div class="grid grid-cols-[150px,8px,1fr]">
                     <p class="text-hitam-800">Harga layanan</p>
-                    <p class="text-hitam-800">Rp 75.000 / Jam</p>
+                    <p>:</p>
+                    <p class="text-hitam-800">Rp {{ $dokter->harga_layanan }} / Jam</p>
                 </div>
             </div>
         </div>
@@ -289,8 +302,8 @@
             <div class="bg-white modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title text-hitam-800">Ulasan Lengkap</h3>
-                    <button type="button" class="absolute btn btn-text btn-circle btn-sm end-3 top-3"
-                        aria-label="Close" data-overlay="#BacaUlasanLengkap">
+                    <button type="button" class="absolute btn btn-text btn-circle btn-sm end-3 top-3" aria-label="Close"
+                        data-overlay="#BacaUlasanLengkap">
                         <span class="icon-[tabler--x] size-4"></span>
                     </button>
                 </div>

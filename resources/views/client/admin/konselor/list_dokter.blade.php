@@ -1,6 +1,6 @@
-@extends('client.admin.layouts.admin') {{-- Gunakan layout utama --}}
+@extends('client.admin.layouts.admin')
 
-@section('title', 'Daftar Konselor - Sini Cerita') {{-- Ganti title --}}
+@section('title', 'Daftar Konselor - Sini Cerita')
 
 @section('breadcrumbs')
     <div class="breadcrumbs">
@@ -28,115 +28,39 @@
                         <tr>
                             <th>Nama</th>
                             <th>Spesialis</th>
-                            <th>Nomor STR</th>
-                            <th>Jumlah Saldo</th>
+                            <th>Nomor STRPK</th>
+                            <th>Status Validasi</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="text-nowrap">Dr. John Doe S,Psi</td>
-                            <td><span class="text-xs badge badge-soft badge-success">Psikolog</span></td>
-                            <td>023480923</td>
-                            <td class="text-nowrap">Rp. 2.000.000,00</td>
-                            <td>
-                                <a href="{{ route('detail-dokter') }}"
-                                    class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat Detail</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">Dr. Jane Smith S,Psi</td>
-                            <td><span class="text-xs badge badge-soft badge-primary">Psikiater</span></td>
-                            <td>264234323</td>
-                            <td class="text-nowrap">Rp. 2.000.000,00</td>
-                            <td>
-                                <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                    Detail</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">Dr. Alice Johnso S,Psi </td>
-                            <td><span class="text-xs badge badge-soft badge-success">Psikolog</span></td>
-                            <td>2034802374</td>
-                            <td class="text-nowrap">Rp. 2.000.000,00</td>
-                            <td>
-                                <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                    Detail</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                            <td><span class="text-xs badge badge-soft badge-primary">Psikiater</span></td>
-                            <td>293472387</td>
-                            <td class="text-nowrap">Rp. 2.000.000,00</td>
-                            <td>
-                                <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                    Detail</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                            <td><span class="text-xs badge badge-soft badge-primary">Psikiater</span></td>
-                            <td>293472387</td>
-                            <td class="text-nowrap">Rp. 2.000.000,00</td>
-                            <td>
-                                <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                    Detail</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                            <td><span class="text-xs badge badge-soft badge-primary">Psikiater</span></td>
-                            <td>293472387</td>
-                            <td class="text-nowrap">Rp. 2.000.000,00</td>
-                            <td>
-                                <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                    Detail</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                            <td><span class="text-xs badge badge-soft badge-primary">Psikiater</span></td>
-                            <td>293472387</td>
-                            <td class="text-nowrap">Rp. 2.000.000,00</td>
-                            <td>
-                                <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                    Detail</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                            <td><span class="text-xs badge badge-soft badge-success">Psikolog</span></td>
-                            <td>293472387</td>
-                            <td class="text-nowrap">Rp. 2.000.000,00</td>
-                            <td>
-                                <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                    Detail</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-nowrap">Dr. Bob Brown S,Psi</td>
-                            <td><span class="text-xs badge badge-soft badge-success">Psikolog</span></td>
-                            <td>293472387</td>
-                            <td class="text-nowrap">Rp. 2.000.000,00</td>
-                            <td>
-                                <button class="text-white border-none btn btn-sm bg-accent hover:bg-accent/80">Lihat
-                                    Detail</button>
-                            </td>
-                        </tr>
+                        @foreach ($dokters as $dokter)
+                            <tr>
+                                <td class="text-nowrap">{{ $dokter->nama_lengkap }}</td>
+                                <td><span class="text-xs badge badge-soft badge-success">{{ $dokter->jenis_dokter }}</span>
+                                </td>
+                                <td>{{ $dokter->no_strpk }}</td>
+                                <td class="text-nowrap">{{ $dokter->status_validasi_data }}</td>
+                                <td class="flex items-center gap-2">
+                                    <button
+                                        class="w-10 h-10 text-white border-none btn btn-sm bg-accent hover:bg-accent/80"><span
+                                            class="icon-[mdi--pencil]"></span></button>
+                                    <a href="{{ route('detail-dokter', $dokter->id) }}"
+                                        class="w-10 h-10 text-white border-none btn btn-sm bg-warning hover:bg-warning/80">
+                                        <span class="icon-[mdi--eye]"></span>
+                                    </a>
+                                    <button
+                                        class="w-10 h-10 text-white border-none btn btn-sm bg-error hover:bg-error/80"><span
+                                            class="size-5 icon-[material-symbols--delete]"></span></button>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        <nav class="flex items-center px-12 gap-x-1">
-            <button type="button" class="btn btn-text">Previous</button>
-            <div class="flex items-center gap-x-1">
-                <button type="button" class="btn btn-text btn-square aria-[current='page']:text-bg-primary">1</button>
-                <button type="button" class="btn btn-text btn-square aria-[current='page']:text-bg-primary"
-                    aria-current="page"> 2 </button>
-                <button type="button" class="btn btn-text btn-square aria-[current='page']:text-bg-primary">3</button>
-            </div>
-            <button type="button" class="btn btn-text">Next</button>
-        </nav>
+        <div class="w-full px-12">
+            {!! $dokters->links() !!}
+        </div>
     </div>
 @endsection

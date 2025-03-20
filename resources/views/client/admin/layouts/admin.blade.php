@@ -28,6 +28,7 @@
     </div>
 
     @include('client.admin.partial.script') {{-- Script & JS --}}
+    @yield('script')
 </body>
 
 </html>

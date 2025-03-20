@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
+            $table->string('foto_profil')->nullable();
             $table->string('no_telp', 20)->nullable();
             $table->string('email', 100)->unique();
             $table->string('password');
             $table->string('google_id')->nullable();
             $table->string('google_token')->nullable();
             $table->string('google_refresh_token')->nullable();
-            $table->enum('role', ['pasien', 'admin', 'dokter'])->default('pasien');
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

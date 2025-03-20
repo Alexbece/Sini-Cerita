@@ -28,13 +28,20 @@
     <div class="hidden lg:flex">
         <div class="grid place-items-end">
             <div id="profilemenuButton" class="flex items-center gap-1 cursor-pointer">
-                <div class="rounded-full w-9 h-9 bg-biru-6"></div>
+                <div class="overflow-hidden rounded-full w-9 h-9">
+                    <img class="object-center " src="{{ asset('storage/' . Auth::user()->foto_profil) }}"
+                        alt="">
+                </div>
                 <i class="text-3xl bx bx-chevron-down text-hitam-700"></i>
             </div>
 
-            <div class="absolute top-[75px] w-max bg-white rounded-xl hidden h-max shadow-2xl z-10" id="profileMenu">
+            <div class="absolute top-[75px] min-w-max bg-white rounded-xl hidden h-max shadow-2xl z-10"
+                id="profileMenu">
                 <div class="flex items-center flex-1 gap-2 p-3 border-b-2">
-                    <div class="w-12 h-12 rounded-full bg-biru-6"></div>
+                    <div class="w-12 h-12 overflow-hidden rounded-full">
+                        <img class="object-center " src="{{ asset('storage/' . Auth::user()->foto_profil) }}"
+                            alt="">
+                    </div>
                     <div class="flex-1 gap-1">
                         <h3 class="text-base font-semibold text-hitam-800">{{ Auth::user()->nama_lengkap }}</h3>
                         <p class="text-xs font-normal text-hitam-600">{{ Auth::user()->email }}</p>
@@ -105,8 +112,8 @@
         class="fixed top-0 bottom-0 left-0 flex flex-col w-5/6 max-w-sm gap-4 px-6 py-6 overflow-y-auto bg-white border-r">
         <div class="flex items-center">
             <button class="navbar-close">
-                <svg class="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
                     </path>
                 </svg>

@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('dokter', function (Blueprint $table) {
             // BIODATA DOKTER
             $table->id();
+            $table->string('status')->default('offline');
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->string('nama_lengkap');
             $table->date('tanggal_lahir');
             $table->enum('jenis_kelamin', ['Pria', 'Wanita']);
@@ -32,6 +35,7 @@ return new class extends Migration
             $table->string('no_strpk')->unique();
             $table->string('foto_sippk');
             $table->string('no_sippk')->unique();
+            $table->integer('harga_layanan');
             $table->timestamps();
 
             // STATUS VALIDASI DATA

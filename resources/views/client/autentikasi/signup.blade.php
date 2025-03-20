@@ -58,7 +58,7 @@
                                 </span>
                             </div>
                             <div class="relative w-full">
-                                <input id="password" type="password" autocomplete="new-password" name="password"
+                                <input id="password" type="password" autocomplete="off" name="password"
                                     placeholder="Password"
                                     class="font-raleway w-full rounded-md py-[8px] font-light text-hitam-800 text-sm border-[1px] border-hitam-200 px-3 pr-10 bg-transparent focus:outline-none">
                                 <i id="togglePassword"

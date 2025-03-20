@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\DaftarDokterController;
 use App\Http\Controllers\Admin\DaftarUserController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\Konsultasi\KonsultasiController;
 use App\Http\Controllers\OauthController;
 use App\Http\Controllers\ValidasiDokter;
 use Illuminate\Support\Facades\Route;
@@ -40,23 +42,18 @@ Route::post('/masuk-dokter', [DokterController::class, 'loginDokter'])->name('pr
 Route::get('/profil-user', function () {
     return view('client.pasien.profil.index');
 })->name('profil-user');
+Route::post('/profil-user', [AuthController::class, 'updateProfile'])->name('update-profil.user');
 Route::get('/hapus-akun-user', [AuthController::class, 'deleteAccount'])->name('hapus-akun');
-
 
 // KONSULTASI
 // LIST KONSELOR
-Route::get('/konsultasi', function () {
-    return view('client.pasien.konsultasi.index');
-})->name('konsultasi-index');
-// DETAIL KONSELOR
-Route::get('/detail-dokter', function () {
-    return view('client.admin.konselor.detail_dokter');
-})->name('detail-dokter');
+Route::get('/konsultasi', [KonsultasiController::class, 'index'])->name('konsultasi-index');
+// DETAIL DOKTER
+Route::get('/konsultasi/detail-dokter-jiwa/{id}', [KonsultasiController::class, 'detailDokter'])->name('detail.dokter');
 
 // ARTIKEL EDUKASI
 Route::get('/artikel-edukasi', [ArtikelController::class, 'showPasien'])->name('artikel-edukasi');
-Route::get('/artikel/{id_artikel}', [ArtikelController::class, 'Artikel'])->name('app-artikel');
-
+Route::get('/list-artikel/{id_artikel}', [ArtikelController::class, 'listArtikel'])->name('app-artikel');
 
 // TANTANGAN
 Route::get('/tantangan', function () {
@@ -79,9 +76,9 @@ Route::get('/dashboard-admin', function () {
 
 // KONSELOR
 // DAFTAR KONSELOR
-Route::get('/list-dokter', function () {
-    return view('client.admin.konselor.list_dokter');
-})->name('list-dokter');
+Route::get('/list-dokter', [DaftarDokterController::class, 'show'])->name('list-dokter');
+// DETAIL KONSELOR
+Route::get('/detail-dokter/{id_dokter}', [DaftarDokterController::class, 'detailDokter'])->name('detail-dokter');
 
 // VALIDASI DATA KONSELOR
 Route::get('/dokter-terdaftar', [ValidasiDokter::class, 'index'])->name('dokter-terdaftar');
@@ -106,3 +103,12 @@ Route::post('/tambah-artikel', [ArtikelController::class, 'addArtikel'])->name('
 // DAFTAR USER
 Route::get('/list-user', [DaftarUserController::class, 'show']);
 Route::delete('/list-user/{id}', [DaftarUserController::class, 'deleteUser'])->name('user.delete');
+
+// TANTANGAN
+Route::get('/list-tantangan', function () {
+    return view('client.admin.tantangan.index');
+})->name('list-tantangan');
+
+Route::get('/profildokter', function () {
+    return view('client.profil.profil_konselor.index');
+});

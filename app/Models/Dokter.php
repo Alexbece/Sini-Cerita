@@ -12,7 +12,9 @@ class Dokter extends Model
 
 
     protected $fillable = [
+        'id',
         'nama_lengkap',
+        'role_id',
         'tanggal_lahir',
         'jenis_kelamin',
         'alamat',
@@ -29,9 +31,15 @@ class Dokter extends Model
         'foto_sippk',
         'no_sippk',
         'status_validasi_data',
+        'harga_layanan'
     ];
 
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
 }

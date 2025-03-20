@@ -13,7 +13,7 @@ class SignupDokter extends Component
 
     public $currentStep = 1;
     public $nama_lengkap, $tanggal_lahir, $jenis_kelamin, $alamat, $email, $no_telp, $password;
-    public $foto_profil, $foto_wajah, $foto_ktp, $foto_ijazah, $foto_strpk, $no_strpk, $foto_sippk, $no_sippk;
+    public $foto_profil, $foto_wajah, $foto_ktp, $foto_ijazah, $foto_strpk, $no_strpk, $foto_sippk, $no_sippk, $harga_layanan;
     public $successMessage = '';
 
     public function render()
@@ -54,7 +54,7 @@ class SignupDokter extends Component
                 'jenis_kelamin' => 'required|in:Pria,Wanita',
                 'alamat'        => 'required',
                 'email'         => 'required|email|unique:dokter,email',
-                'no_telp'       => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/'],
+                'no_telp'       => ['required', 'regex:/^[0-9]+$/'],
                 'password'      => 'required|min:6',
                 'foto_profil'   => 'required|image|mimes:jpg,jpeg,png|max:2048',
                 'foto_wajah'    => 'required|image|mimes:jpg,jpeg,png|max:2048',
@@ -71,9 +71,10 @@ class SignupDokter extends Component
         $this->validate([
             'foto_ijazah'   => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'foto_strpk'    => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'no_strpk'      => 'required',
+            'no_strpk'      => 'required|unique:dokter,no_strpk',
             'foto_sippk'    => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'no_sippk'      => 'required',
+            'no_sippk'      => 'required|unique:dokter,no_sippk',
+            'harga_layanan' => 'required',
         ]);
 
         $this->currentStep = 3;
@@ -105,6 +106,8 @@ class SignupDokter extends Component
             'no_strpk'      => $this->no_strpk,
             'foto_sippk'    => $path_foto_sippk,
             'no_sippk'      => $this->no_sippk,
+            'harga_layanan'      => $this->harga_layanan,
+            'role_id'       => 2,
         ]);
 
         $this->successMessage = 'Selamat! Akun Anda telah berhasil terdaftar di aplikasi kami.
@@ -137,6 +140,7 @@ class SignupDokter extends Component
             'no_strpk',
             'foto_sippk',
             'no_sippk',
+            'harga_layanan',
             'successMessage',
             'currentStep'
         ]);

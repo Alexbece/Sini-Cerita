@@ -19,14 +19,16 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'nama_lengkap',
+        'foto_profil',
         'no_telp',
         'email',
         'password',
         'google_id',
         'google_token',
         'google_refresh_token',
+        'role_id',
     ];
-    
+
     /**
      * Get the attributes that should be cast.
      *
@@ -37,5 +39,10 @@ class User extends Authenticatable
         return [
             'password' => 'hashed',
         ];
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
     }
 }

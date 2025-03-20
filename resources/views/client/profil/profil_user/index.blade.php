@@ -27,10 +27,6 @@
 
         <div class="h-auto w-[2px] hidden lg:block bg-hitam-100"></div>
 
-        <div id="contentArea" class="w-full">
-
-        </div>
-
         <div class="flex items-center gap-3 lg:hidden ">
             <div class="px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer hover:text-biru-6 text-hitam-700 w-max"
                 id="modalkeluarButton">Keluar</div>
@@ -43,7 +39,7 @@
     <!-- Edit Profil -->
     <div class="fixed inset-0 flex items-center justify-center hidden w-screen h-screen sign_out bg-hitam-800/40"
         id="editModal">
-        <div class="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded-lg h-max w-max">
+        <div class="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded-lg h-max w-max">   
             <div class="grid mb-2 text-center place-items-center">
                 <img src="{{asset('client/img/foto_dokter/foto_doctor_1.jpg')}}" alt=""
                     class="object-cover object-top w-20 h-20 mb-4 border-2 rounded-full shadow-lg border-biru-6">
