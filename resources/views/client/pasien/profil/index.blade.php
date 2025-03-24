@@ -32,7 +32,8 @@
                     class="flex items-center justify-between w-full gap-4 p-6 mt-4 border-2 h-max border-hitam-100 rounded-xl">
                     <div class="flex items-center gap-4">
                         <img class="object-cover object-top w-20 h-20 border-2 rounded-full shadow-lg border-biru-6"
-                            src="{{ asset('client/img/foto_dokter/foto_doctor_1.jpg') }}" alt="">
+                            src="{{ Str::startsWith(Auth::user()->foto_profil, ['http', 'https']) ? Auth::user()->foto_profil : asset('storage/' . Auth::user()->foto_profil) }}"
+                            alt="">
                         <div class="flex flex-col">
                             <h4 class="text-xl font-semibold text-hitam-800">{{ Auth::user()->nama_lengkap }}</h4>
                             <p class="text-sm font-semibold text-hitam-400">
@@ -74,11 +75,7 @@
                             </div>
                         </div>
 
-
                     </div>
-                    <button
-                        class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Edit
-                        <i class="transform translate-y-[1px] bx bx-pencil"></i></button>
                 </div>
             </div>
 
@@ -97,7 +94,8 @@
         id="editModal">
         <div class="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded-lg h-max w-max">
             <div class="grid text-center place-items-center">
-                <img src="{{ asset('storage/' . Auth::user()->foto_profil) }}" alt=""
+                <img src="{{ Str::startsWith(Auth::user()->foto_profil, ['http', 'https']) ? Auth::user()->foto_profil : asset('storage/' . Auth::user()->foto_profil) }}"
+                    alt=""
                     class="object-cover object-top w-20 h-20 mb-4 border-2 rounded-full shadow-lg border-biru-6">
                 <h4 class="text-2xl font-bold text-hitam-800">{{ Auth::user()->nama_lengkap }}</h4>
                 <p class="text-sm font-light text-hitam-600">{{ Auth::user()->email }}</p>
@@ -110,7 +108,7 @@
                     <label class="label label-text text-hitam-800" for="nama_lengkap">Nama Lengkap </label>
                     <input id="nama_lengkap" autocomplete="off" type="text" placeholder="Nama Lengkap"
                         class="bg-white input text-hitam-800" name="nama_lengkap"
-                        value="{{ old('nama_lengkap', Auth::user()->nama_lengkap) }}" required />
+                        value="{{ old('nama_lengkap', Auth::user()->nama_lengkap) }}" />
                     @error('nama_lengkap')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -119,7 +117,7 @@
                     <label class="label label-text text-hitam-800" for="email">Email</label>
                     <input id="email" autocomplete="off" type="text" placeholder="Email"
                         class="bg-white input text-hitam-800" name="email"
-                        value="{{ old('email', Auth::user()->email) }}" required />
+                        value="{{ old('email', Auth::user()->email) }}" />
                     @error('email')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -129,7 +127,7 @@
                     <label class="label label-text text-hitam-800" for="no_telp">Nomor Telepon</label>
                     <input id="no_telp" autocomplete="off" type="text" placeholder="Nomor Telepon"
                         class="bg-white input text-hitam-800" name="no_telp"
-                        value="{{ old('no_telp', Auth::user()->no_telp) }}" required />
+                        value="{{ old('no_telp', Auth::user()->no_telp) }}" />
                     @error('no_telp')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -138,8 +136,8 @@
                 <div>
                     <label class="label label-text text-hitam-800" for="userProfile">Foto Profil</label>
                     <input id="userProfile" type="file" name="foto_profil" accept=".jpg, .jpeg, .png"
-                        class="bg-white input text-hitam-800" value="{{ old('foto_profil', Auth::user()->foto_profil) }}"
-                        required />
+                        class="bg-white input text-hitam-800"
+                        value="{{ old('foto_profil', Auth::user()->foto_profil) }}" />
                     @error('no_telp')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror

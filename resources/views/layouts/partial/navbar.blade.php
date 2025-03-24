@@ -29,7 +29,8 @@
         <div class="grid place-items-end">
             <div id="profilemenuButton" class="flex items-center gap-1 cursor-pointer">
                 <div class="overflow-hidden rounded-full w-9 h-9">
-                    <img class="object-center " src="{{ asset('storage/' . Auth::user()->foto_profil) }}"
+                    <img class="object-center "
+                        src="{{ Str::startsWith(Auth::user()->foto_profil, ['http', 'https']) ? Auth::user()->foto_profil : asset('storage/' . Auth::user()->foto_profil) }}"
                         alt="">
                 </div>
                 <i class="text-3xl bx bx-chevron-down text-hitam-700"></i>
@@ -39,7 +40,8 @@
                 id="profileMenu">
                 <div class="flex items-center flex-1 gap-2 p-3 border-b-2">
                     <div class="w-12 h-12 overflow-hidden rounded-full">
-                        <img class="object-center " src="{{ asset('storage/' . Auth::user()->foto_profil) }}"
+                        <img class="object-center "
+                            src="{{ Str::startsWith(Auth::user()->foto_profil, ['http', 'https']) ? Auth::user()->foto_profil : asset('storage/' . Auth::user()->foto_profil) }}"
                             alt="">
                     </div>
                     <div class="flex-1 gap-1">

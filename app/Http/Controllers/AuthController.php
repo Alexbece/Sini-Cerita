@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -106,17 +107,16 @@ class AuthController extends Controller
         $user->no_telp      = $request->no_telp;
 
         if ($request->hasFile('foto_profil')) {
-            // Hapus foto lama jika itu file lokal
-            if ($user->foto_profil && Storage::exists('public/' . $user->foto_profil)) {
-                Storage::delete('public/' . $user->foto_profil);
+            // Hapus foto lama jika berasal dari storage lokal (bukan Google Avatar / UI Avatars)
+            if ($user->foto_profil && !Str::startsWith($user->foto_profil, ['https://ui-avatars.com', 'https://lh3.googleusercontent.com'])) {
+                Storage::delete(str_replace(asset('storage/'), '', $user->foto_profil));
             }
 
-            // Simpan foto baru
+            // Simpan foto baru ke storage
             $file = $request->file('foto_profil');
-            $path = $file->store('user/foto_profil', 'public'); // Simpan di storage/app/public/user/foto_profil
-            $user->foto_profil = $path; // Simpan path tanpa 'public/'
+            $path = $file->store('user/foto_profil', 'public');
+            $user->foto_profil = asset('storage/' . $path);
         }
-
 
         $user->save();
 

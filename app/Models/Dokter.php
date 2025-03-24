@@ -42,4 +42,9 @@ class Dokter extends Model
     {
         return $this->belongsTo(Role::class, 'role_id');
     }
+
+    public function pembayaran()
+    {
+        return $this->hasMany(Pembayaran::class);
+    }
 }

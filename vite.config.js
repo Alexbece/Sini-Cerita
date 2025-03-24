@@ -5,10 +5,10 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'public/css/app.css', // CSS utama
-                'resources/js/app.js', // JS utama
+                "public/css/app.css", // CSS utama
+                "resources/js/app.js", // JS utama
             ],
             refresh: true,
         }),
-    ]
+    ],
 });

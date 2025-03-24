@@ -85,8 +85,8 @@
             <div class="w-[1.5px] h-full bg-hitam-100 hidden lg:flex"></div>
 
             <div class="flex items-center justify-center w-full h-full">
-                <button class="w-full p-3 font-semibold text-white rounded-xl bg-biru-6 h-max">Lanjut
-                    konsultasi</button>
+                <a href="{{ route('checkout', ['id' => $dokter->id]) }}" class="w-full p-3 font-semibold text-white rounded-xl bg-biru-6 h-max">Lanjut
+                    konsultasi</a>
             </div>
         </div>
 
