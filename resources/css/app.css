@@ -34,7 +34,7 @@
     --hitam-900: #3d3d3d;
 }
 
-body:not(.blog_index):not(.livewire-body) {
+body:not(.blog_index):not(.livewire-body):not(.dokter) {
     font-family: var(--default-font);
     background: linear-gradient(
         to top,

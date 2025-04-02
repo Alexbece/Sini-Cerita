@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\DaftarDokterController;
 use App\Http\Controllers\Konsultasi\KonsultasiController;
 use App\Http\Controllers\Pembayaran\PembayaranController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\DokterMiddleware;
 
 // INDEX APP
 Route::get('/', function () {
@@ -76,47 +77,51 @@ Route::get('/nama-tantangan-yoga', function () {
     return view('client.pasien.tantangan.yoga.page_tantangan');
 })->name('page-tantangan-yoga');
 
-// -------------------- ADMIN
-// DASHBOARD ADMIN
-Route::get('/dashboard-admin', function () {
-    return view('client.admin.index');
-})->name('dashboard-admin')->middleware(AdminMiddleware::class);
 
-// KONSELOR
-// DAFTAR KONSELOR
-Route::get('/list-dokter', [DaftarDokterController::class, 'show'])->name('list-dokter');
-// DETAIL KONSELOR
-Route::get('/detail-dokter/{id_dokter}', [DaftarDokterController::class, 'detailDokter'])->name('detail-dokter');
-
-// VALIDASI DATA KONSELOR
-Route::get('/dokter-terdaftar', [ValidasiDokter::class, 'index'])->name('dokter-terdaftar');
-Route::get('/verifikasi-dokter/{id}', [ValidasiDokter::class, 'show'])->name('validasidokter.show');
-Route::post('/verifikasi-dokter/{id}/approve', [ValidasiDokter::class, 'approve'])->name('validasidokter.approve');
-Route::post('/verifikasi-dokter/{id}/reject', [ValidasiDokter::class, 'reject'])->name('validasidokter.reject');
-
-// KLAIM SALDO
-Route::get('/daftar-klaim-saldo', function () {
-    return view('client.admin.konselor.klaim-saldo.klaim-saldo');
-})->name('daftar-klaim-saldo');
-
-
-// ARTIKEL
-// LIST ARTIKEL
-Route::get('/daftar-artikel', [ArtikelController::class, 'listArtikel'])->name('list-artikel');
-Route::delete('/daftar-artikel/{id_artikel}', [ArtikelController::class, 'deleteArtikel'])->name('delete-artikel');
-// ADD ARTIKEL
-Route::get('/tambah-artikel', [ArtikelController::class, 'showAdmin'])->name('add-artikel');
-Route::post('/tambah-artikel', [ArtikelController::class, 'addArtikel'])->name('proses-add-artikel');
-
-// DAFTAR USER
-Route::get('/list-user', [DaftarUserController::class, 'show']);
-Route::delete('/list-user/{id}', [DaftarUserController::class, 'deleteUser'])->name('user.delete');
-
-// TANTANGAN
-Route::get('/list-tantangan', function () {
-    return view('client.admin.tantangan.index');
-})->name('list-tantangan');
-
-Route::get('/profildokter', function () {
-    return view('client.profil.profil_konselor.index');
+// -------------------- DOKTER
+Route::middleware([DokterMiddleware::class])->group(function () {
+    // DASHBOARD DOKTER
+    Route::get('dashboard-dokter', [DokterController::class, 'indexDokter'])->middleware(DokterMiddleware::class);
+    Route::post('dashboard-dokter', [DokterController::class, 'changeStatus'])->middleware(DokterMiddleware::class)->name('changeStatus');
 });
+// -------------------- END DOKTER
+
+
+// -------------------- ADMIN
+Route::middleware([AdminMiddleware::class])->group(function () {
+    // DASHBOARD ADMIN
+    Route::get('/dashboard-admin', function () {
+        return view('client.admin.index');
+    })->name('dashboard-admin');
+
+    // KONSELOR
+    // DAFTAR KONSELOR
+    Route::get('/list-dokter', [DaftarDokterController::class, 'show'])->name('list-dokter');
+    // DETAIL KONSELOR
+    Route::get('/detail-dokter/{id_dokter}', [DaftarDokterController::class, 'detailDokter'])->name('detail-dokter');
+
+    // VALIDASI DATA KONSELOR
+    Route::get('/dokter-terdaftar', [ValidasiDokter::class, 'index'])->name('dokter-terdaftar');
+    Route::get('/verifikasi-dokter/{id}', [ValidasiDokter::class, 'show'])->name('validasidokter.show');
+    Route::post('/verifikasi-dokter/{id}/approve', [ValidasiDokter::class, 'approve'])->name('validasidokter.approve');
+    Route::post('/verifikasi-dokter/{id}/reject', [ValidasiDokter::class, 'reject'])->name('validasidokter.reject');
+
+    // KLAIM SALDO
+    Route::get('/daftar-klaim-saldo', function () {
+        return view('client.admin.konselor.klaim-saldo.klaim-saldo');
+    })->name('daftar-klaim-saldo');
+
+
+    // ARTIKEL
+    // LIST ARTIKEL
+    Route::get('/daftar-artikel', [ArtikelController::class, 'listArtikel'])->name('list-artikel');
+    Route::delete('/daftar-artikel/{id_artikel}', [ArtikelController::class, 'deleteArtikel'])->name('delete-artikel');
+    // ADD ARTIKEL
+    Route::get('/tambah-artikel', [ArtikelController::class, 'showAdmin'])->name('add-artikel');
+    Route::post('/tambah-artikel', [ArtikelController::class, 'addArtikel'])->name('proses-add-artikel');
+
+    // DAFTAR USER
+    Route::get('/list-user', [DaftarUserController::class, 'show']);
+    Route::delete('/list-user/{id}', [DaftarUserController::class, 'deleteUser'])->name('user.delete');
+});
+// -------------------- END ADMIN

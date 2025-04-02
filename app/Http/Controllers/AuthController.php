@@ -64,7 +64,7 @@ class AuthController extends Controller
         $validateData = $request->validate([
             'nama_lengkap'  => 'required',
             'no_telp'       => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/'],
-            'email'         => 'required|unique:users,email',
+            'email'         => 'required|unique:users,email|unique:dokter,email',
             'password'      => 'required|min:6'
         ], [
             'nama_lengkap.required' => 'Nama lengkap wajib diisi!',
@@ -97,7 +97,7 @@ class AuthController extends Controller
 
         $request->validate([
             'nama_lengkap'  => 'nullable',
-            'email' => 'nullable|email|unique:users,email,' . Auth::id(),
+            'email' => 'nullable|email|unique:users,email,' . Auth::id() . '|unique:dokter,email,' . Auth::id(),
             'no_telp'       => 'nullable|regex:/^([0-9\s\-\+\(\)]*)$/',
             'foto_profil'   => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
         ]);

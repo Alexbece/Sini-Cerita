@@ -3,7 +3,7 @@
 @foreach (['berhasil-login', 'MustBePasien', 'MustBeDokter', 'GuestDetected', 'berhasil-hapus'] as $msg)
     @if (session($msg))
         <div
-            class="absolute z-50 p-3 rounded-md top-5 left-5 alert {{ session($msg) == 'GuestDetected' ? 'alert-success' : 'alert-error' }} w-max">
+            class="absolute z-50 p-3 rounded-md top-5 left-5 alert {{ session($msg) == 'GuestDetected' ? 'alert-error' : 'alert-success' }} w-max">
             {{ session($msg) }}
         </div>
     @endif

@@ -18,7 +18,7 @@ class EnsureUserIsNotGuest
     public function handle(Request $request, Closure $next)
     {
         // Cek apakah pengguna sudah login dan apakah mereka adalah guest
-        if (!Auth::check()) {
+        if (!session()->has('role_id')) {
             session()->flash('GuestDetected', 'Silakan login terlebih dahulu!');
             return redirect('/');
         }

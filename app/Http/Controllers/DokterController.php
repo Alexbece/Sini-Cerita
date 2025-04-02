@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Dokter;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
-
 use function Laravel\Prompts\password;
+
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class DokterController extends Controller
 {
@@ -66,6 +67,36 @@ class DokterController extends Controller
             'dokter_id' => $dokter->id, // Simpan ID dokter di session
         ]);
 
-        return redirect('/');
+        return redirect('/dashboard-dokter');
+    }
+
+    public function indexDokter()
+    {
+        $dokter = Dokter::find(Session::get('dokter_id'));
+        return view('client.dokter.index', compact('dokter'));
+    }
+
+    public function changeStatus(Request $request)
+    {
+        // Ambil data dokter yang sedang login
+        $dokterId = session('dokter_id');
+
+        $dokter = Dokter::find($dokterId);
+
+        // Validasi input status yang diterima
+        $request->validate([
+            'status' => 'nullable|in:online,offline', // Pastikan status yang diterima valid
+        ]);
+
+        // Perbarui status dokter jika status ada di request
+        if ($request->has('status')) {
+            $dokter->status = $request->input('status');
+        }
+
+        // Simpan perubahan status ke dalam database
+        $dokter->save();
+
+        // Kembali ke halaman sebelumnya
+        return redirect()->back();
     }
 }

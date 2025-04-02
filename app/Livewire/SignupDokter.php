@@ -53,7 +53,7 @@ class SignupDokter extends Component
                 'tanggal_lahir' => 'required|date',
                 'jenis_kelamin' => 'required|in:Pria,Wanita',
                 'alamat'        => 'required',
-                'email'         => 'required|email|unique:dokter,email',
+                'email'         => 'required|email|unique:dokter,email|unique:users,email',
                 'no_telp'       => ['required', 'regex:/^[0-9]+$/'],
                 'password'      => 'required|min:6',
                 'foto_profil'   => 'required|image|mimes:jpg,jpeg,png|max:2048',
