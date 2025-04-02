@@ -1,3 +1,6 @@
+@php
+    $dokter = \App\Models\Dokter::where('id', session('dokter_id'))->first();
+@endphp
 <a class="text-lg font-bold leading-none sm:text-2xl logo text-biru-6 hover:text-biru-5 text-nowrap" href="#">
     Sini Cerita
 </a>
@@ -14,24 +17,22 @@
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{ route('app-index') }}">Beranda</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
-            href="{{ route('konsultasi-index') }}">Konsultasi</a></li>
-    <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{ route('artikel-edukasi') }}">Artikel Edukasi</a></li>
-    <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="">
-            Konsultasi</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{ route('app-tantangan') }}">Tantangan</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="">Tentang Kami</a>
     </li>
 </ul>
-@if (Auth::check())
+@if (session('role_id') == 2)
     <div class="hidden xl:flex">
         <div class="grid place-items-end">
             <div id="profilemenuButton" class="flex items-center gap-1 cursor-pointer">
                 <div class="overflow-hidden rounded-full w-9 h-9">
-                    <img class="object-center "
-                        src="{{ Str::startsWith(Auth::user()->foto_profil, ['http', 'https']) ? Auth::user()->foto_profil : asset('storage/' . Auth::user()->foto_profil) }}"
-                        alt="">
+                    @if ($dokter)
+                        <img class="object-cover w-16 h-16 rounded-full"
+                            src="{{ $dokter->foto_profil ? asset('storage/' . $dokter->foto_profil) : asset('images/dokter-default.png') }}"
+                            alt="Foto Profil Dokter">
+                    @endif
                 </div>
                 <i class="text-3xl bx bx-chevron-down text-hitam-700"></i>
             </div>
@@ -40,13 +41,11 @@
                 id="profileMenu">
                 <div class="flex items-center flex-1 gap-2 p-3 border-b-2">
                     <div class="w-12 h-12 overflow-hidden rounded-full">
-                        <img class="object-center "
-                            src="{{ Str::startsWith(Auth::user()->foto_profil, ['http', 'https']) ? Auth::user()->foto_profil : asset('storage/' . Auth::user()->foto_profil) }}"
-                            alt="">
+                        <img class="object-center " src="" alt="">
                     </div>
                     <div class="flex-1 gap-1">
-                        <h3 class="text-base font-semibold text-hitam-800">{{ Auth::user()->nama_lengkap }}</h3>
-                        <p class="text-xs font-normal text-hitam-600">{{ Auth::user()->email }}</p>
+                        <h3 class="text-base font-semibold text-hitam-800"></h3>
+                        <p class="text-xs font-normal text-hitam-600"></p>
                     </div>
                 </div>
                 <div class="grid w-full gap-4 p-3 border-b-2">
@@ -175,10 +174,6 @@
                 <li class="mb-1">
                     <a class="w-full text-sm font-semibold text-left btn text-hitam-800 btn-soft h-[50px] hover:btn-info transition-all rounded-2xl"
                         href="{{ route('app-index') }}">Beranda</a>
-                </li>
-                <li class="mb-1">
-                    <a class="w-full text-sm font-semibold text-left btn text-hitam-800 btn-soft h-[50px] hover:btn-info transition-all rounded-2xl"
-                        href="{{ route('konsultasi-index') }}">Konsultasi</a>
                 </li>
                 <li class="mb-1">
                     <div class="w-full text-sm font-semibold text-left btn text-hitam-800 btn-soft h-[50px] hover:btn-info transition-all rounded-2xl"

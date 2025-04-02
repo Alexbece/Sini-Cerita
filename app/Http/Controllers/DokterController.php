@@ -42,7 +42,7 @@ class DokterController extends Controller
             ])->onlyInput('no_strpk');
         }
 
-        if (optional($dokter)->email !== $request->email) {
+        if ($dokter->email !== $request->email) {
             return back()->withErrors([
                 'email' => 'Email tidak sesuai dengan No. STRPK!',
             ])->onlyInput('email');
@@ -59,6 +59,12 @@ class DokterController extends Controller
                 'password' => 'Password salah!',
             ])->onlyInput('email');
         }
+
+        Auth::login($dokter);
+        session([
+            'role_id'   => $dokter->role_id,
+            'dokter_id' => $dokter->id, // Simpan ID dokter di session
+        ]);
 
         return redirect('/');
     }

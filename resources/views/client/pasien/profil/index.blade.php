@@ -8,79 +8,181 @@
 @section('app-content')
     <div>
         <div class="bg-white rounded-[20px] lg:flex grid overflow-hidden py-6 px-6 gap-8">
-            <div class="grid h-full grid-cols-2 gap-4 lg:flex lg:flex-col border-hitam-100 w-max">
-                <div
-                    class="px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer bg-hitam-50 text-biru-6 w-max">
-                    Profil Saya</div>
-                <div
-                    class="px-3 py-2 text-sm font-semibold duration-200 ease-out rounded-full cursor-pointer tran text-hitam-800 sition-all hover:text-biru-6 w-max">
-                    Riwayat Konsultasi</div>
-                <div class="hidden px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer text-hitam-800 lg:block hover:text-biru-6 w-max"
-                    id="modalkeluarButton">
-                    Keluar</div>
-                <div href="" id="deleteaccountButton"
-                    class="hidden px-3 py-2 text-sm font-semibold text-red-500 transition-all duration-200 ease-out cursor-pointer lg:block hover:text-red-700 w-max">
-                    Hapus Akun</div>
+            <div class="flex h-full gap-2 w-max lg:gap-4 lg:flex-col border-hitam-100">
+                <nav class="w-full pr-6 tabs tabs-bordered tabs-vertical" aria-label="Tabs" role="tablist"
+                    data-tabs-vertical="true" aria-orientation="horizontal">
+                    <button type="button"
+                        class="text-sm font-semibold text-hitam-600 w-max active-tab:text-biru-6 tab active"
+                        id="tabs-profil-saya-item" data-tab="#tabs-profil-saya" aria-controls="tabs-profil-saya"
+                        role="tab" aria-selected="true">
+                        Profil
+                    </button>
+                    <button type="button"
+                        class="text-sm font-semibold text-hitam-600 w-max text-nowrap active-tab:text-biru-6 tab"
+                        id="tabs-riwayat-konsultasi-item" data-tab="#tabs-riwayat-konsultasi"
+                        aria-controls="tabs-riwayat-konsultasi" role="tab" aria-selected="false">
+                        Riwayat Konsultasi
+                    </button>
+                    <div class="hidden w-full px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer text-start text-hitam-600 lg:block hover:text-biru-6"
+                        id="modalkeluarButton">
+                        Keluar</div>
+                    <div href="" id="deleteaccountButton"
+                        class="hidden w-full px-3 py-2 text-sm font-semibold text-red-500 transition-all duration-200 ease-out cursor-pointer text-start lg:block hover:text-red-700">
+                        Hapus Akun</div>
+                </nav>
             </div>
 
-            <div class="divider divider-horizontal"></div>
-
             <div class="flex flex-col justify-start w-full">
-                <h3 class="text-4xl font-bold text-hitam-900">Profil Saya</h3>
+                <div id="tabs-profil-saya" role="tabpanel" aria-labelledby="tabs-profil-saya-item">
+                    <h3 class="text-4xl font-bold text-hitam-900">Profil Saya</h3>
 
-                <div
-                    class="flex items-center justify-between w-full gap-4 p-6 mt-4 border-2 h-max border-hitam-100 rounded-xl">
-                    <div class="flex items-center gap-4">
-                        <img class="object-cover object-top w-20 h-20 border-2 rounded-full shadow-lg border-biru-6"
-                            src="{{ Str::startsWith(Auth::user()->foto_profil, ['http', 'https']) ? Auth::user()->foto_profil : asset('storage/' . Auth::user()->foto_profil) }}"
-                            alt="">
-                        <div class="flex flex-col">
-                            <h4 class="text-xl font-semibold text-hitam-800">{{ Auth::user()->nama_lengkap }}</h4>
-                            <p class="text-sm font-semibold text-hitam-400">
-                                {{ Auth::user()->role_id == '1' ? 'Pengguna Sini Cerita' : Auth::user()->role_id }}</p>
-                        </div>
-                    </div>
-
-                    <button
-                        class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg editmodalButton h-max w-max text-hitam-600">Edit
-                        <i class="transform translate-y-[1px] bx bx-pencil"></i></button>
-                </div>
-
-                <div
-                    class="flex items-start justify-between w-full gap-4 p-6 mt-6 border-2 border-hitam-100 rounded-xl h-max">
-                    <div class="flex flex-col w-full gap-4">
-                        <h3 class="inline text-2xl font-bold text-hitam-900">Identitas Saya</h3>
-
-                        <div class="grid lg:grid-cols-2 lg:w-[60%] w-full gap-6">
-                            <div class="grid gap-4 text-left place-content-start">
-                                <p class="text-sm font-semibold text-hitam-600/70">Nama Lengkap</p>
-                                <p class="font-bold text-hitam-700">{{ Auth::user()->nama_lengkap }}</p>
-                            </div>
-
-                            <div class="grid gap-4 text-left place-content-start">
-                                <p class="text-sm font-semibold text-hitam-600/70">Alamat Email</p>
-                                <p class="font-bold text-hitam-700">{{ Auth::user()->email }}</p>
-                            </div>
-
-                            <div class="grid gap-4 text-left place-content-start">
-                                <p class="text-sm font-semibold text-hitam-600/70">Nomor Telepon</p>
-                                <p class="font-bold text-hitam-700">
-                                    {{ Auth::user()->no_telp == '' ? '-' : Auth::user()->no_telp }}</p>
-                            </div>
-
-                            <div class="grid gap-4 text-left place-content-start">
-                                <p class="text-sm font-semibold text-hitam-600/70">Peran</p>
-                                <p class="font-bold text-hitam-700">
+                    <div
+                        class="flex items-center justify-between w-full gap-4 p-6 mt-4 border-2 h-max border-hitam-100 rounded-xl">
+                        <div class="flex items-center gap-4">
+                            <img class="object-cover object-top w-20 h-20 border-2 rounded-full shadow-lg border-biru-6"
+                                src="{{ Str::startsWith(Auth::user()->foto_profil, ['http', 'https']) ? Auth::user()->foto_profil : asset('storage/' . Auth::user()->foto_profil) }}"
+                                alt="">
+                            <div class="flex flex-col">
+                                <h4 class="text-xl font-semibold text-hitam-800">{{ Auth::user()->nama_lengkap }}</h4>
+                                <p class="text-sm font-semibold text-hitam-400">
                                     {{ Auth::user()->role_id == '1' ? 'Pengguna Sini Cerita' : Auth::user()->role_id }}</p>
                             </div>
                         </div>
 
+                        <button
+                            class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg editmodalButton h-max w-max text-hitam-600"><span
+                                class="hidden md:flex">Edit</span>
+                            <i class="transform translate-y-[1px] bx bx-pencil"></i></button>
+                    </div>
+
+                    <div
+                        class="flex items-start justify-between w-full gap-4 p-6 mt-6 border-2 border-hitam-100 rounded-xl h-max">
+                        <div class="flex flex-col w-full gap-4">
+                            <h3 class="inline text-2xl font-bold text-hitam-900">Identitas Saya</h3>
+
+                            <div class="grid lg:grid-cols-2 lg:w-[60%] w-full gap-6">
+                                <div class="grid gap-4 text-left place-content-start">
+                                    <p class="text-sm font-semibold text-hitam-600/70">Nama Lengkap</p>
+                                    <p class="font-bold text-hitam-700">{{ Auth::user()->nama_lengkap }}</p>
+                                </div>
+
+                                <div class="grid gap-4 text-left place-content-start">
+                                    <p class="text-sm font-semibold text-hitam-600/70">Alamat Email</p>
+                                    <p class="font-bold text-hitam-700">{{ Auth::user()->email }}</p>
+                                </div>
+
+                                <div class="grid gap-4 text-left place-content-start">
+                                    <p class="text-sm font-semibold text-hitam-600/70">Nomor Telepon</p>
+                                    <p class="font-bold text-hitam-700">
+                                        {{ Auth::user()->no_telp == '' ? '-' : Auth::user()->no_telp }}</p>
+                                </div>
+
+                                <div class="grid gap-4 text-left place-content-start">
+                                    <p class="text-sm font-semibold text-hitam-600/70">Peran</p>
+                                    <p class="font-bold text-hitam-700">
+                                        {{ Auth::user()->role_id == '1' ? 'Pengguna Sini Cerita' : Auth::user()->role_id }}
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tabs-riwayat-konsultasi" class="hidden" role="tabpanel"
+                    aria-labelledby="tabs-riwayat-konsultasi-item">
+                    <h3 class="mb-3 text-4xl font-bold text-hitam-900">Riwayat Konsutasi</h3>
+
+                    <div class="flex flex-col justify-start w-full max-h-[500px] overflow-auto">
+                        <div class="flex flex-col w-full gap-4 p-3 mt-4 border-2 border-hitam-100 rounded-xl">
+                            <h4 class="text-xl font-semibold text-hitam-800">Konsultasi Dengan</h4>
+                            <div
+                                class="flex flex-col items-start justify-between w-full gap-4 md:items-center md:flex-row h-max">
+                                <div class="flex items-center gap-4">
+                                    <img class="object-cover object-top w-20 border-2 rounded-lg shadow-lg h-30 border-biru-6"
+                                        src="{{ asset('client/img/foto_dokter/foto_doctor_1.jpg') }}" alt="">
+                                    <div class="flex flex-col">
+                                        <p class="mb-1 text-sm font-light text-hitam-400">Senin, 12 Januari 2000</p>
+                                        <h4 class="text-xl font-semibold text-hitam-800">Dr. Tirta S,Psi.</h4>
+                                        <p class="text-sm font-semibold text-hitam-400">Pengguna Sini Cerita</p>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Lihat
+                                    rincian chat
+                                    <i class="transform translate-y-[1px] text-lg bx bx-chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col w-full gap-4 p-3 mt-4 border-2 border-hitam-100 rounded-xl">
+                            <h4 class="text-xl font-semibold text-hitam-800">Konsultasi Dengan</h4>
+                            <div
+                                class="flex flex-col items-start justify-between w-full gap-4 md:items-center md:flex-row h-max">
+                                <div class="flex items-center gap-4">
+                                    <img class="object-cover object-top w-20 border-2 rounded-lg shadow-lg h-30 border-biru-6"
+                                        src="{{ asset('client/img/foto_dokter/foto_doctor_1.jpg') }}" alt="">
+                                    <div class="flex flex-col">
+                                        <p class="mb-1 text-sm font-light text-hitam-400">Senin, 12 Januari 2000</p>
+                                        <h4 class="text-xl font-semibold text-hitam-800">Dr. Tirta S,Psi.</h4>
+                                        <p class="text-sm font-semibold text-hitam-400">Pengguna Sini Cerita</p>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Lihat
+                                    rincian chat
+                                    <i class="transform translate-y-[1px] text-lg bx bx-chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col w-full gap-4 p-3 mt-4 border-2 border-hitam-100 rounded-xl">
+                            <h4 class="text-xl font-semibold text-hitam-800">Konsultasi Dengan</h4>
+                            <div
+                                class="flex flex-col items-start justify-between w-full gap-4 md:items-center md:flex-row h-max">
+                                <div class="flex items-center gap-4">
+                                    <img class="object-cover object-top w-20 border-2 rounded-lg shadow-lg h-30 border-biru-6"
+                                        src="{{ asset('client/img/foto_dokter/foto_doctor_1.jpg') }}" alt="">
+                                    <div class="flex flex-col">
+                                        <p class="mb-1 text-sm font-light text-hitam-400">Senin, 12 Januari 2000</p>
+                                        <h4 class="text-xl font-semibold text-hitam-800">Dr. Tirta S,Psi.</h4>
+                                        <p class="text-sm font-semibold text-hitam-400">Pengguna Sini Cerita</p>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Lihat
+                                    rincian chat
+                                    <i class="transform translate-y-[1px] text-lg bx bx-chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col w-full gap-4 p-3 mt-4 border-2 border-hitam-100 rounded-xl">
+                            <h4 class="text-xl font-semibold text-hitam-800">Konsultasi Dengan</h4>
+                            <div
+                                class="flex flex-col items-start justify-between w-full gap-4 md:items-center md:flex-row h-max">
+                                <div class="flex items-center gap-4">
+                                    <img class="object-cover object-top w-20 border-2 rounded-lg shadow-lg h-30 border-biru-6"
+                                        src="{{ asset('client/img/foto_dokter/foto_doctor_1.jpg') }}" alt="">
+                                    <div class="flex flex-col">
+                                        <p class="mb-1 text-sm font-light text-hitam-400">Senin, 12 Januari 2000</p>
+                                        <h4 class="text-xl font-semibold text-hitam-800">Dr. Tirta S,Psi.</h4>
+                                        <p class="text-sm font-semibold text-hitam-400">Pengguna Sini Cerita</p>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="flex items-center gap-1 px-3 py-2 text-sm border-2 rounded-full shadow-lg h-max w-max text-hitam-600">Lihat
+                                    rincian chat
+                                    <i class="transform translate-y-[1px] text-lg bx bx-chevron-right"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="flex items-center gap-3 lg:hidden ">
-                <div class="px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer hover:text-biru-6 text-hitam-700 w-max"
+                <div class="px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out rounded-full cursor-pointer hover:text-biru-6 text-hitam-600 w-max"
                     id="modalkeluarButton">Keluar</div>
                 <a href=""
                     class="px-3 py-2 text-sm font-semibold text-red-500 transition-all duration-200 ease-out hover:text-red-700 w-max">Hapus

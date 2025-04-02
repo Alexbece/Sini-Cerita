@@ -50,3 +50,40 @@
         </form>
     </div>
 @endsection
+
+@section('script')
+    <script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "node_modules\ckeditor5\dist\ckeditor5.js",
+            "ckeditor5/": "node_modules"
+        }
+    }
+</script>
+    <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Paragraph,
+            Bold,
+            Italic,
+            Font
+        } from 'ckeditor5';
+
+        ClassicEditor
+            .create(document.querySelector('#konten-artikel'), {
+                licenseKey: '<YOUR_LICENSE_KEY>', // Or 'GPL'.
+                plugins: [Essentials, Paragraph, Bold, Italic, Font],
+                toolbar: [
+                    'undo', 'redo', '|', 'bold', 'italic', '|',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                ]
+            })
+            .then(editor => {
+                window.editor = editor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endsection

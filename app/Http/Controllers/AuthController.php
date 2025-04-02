@@ -47,7 +47,7 @@ class AuthController extends Controller
 
         // AUTENTIKASI USER
         Auth::login($user);
-        $request->session()->regenerate();
+        session(['role_id' => $user->role_id]);
 
         return redirect('/')->with('berhasil-login', 'Selamat, Anda berhasil login!');
     }

@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
             $table->foreignId('id_dokter')->constrained('dokter')->onDelete('cascade');
-            $table->timestamp('waktu_transaksi');
-            $table->timestamp('mulai_konsultasi');
-            $table->timestamp('akhir_konsultasi');
             $table->integer('harga_total');
+            $table->date('waktu_konsultasi');
+            $table->time('mulai_konsultasi');
+            $table->time('akhir_konsultasi');
             $table->string('status')->default('pending');
+            $table->string('snap_token')->nullable();
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class Pembayaran extends Model
     protected $fillable = [
         'id_user',
         'id_dokter',
-        'waktu_transaksi',
+        'waktu_konsultasi',
         'mulai_konsultasi',
         'akhir_konsultasi',
         'harga_total',

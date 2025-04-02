@@ -42,10 +42,14 @@ class OauthController extends Controller
             ]);
 
             Auth::login($user);
+            session(['role_id' => $user->role_id]);
+
             return redirect('/');
         }
 
         Auth::login($registeredUser);
+        session(['role_id' => $registeredUser->role_id]);
+
         return redirect('/');
     }
 }

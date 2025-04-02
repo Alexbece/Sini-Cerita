@@ -14,7 +14,7 @@
 </head>
 
 <body class="blog_index">
-    <div class="items-center justify-center w-full px-24 py-6 h-max">
+    <div class="items-center justify-center w-full md:px-6 lg:px-24 md:py-6 h-max">
         <div class="bg-biru-1 rounded-[20px]">
             <nav class="relative flex items-center justify-between w-full px-8 py-4">
                 @include ('layouts.partial.navbar')
@@ -22,14 +22,14 @@
         </div>
     </div>
 
-    <div class="items-center justify-center w-full px-24 py-6 h-max">
+    <div class="items-center justify-center w-full lg:px-24 px-6 py-6 h-max">
         <div class="flex flex-col items-center justify-center">
 
             <div class="flex flex-col items-center justify-center w-full gap-14">
                 <h1 class="w-full text-3xl font-semibold text-center text-biru-6">Halaman Edukasi</h1>
                 <div class="flex flex-col-reverse items-center justify-between w-full gap-6 px-20 xl:flex xl:flex-row">
                     <div
-                        class="flex justify-center gap-2 text-sm transition-all duration-300 ease-out xl:justify-start lg:w-full w-max text-hitam-700 lg:gap-4 lg:text-base ">
+                        class="sm:flex hidden justify-center gap-2 text-sm transition-all duration-300 ease-out xl:justify-start lg:w-full w-max text-hitam-700 lg:gap-4 lg:text-base ">
                         <a href="{{ route('artikel-edukasi') }}"
                             class="px-3 py-2 text-hitam-800 transition-all duration-500 ease-out rounded-full text-nowrap w-max h-max {{ request('category') ? '' : 'bg-biru-6 text-white' }} hover:bg-biru-6 hover:text-white">Semua</a>
                         <a href="{{ route('artikel-edukasi', ['category' => 'Burnout']) }}"
@@ -42,6 +42,32 @@
                         <a href="{{ route('artikel-edukasi', ['category' => 'Keluarga & Hubungan']) }}"
                             class="px-3 py-2 transition-all {{ request('category') == 'Keluarga & Hubungan' ? 'bg-biru-6 text-white' : '' }} duration-500 ease-out rounded-full text-nowrap w-max h-max hover:bg-biru-6 hover:text-white">Keluarga
                             & Hubungan</a>
+                    </div>
+                    <div class="dropdown relative sm:hidden w-full justify-center inline-flex">
+                        <button id="dropdown-default" type="button" class="dropdown-toggle btn btn-info"
+                            aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                            Pilih Kategori
+                            <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
+                        </button>
+                        <ul class="dropdown-menu bg-white shadow-lg dropdown-open:opacity-100 hidden min-w-60"
+                            role="menu" aria-orientation="vertical" aria-labelledby="dropdown-default">
+                            <li><a class="dropdown-item btn btn-soft hover:btn-info text-hitam-800 {{ request('category') ? '' : 'bg-biru-6 text-white' }}"
+                                    href="{{ route('artikel-edukasi') }}">Semua</a></li>
+
+                            <li><a class="dropdown-item btn btn-soft hover:btn-info text-hitam-800 {{ request('category') == 'Burnout' ? 'bg-biru-6 text-white' : '' }}"
+                                    href="{{ route('artikel-edukasi', ['category' => 'Burnout']) }}">Burnout</a></li>
+
+                            <li><a class="dropdown-item btn btn-soft hover:btn-info text-hitam-800 {{ request('category') == 'Gangguan Mood' ? 'bg-biru-6 text-white' : '' }}"
+                                    href="{{ route('artikel-edukasi', ['category' => 'Gangguan Mood']) }}">Gangguan
+                                    Mood</a></li>
+
+                            <li><a class="dropdown-item btn btn-soft hover:btn-info text-hitam-800 {{ request('category') == 'Depresi' ? 'bg-biru-6 text-white' : '' }}"
+                                    href="{{ route('artikel-edukasi', ['category' => 'Depresi']) }}">Depresi</a></li>
+
+                            <li><a class="dropdown-item btn btn-soft hover:btn-info text-hitam-800 {{ request('category') == 'Keluarga & Hubungan' ? 'bg-biru-6 text-white' : '' }}"
+                                    href="{{ route('artikel-edukasi', ['category' => 'Keluarga & Hubungan']) }}">Keluarga
+                                    & Hubungan</a></li>
+                        </ul>
                     </div>
 
                     <div
@@ -81,7 +107,7 @@
         </div>
     </div>
 
-    <div class="items-center justify-center w-full px-24 py-6 mt-6 h-max">
+    <div class="items-center justify-center w-full mt-6 md:px-6 lg:px-24 py-6 h-max">
         <footer
             class="bg-biru-1 rounded-[30px] grid xl:grid-cols-2 gap-12 place-items-center h-max justify-center p-16 transition-all ease-out duration-300">
             @include ('layouts.partial.footer')

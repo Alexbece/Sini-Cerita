@@ -3,17 +3,20 @@
 @section('title', 'Tantangan - Sini Cerita')
 
 @section('app-hero')
-    <div class="relative overflow-hidden flex w-full py-8 h-[550px] items-center justify-center px-28 hero-section gap-7">
+    <div
+        class="relative overflow-hidden flex w-full py-8 h-[550px] items-center justify-center px-16 xl:px-28 hero-section gap-7">
         <div class="w-[50%] flex flex-col items-start justify-center gap-3">
-            <p class="text-5xl font-bold text-hitam-800 max-w-[85%]">Sini Sehat Dengan Tantangan</p>
-            <p class="text-wrap text-hitam-800 max-w-[400px]"> Bahagia dengan sehatkan pikiran, tubuh, dan
+            <p class="text-5xl md:text-start text-center font-bold text-hitam-800 max-w-[85%]">Sini Sehat Dengan Tantangan
+            </p>
+            <p class="text-wrap md:text-start text-center text-hitam-800 max-w-[400px]"> Bahagia dengan sehatkan pikiran,
+                tubuh, dan
                 mental
                 Anda adalah kunci untuk mencapai keseimbangan hidup yang penuh semangat. </p>
             <button id="to-kategori-tantangan"
                 class="flex gap-1 text-lg font-semibold text-white border-none items-bottom btn bg-biru-6 hover:bg-biru-5 h-max">Mulai<span
                     class="icon-[line-md--arrow-down]"></span></button>
         </div>
-        <div class="w-[50%] flex justify-center items-center h-max">
+        <div class="w-[50%] hidden md:flex justify-center items-center h-max">
             <img src="{{ asset('client/img/tantangan/tantangan_hero.png') }}" alt=""
                 class="object-cover object-center w-auto h-[400px]">
         </div>
@@ -84,8 +87,7 @@
                         elit. Repudiandae
                         temporibus saepe
                         exercitationem voluptas asperiores.</p>
-                    <a href=""
-                        class="flex items-center mt-2 text-white border-none bg-biru-6 btn w-max">Lihat
+                    <a href="" class="flex items-center mt-2 text-white border-none bg-biru-6 btn w-max">Lihat
                         Selengkapnya <span class=" text-lg icon-[ep--right]"></span></a>
                 </div>
             </div>
@@ -100,8 +102,7 @@
                         elit. Repudiandae
                         temporibus saepe
                         exercitationem voluptas asperiores.</p>
-                    <a href=""
-                        class="flex items-center mt-2 text-white border-none bg-biru-6 btn w-max">Lihat
+                    <a href="" class="flex items-center mt-2 text-white border-none bg-biru-6 btn w-max">Lihat
                         Selengkapnya <span class=" text-lg icon-[ep--right]"></span></a>
                 </div>
             </div>

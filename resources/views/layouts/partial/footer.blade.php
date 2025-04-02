@@ -6,14 +6,13 @@
         dolores beatae sunt reiciendis fugiat explicabo ducimus fugit maxime!</p>
 </div>
 
-<div class="grid w-full gap-6 transition-all duration-300 ease-out md:grid-cols-3 place-content-between">
+<div class="grid w-full gap-6 transition-all duration-300 ease-out sm:grid-cols-2 lg:grid-cols-3 place-content-between">
     <div class="grid gap-6 w-max text-nowrap">
         <h5 class="font-semibold text-biru-6">Sitemap</h5>
         <div class="grid gap-3 list-none text-hitam-600 text-nowrap">
             <li><a href="#">Beranda</a></li>
-            <li><a href="#">Konselor</a></li>
-            <li><a href="#">Artikel Edukasi</a></li>
             <li><a href="#">Konsultasi</a></li>
+            <li><a href="#">Artikel Edukasi</a></li>
             <li><a href="#">Tantangan</a></li>
             <li><a href="#">Tentang Kami</a></li>
         </div>

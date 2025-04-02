@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class DokterSeeder extends Seeder
@@ -25,7 +26,7 @@ class DokterSeeder extends Seeder
                 'alamat'               => 'Jl. Gadang',
                 'email'                => 'farrelyassar.k@gmail.com',
                 'no_telp'              => '08970876646',
-                'password'             => '123123',
+                'password'             => Hash::make('123123'),
                 'foto_profil'          => 'dokter\foto_profil\default.jpg',
                 'foto_wajah'           => 'dokter\foto_wajah\default.jpg',
                 'foto_ktp'             => 'dokter\foto_ktp\default.jpg',

@@ -10,7 +10,7 @@
 </head>
 
 <body class="blog_index">
-    <div class="items-center justify-center w-full px-24 py-6 h-max">
+    <div class="items-center justify-center w-full md:px-6 lg:px-24 md:py-6 h-max">
         <div class="bg-biru-1 rounded-[20px]">
             <nav class="relative flex items-center justify-between w-full px-8 py-4">
                 @include ('layouts.partial.navbar')
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="items-center justify-center w-full px-24 py-6 h-max">
+    <div class="items-center justify-center w-full lg:px-24 px-6 py-6 h-max">
         <div class="grid mt-12 place-content-center">
 
             <section class="flex flex-col blog-header">
@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class="items-center justify-center w-full px-24 py-6 mt-6 h-max">
+    <div class="items-center justify-center w-full mt-6 md:px-6 lg:px-24 py-6 h-max">
         <footer
             class="bg-biru-1 rounded-[30px] grid xl:grid-cols-2 gap-12 place-items-center h-max justify-center p-16 transition-all ease-out duration-300">
             @include ('layouts.partial.footer')

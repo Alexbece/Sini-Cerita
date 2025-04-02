@@ -1,5 +1,5 @@
 <!-- CSS -->
-@vite(['resources/css/admin.css', 'resources/js/admin.js'])
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <!-- Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,4 +13,4 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <!-- Plugin -->
-<link href="https://cdn.jsdelivr.net/npm/flowbite@3.0.0/dist/flowbite.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="node_modules/ckeditor5/dist/ckeditor5.css">

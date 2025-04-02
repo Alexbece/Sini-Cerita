@@ -1,16 +1,18 @@
 <?php
 
-use App\Http\Controllers\Admin\DaftarDokterController;
-use App\Http\Controllers\Admin\DaftarUserController;
-use App\Http\Controllers\ArtikelController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DokterController;
-use App\Http\Controllers\Konsultasi\KonsultasiController;
-use App\Http\Controllers\OauthController;
-use App\Http\Controllers\Pembayaran\PembayaranController;
-use App\Http\Controllers\ValidasiDokter;
-use Illuminate\Support\Facades\Route;
 use App\Livewire\SignupDokter;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ValidasiDokter;
+use App\Http\Controllers\OauthController;
+use App\Http\Controllers\DokterController;
+use App\Http\Controllers\ArtikelController;
+use App\Http\Middleware\EnsureUserIsNotGuest;
+use App\Http\Controllers\Admin\DaftarUserController;
+use App\Http\Controllers\Admin\DaftarDokterController;
+use App\Http\Controllers\Konsultasi\KonsultasiController;
+use App\Http\Controllers\Pembayaran\PembayaranController;
+use App\Http\Middleware\AdminMiddleware;
 
 // INDEX APP
 Route::get('/', function () {
@@ -42,7 +44,7 @@ Route::post('/masuk-dokter', [DokterController::class, 'loginDokter'])->name('pr
 // PROFIL PASIEN
 Route::get('/profil-user', function () {
     return view('client.pasien.profil.index');
-})->name('profil-user');
+})->name('profil-user')->middleware(EnsureUserIsNotGuest::class);
 Route::post('/profil-user', [AuthController::class, 'updateProfile'])->name('update-profil.user');
 Route::get('/hapus-akun-user', [AuthController::class, 'deleteAccount'])->name('hapus-akun');
 
@@ -50,13 +52,16 @@ Route::get('/hapus-akun-user', [AuthController::class, 'deleteAccount'])->name('
 // LIST KONSELOR
 Route::get('/konsultasi', [KonsultasiController::class, 'index'])->name('konsultasi-index');
 // DETAIL DOKTER
-Route::get('/konsultasi/detail-dokter-jiwa/{id}', [KonsultasiController::class, 'detailDokter'])->name('detail.dokter');
+Route::get('/konsultasi/detail-dokter-jiwa/{id}', [KonsultasiController::class, 'detailDokter'])->name('detail.dokter')->middleware(EnsureUserIsNotGuest::class);
 // PEMBAYARAN
-Route::get('/informasi-pembayaran', [PembayaranController::class, 'createPembayaran'])->name('checkout');
+Route::post('/informasi-pembayaran', [PembayaranController::class, 'createTransaction'])->name('pembayaran.create')->middleware(EnsureUserIsNotGuest::class);
+Route::get('/informasi-pembayaran/{id}', [PembayaranController::class, 'showCheckoutForm'])->name('checkout')->middleware(EnsureUserIsNotGuest::class);
+Route::post('/proses-pembayaran', [PembayaranController::class, 'prosesPembayaran'])->name('proses.pembayaran')->middleware(EnsureUserIsNotGuest::class);
+
 
 // ARTIKEL EDUKASI
 Route::get('/artikel-edukasi', [ArtikelController::class, 'showPasien'])->name('artikel-edukasi');
-Route::get('/list-artikel/{id_artikel}', [ArtikelController::class, 'listArtikel'])->name('app-artikel');
+Route::get('/artikel-edukasi/{id_artikel}', [ArtikelController::class, 'Artikel'])->name('app-artikel')->middleware(EnsureUserIsNotGuest::class);
 
 // TANTANGAN
 Route::get('/tantangan', function () {
@@ -75,7 +80,7 @@ Route::get('/nama-tantangan-yoga', function () {
 // DASHBOARD ADMIN
 Route::get('/dashboard-admin', function () {
     return view('client.admin.index');
-})->name('dashboard-admin');
+})->name('dashboard-admin')->middleware(AdminMiddleware::class);
 
 // KONSELOR
 // DAFTAR KONSELOR
