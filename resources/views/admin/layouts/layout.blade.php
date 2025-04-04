@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Dashboard')</title>
-    @include('admin.partial.link') {{-- CSS & Framework --}}
+    @include('client.admin.partial.link') {{-- CSS & Framework --}}
 </head>
 
 <body class="bg-gray-100">

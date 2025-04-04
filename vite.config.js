@@ -7,8 +7,21 @@ export default defineConfig({
             input: [
                 "resources/css/app.css", // CSS utama
                 "resources/js/app.js", // JS utama
+                "resources/css/admin.css", // CSS utama
+                "resources/js/admin.js", // JS utama
             ],
             refresh: true,
         }),
     ],
+    server: {
+        host: "0.0.0.0", // Pastikan Vite bisa diakses dari luar
+        port: 5173,
+        strictPort: true,
+        hmr: {
+            protocol: "wss",
+            host: "https://762b-111-94-163-41.ngrok-free.app", // Ganti dengan URL ngrok
+            clientPort: 443,
+        },
+        cors: true, // Izinkan akses dari luar
+    },
 });

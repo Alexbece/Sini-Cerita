@@ -99,4 +99,10 @@ class DokterController extends Controller
         // Kembali ke halaman sebelumnya
         return redirect()->back();
     }
+
+    public function riwayatKonsultasi()
+    {
+        $dokter = Dokter::find(Session::get('dokter_id'));
+        return view('client.dokter.riwayat_konsultasi.index', compact('dokter'));
+    }
 }

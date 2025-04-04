@@ -9,15 +9,8 @@ class Pembayaran extends Model
 
     protected $table = 'pembayaran';
 
-    protected $fillable = [
-        'id_user',
-        'id_dokter',
-        'waktu_konsultasi',
-        'mulai_konsultasi',
-        'akhir_konsultasi',
-        'harga_total',
-        'status',
-    ];
+    protected $fillable = ['user_id', 'dokter_id', 'subtotal', 'id_midtrans', 'status'];
+
 
     public function user()
     {

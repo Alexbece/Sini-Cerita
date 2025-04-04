@@ -2,95 +2,89 @@
 
 namespace App\Http\Controllers\Pembayaran;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Midtrans\Snap;
+use Midtrans\Config;
 use App\Models\Dokter;
 use App\Models\Pembayaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
-use Midtrans\Config;
-use Midtrans\Snap;
 
 class PembayaranController extends Controller
 {
-    // 1️⃣ Buat transaksi dulu sebelum masuk ke halaman pembayaran
-    public function createTransaction(Request $request)
-    {
-        $request->validate([
-            'id_dokter' => 'required|exists:dokter,id'
-        ]);
-
-        $user = Auth::user();
-        $dokter = Dokter::findOrFail($request->id_dokter);
-
-        // Buat transaksi di database
-        $pembayaran = Pembayaran::create([
-            'id_user'           => $user->id,
-            'id_dokter'         => $dokter->id,
-            'harga_total'       => $dokter->harga_layanan,
-            'waktu_konsultasi'  => Carbon::now()->toDateString(),
-            'mulai_konsultasi'  => Carbon::now()->format('H:i:s'),
-            'akhir_konsultasi'  => Carbon::now()->addHour()->format('H:i:s'),
-            'status'            => 'pending',
-        ]);
-
-        // Setelah transaksi dibuat, arahkan ke halaman informasi pembayaran
-        return redirect()->route('checkout', ['id' => $pembayaran->id]);
-    }
-
-    // 2️⃣ Menampilkan halaman informasi pembayaran
-    public function showCheckoutForm($id)
-    {
-        $pembayaran = Pembayaran::findOrFail($id);
-        $dokter = Dokter::findOrFail($pembayaran->id_dokter);
-        $user = Auth::user();
-
-        return view('client.pasien.konsultasi.pembayaran.checkout', compact('dokter', 'user', 'pembayaran'));
-    }
-
-    // 3️⃣ Memproses pembayaran dengan Midtrans
     public function prosesPembayaran(Request $request)
     {
-        $request->validate([
-            'id_pembayaran' => 'required|exists:pembayaran,id'
+        $user = auth()->user();
+        $dokter = Dokter::findOrFail($request->dokter_id);
+
+        // Buat data pembayaran dengan status "pending"
+        $pembayaran = Pembayaran::create([
+            'user_id' => $user->id,
+            'dokter_id' => $dokter->id,
+            'subtotal' => $dokter->harga_layanan,
+            'status' => 'pending',
         ]);
 
-        $pembayaran = Pembayaran::findOrFail($request->id_pembayaran);
-        $dokter = Dokter::findOrFail($pembayaran->id_dokter);
-        $user = Auth::user();
-
         // Konfigurasi Midtrans
-        Config::$serverKey = config('midtrans.server_key');
+        Config::$serverKey = env('MIDTRANS_SERVER_KEY');
         Config::$isProduction = false;
         Config::$isSanitized = true;
         Config::$is3ds = true;
 
-        // Detail transaksi Midtrans
+        // Buat transaksi di Midtrans
         $params = [
             'transaction_details' => [
-                'order_id'      => 'ORDER-' . $pembayaran->id,
-                'gross_amount'  => $pembayaran->harga_total,
+                'order_id' => 'ORDER-' . $pembayaran->id,
+                'gross_amount' => $dokter->harga_layanan,
             ],
             'customer_details' => [
                 'first_name' => $user->nama_lengkap,
-                'email'      => $user->email,
-                'phone'      => $user->no_telp,
-            ],
-            'item_details' => [
-                [
-                    'id'        => $dokter->id,
-                    'price'     => $dokter->harga_layanan,
-                    'quantity'  => 1,
-                    'name'      => 'Konsultasi dengan ' . $dokter->jenis_dokter,
-                ],
+                'email' => $user->email,
             ],
         ];
 
-        // Dapatkan Snap Token Midtrans
-        $snapToken = Snap::getSnapToken($params);
-        $pembayaran->snap_token = $snapToken;
-        $pembayaran->save();
+        try {
+            $snapToken = Snap::getSnapToken($params);
+            $pembayaran->update(['id_midtrans' => $params['transaction_details']['order_id']]);
+            return response()->json(['snap_token' => $snapToken]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
+    }
 
-        return response()->json(['snap_token' => $snapToken]);
+    public function checkout($dokter_id)
+    {
+        // Ambil data dokter
+        $dokter = Dokter::findOrFail($dokter_id);
+        $user = auth()->user();
+
+        // Kirim data ke view
+        return view('client.pasien.konsultasi.pembayaran.checkout', compact('dokter', 'user'));
+    }
+
+    public function midtransCallback(Request $request)
+    {
+        Log::info('Midtrans Callback: ' . $request->getContent());
+
+        $notif = json_decode($request->getContent());
+
+        $pembayaran = Pembayaran::where('id_midtrans', $notif->order_id)->first();
+
+        if (!$pembayaran) {
+            return response()->json(['message' => 'Pembayaran tidak ditemukan'], 404);
+        }
+
+        // Periksa status pembayaran dari Midtrans
+        if ($notif->transaction_status == 'settlement') {
+            $pembayaran->update(['status' => 'paid']);
+        } elseif ($notif->transaction_status == 'pending') {
+            $pembayaran->update(['status' => 'pending']);
+        } elseif ($notif->transaction_status == 'expire' || $notif->transaction_status == 'cancel') {
+            $pembayaran->update(['status' => 'cancelled']);
+        }
+
+        return response()->json(['message' => 'Status pembayaran diperbarui']);
     }
 }

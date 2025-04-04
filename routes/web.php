@@ -55,9 +55,12 @@ Route::get('/konsultasi', [KonsultasiController::class, 'index'])->name('konsult
 // DETAIL DOKTER
 Route::get('/konsultasi/detail-dokter-jiwa/{id}', [KonsultasiController::class, 'detailDokter'])->name('detail.dokter')->middleware(EnsureUserIsNotGuest::class);
 // PEMBAYARAN
-Route::post('/informasi-pembayaran', [PembayaranController::class, 'createTransaction'])->name('pembayaran.create')->middleware(EnsureUserIsNotGuest::class);
-Route::get('/informasi-pembayaran/{id}', [PembayaranController::class, 'showCheckoutForm'])->name('checkout')->middleware(EnsureUserIsNotGuest::class);
-Route::post('/proses-pembayaran', [PembayaranController::class, 'prosesPembayaran'])->name('proses.pembayaran')->middleware(EnsureUserIsNotGuest::class);
+Route::get('/informasi-pembayaran/{dokter_id}', [PembayaranController::class, 'checkout'])->name('checkout')->middleware(EnsureUserIsNotGuest::class);
+Route::post('/proses-pembayaran', [PembayaranController::class, 'prosesPembayaran'])->name('proses.pembayaran');
+
+Route::post('/midtrans/callback', [PembayaranController::class, 'midtransCallback'])
+    ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])
+    ->name('midtrans.callback');
 
 
 // ARTIKEL EDUKASI
@@ -82,10 +85,12 @@ Route::get('/nama-tantangan-yoga', function () {
 Route::middleware([DokterMiddleware::class])->group(function () {
     // DASHBOARD DOKTER
     Route::get('dashboard-dokter', [DokterController::class, 'indexDokter'])->middleware(DokterMiddleware::class);
+    // GANTI STATUS DOKTER
     Route::post('dashboard-dokter', [DokterController::class, 'changeStatus'])->middleware(DokterMiddleware::class)->name('changeStatus');
+
+    Route::get('riwayat-konsultasi-dokter', [DokterController::class, 'riwayatKonsultasi'])->middleware(DokterMiddleware::class);
 });
 // -------------------- END DOKTER
-
 
 // -------------------- ADMIN
 Route::middleware([AdminMiddleware::class])->group(function () {

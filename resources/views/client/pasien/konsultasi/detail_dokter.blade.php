@@ -294,11 +294,13 @@
                 <div class="grid gap-3">
                     <p class="text-lg text-hitam-800">
                         Silakan klik tombol 'Lanjut Konsultasi' untuk memulai sesi konsultasi kesehatan mental dengan dokter
-                        <span class="text-lg font-bold">{{ $dokter->nama_lengkap }} {{ $gelar }}</span> yang siap membantu Anda.
+                        <span class="text-lg font-bold">{{ $dokter->nama_lengkap }} {{ $gelar }}</span> yang siap
+                        membantu Anda.
                     </p>
-                    <button class="justify-center btn btn-primary size-5 w-max">
+                    <a href="{{ route('checkout', ['dokter_id' => $dokter->id]) }}"
+                        class="justify-center btn btn-primary size-5 w-max">
                         Lanjut Konsultasi
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

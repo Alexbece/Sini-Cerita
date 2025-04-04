@@ -13,14 +13,11 @@ return new class extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
-            $table->foreignId('id_dokter')->constrained('dokter')->onDelete('cascade');
-            $table->integer('harga_total');
-            $table->date('waktu_konsultasi');
-            $table->time('mulai_konsultasi');
-            $table->time('akhir_konsultasi');
-            $table->string('status')->default('pending');
-            $table->string('snap_token')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('dokter_id')->constrained('dokter')->onDelete('cascade');
+            $table->decimal('subtotal', 15, 2);
+            $table->string('id_midtrans')->nullable();
+            $table->enum('status', ['pending', 'paid'])->default('pending');
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@
 <body class="dokter bg-white min-h-svh">
     <div class="flex flex-col h-svh w-full">
         <nav
-            class="navbar bg-white border max-sm:rounded-box max-sm:shadow-sm sm:border-b border-base-content/25 relative">
+            class="navbar shadow-md bg-white border max-sm:rounded-box max-sm:shadow-sm sm:border-b border-base-content/25 relative">
             <button type="button" class="btn btn-text max-sm:btn-square sm:hidden me-2" aria-haspopup="dialog"
                 aria-expanded="false" aria-controls="with-navbar-sidebar" data-overlay="#with-navbar-sidebar">
                 <span class="icon-[tabler--menu-2] size-5"></span>
@@ -197,14 +197,16 @@
                     <ul class="menu gap-1 bg-white p-0">
                         <li>
                             <a href="/dashboard-dokter"
-                                class="text-biru-6 font-medium btn bg-biru-1 border-none  hover:bg-biru-1 hover:shadow-none hover:text-biru-6 flex justify-start shadow-none">
+                                class="btn flex justify-start shadow-none border-none font-medium 
+                                {{ request()->is('dashboard-dokter') ? 'bg-biru-1 text-biru-6 hover:bg-biru-1 hover:text-biru-6 hover:shadow-none' : 'hover:shadow-none bg-white text-hitam-800 hover:bg-biru-1 hover:text-biru-6' }}">
                                 <span class="icon-[tabler--home] size-5"></span>
                                 Dashboard
                             </a>
                         </li>
                         <li>
-                            <a href="#"
-                                class="text-hitam-800 font-medium btn bg-white border-none hover:bg-biru-1 hover:shadow-none hover:text-biru-6 flex justify-start shadow-none">
+                            <a href="/riwayat-konsultasi-dokter"
+                                class="btn flex justify-start shadow-none border-none font-medium 
+                                {{ request()->is('riwayat-konsultasi-dokter') ? 'bg-biru-1 text-biru-6 hover:bg-biru-1 hover:text-biru-6 hover:shadow-none' : 'hover:shadow-none bg-white text-hitam-800 hover:bg-biru-1 hover:text-biru-6' }}">
                                 <span class="icon-[tabler--user] size-5"></span>
                                 Riwayat Konsultasi
                             </a>

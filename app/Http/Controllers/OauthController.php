@@ -23,7 +23,9 @@ class OauthController extends Controller
     {
         $googleUser = Socialite::driver('google')->user();
 
-        $registeredUser = User::where('google_id', $googleUser->id)->first();
+        $registeredUser = User::where('google_id', $googleUser->id)
+            ->orWhere('email', $googleUser->email)
+            ->first();
 
         if (!$registeredUser) {
             $randomPassword = Str::password(15);
