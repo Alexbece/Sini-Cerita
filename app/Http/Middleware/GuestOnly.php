@@ -4,27 +4,25 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class DokterMiddleware
+class GuestOnly
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-
-    protected $proxied = '*';
-
     public function handle(Request $request, Closure $next): Response
     {
-
-        if (!session()->has('role_id')) {
-            abort(404);
+        if (Auth::guard('dokter')->check()) {
+            return redirect('/dasboard-dokter');
         }
 
-        if (!in_array(session('role_id'), [2, 3])) {
-            abort(404);
+        // Jika login sebagai user biasa
+        if (Auth::guard('web')->check()) {
+            return redirect()->route('app-index');
         }
 
         return $next($request);

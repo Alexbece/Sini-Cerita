@@ -14,6 +14,8 @@ class Dokter extends Authenticatable
 
     protected $fillable = [
         'id',
+        'status',
+        'saldo_dokter',
         'nama_lengkap',
         'role_id',
         'tanggal_lahir',

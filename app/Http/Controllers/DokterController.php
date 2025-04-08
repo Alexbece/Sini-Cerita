@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use function Laravel\Prompts\password;
 
+use function Laravel\Prompts\password;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -61,18 +62,30 @@ class DokterController extends Controller
             ])->onlyInput('email');
         }
 
-        Auth::login($dokter);
+        Auth::guard('dokter')->login($dokter);
         session([
-            'role_id'   => $dokter->role_id,
-            'dokter_id' => $dokter->id, // Simpan ID dokter di session
+            'dokter_id' => $dokter->id,
+            'role_id' => $dokter->role_id,
         ]);
 
         return redirect('/dashboard-dokter');
     }
 
+    public function logoutDokter(Request $request)
+    {
+        Auth::guard('dokter')->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
+
     public function indexDokter()
     {
-        $dokter = Dokter::find(Session::get('dokter_id'));
+        $dokter = Auth::guard('dokter')->user();
+        // $totalLayanan = Pembayaran::where('dokter_id', $dokter->id)->count();
+
         return view('client.dokter.index', compact('dokter'));
     }
 
@@ -104,5 +117,30 @@ class DokterController extends Controller
     {
         $dokter = Dokter::find(Session::get('dokter_id'));
         return view('client.dokter.riwayat_konsultasi.index', compact('dokter'));
+    }
+
+    public function getLatestNotifications(Request $request)
+    {
+        // Ambil 5 notifikasi terbaru dengan status 'paid'
+        $notifikasi = Pembayaran::with('user')
+            ->where('dokter_id', auth()->guard('dokter')->user()->id)
+            ->where('status', 'paid')
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return response()->json($notifikasi);
+    }
+
+    public function pesananLayanan()
+    {
+        $dokter = Auth::guard('dokter')->user();
+        return view('client.dokter.pesanan_layanan', compact('dokter'));
+    }
+
+    public function profilDokter()
+    {
+        $dokter = Auth::guard('dokter')->user();
+        return view('client.dokter.profil_dokter', compact('dokter'));
     }
 }

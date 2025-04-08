@@ -1,9 +1,8 @@
 @extends('client.dokter.layout')
-@section('title', 'Riwayat Konsultasi')
 
 @section('dokter-content')
     {{-- HEADER CONTENT --}}
-    <h1 class="text-3xl font-bold text-hitam-800">Riwayat Konsultasi</h1>
+    <h1 class="text-3xl font-bold text-hitam-800">Pesanan Layanan</h1>
 
     {{-- MAIN CONTENT --}}
     <div class="border-base-content/25 mt-6 h-max rounded-lg overflow-x-auto border">
@@ -11,14 +10,14 @@
             @php
                 $gelar = $dokter->jenis_dokter == 'Psikolog' ? 'S,Psi' : 'Sp,Kj';
             @endphp
-            <h1 class="font-semibold text-hitam-800 text-lg">Riwayat Konsultasi - <span
+            <h1 class="font-semibold text-hitam-800 text-lg">Pesanan Layanan - <span
                     class="badge badge-soft badge-success text-lg">{{ $dokter->nama_lengkap }}
                     {{ $gelar }}</span> </h1>
         </div>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Nama Pasien</th>
                     <th>Email</th>
                     <th>Waktu</th>
                     <th>Aksi</th>
@@ -65,5 +64,4 @@
         </table>
     </div>
     {{-- END MAIN CONTENT --}}
-
 @endsection

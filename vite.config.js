@@ -19,7 +19,7 @@ export default defineConfig({
         strictPort: true,
         hmr: {
             protocol: "wss",
-            host: "https://762b-111-94-163-41.ngrok-free.app", // Ganti dengan URL ngrok
+            host: "https://f6d3-111-94-163-251.ngrok-free.app",
             clientPort: 443,
         },
         cors: true, // Izinkan akses dari luar

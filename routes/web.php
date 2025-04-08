@@ -1,10 +1,19 @@
 <?php
 
+use App\Models\User;
+use App\Models\Dokter;
+use App\Events\OrderPaid;
+use App\Events\MessageSent;
+use App\Models\ChatMessage;
 use App\Livewire\SignupDokter;
+use App\Http\Middleware\GuestOnly;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\UserMiddleware;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ValidasiDokter;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\OauthController;
+use App\Http\Middleware\DokterMiddleware;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Middleware\EnsureUserIsNotGuest;
@@ -12,8 +21,7 @@ use App\Http\Controllers\Admin\DaftarUserController;
 use App\Http\Controllers\Admin\DaftarDokterController;
 use App\Http\Controllers\Konsultasi\KonsultasiController;
 use App\Http\Controllers\Pembayaran\PembayaranController;
-use App\Http\Middleware\AdminMiddleware;
-use App\Http\Middleware\DokterMiddleware;
+use Livewire\Features\SupportFileUploads\FileUploadController;
 
 // INDEX APP
 Route::get('/', function () {
@@ -27,8 +35,7 @@ Route::post('/daftar', [AuthController::class, 'signup'])->name('proses-signup-u
 // LOGIN
 Route::get('/masuk', [AuthController::class, 'showLogin'])->name('login-user');
 Route::post('/masuk', [AuthController::class, 'login'])->name('proses-login-user');
-// LOGOUT
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout-user');
+// LOGOUT   
 
 // OAUTH GOOGLE
 Route::get('/oauth/google', [OauthController::class, 'redirect']);
@@ -41,6 +48,10 @@ Route::get('/daftar-dokter', function () {
 })->name('signup-dokter');
 Route::get('/masuk-dokter', [DokterController::class, 'showLoginDokter'])->name('login-dokter');
 Route::post('/masuk-dokter', [DokterController::class, 'loginDokter'])->name('proses-login-dokter');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout-user')->middleware([UserMiddleware::class]);
+Route::post('/logout-dokter', [DokterController::class, 'logoutDokter'])->name('logout.dokter')->middleware([DokterMiddleware::class]);
+
 
 // PROFIL PASIEN
 Route::get('/profil-user', function () {
@@ -62,7 +73,6 @@ Route::post('/midtrans/callback', [PembayaranController::class, 'midtransCallbac
     ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])
     ->name('midtrans.callback');
 
-
 // ARTIKEL EDUKASI
 Route::get('/artikel-edukasi', [ArtikelController::class, 'showPasien'])->name('artikel-edukasi');
 Route::get('/artikel-edukasi/{id_artikel}', [ArtikelController::class, 'Artikel'])->name('app-artikel')->middleware(EnsureUserIsNotGuest::class);
@@ -80,17 +90,24 @@ Route::get('/nama-tantangan-yoga', function () {
     return view('client.pasien.tantangan.yoga.page_tantangan');
 })->name('page-tantangan-yoga');
 
-
-// -------------------- DOKTER
+// {{------------------------------------------------}}
+// {{-------------------- DOKTER --------------------}}
 Route::middleware([DokterMiddleware::class])->group(function () {
     // DASHBOARD DOKTER
-    Route::get('dashboard-dokter', [DokterController::class, 'indexDokter'])->middleware(DokterMiddleware::class);
-    // GANTI STATUS DOKTER
-    Route::post('dashboard-dokter', [DokterController::class, 'changeStatus'])->middleware(DokterMiddleware::class)->name('changeStatus');
+    Route::get('dashboard-dokter', [DokterController::class, 'indexDokter']);
+    Route::get('/dokter/notifikasi-terbaru', [DokterController::class, 'getLatestNotifications'])->name('dokter.notifikasi');
 
-    Route::get('riwayat-konsultasi-dokter', [DokterController::class, 'riwayatKonsultasi'])->middleware(DokterMiddleware::class);
+    // GANTI STATUS DOKTER
+    Route::post('dashboard-dokter', [DokterController::class, 'changeStatus'])->name('changeStatus');
+
+    Route::get('riwayat-konsultasi-dokter', [DokterController::class, 'riwayatKonsultasi']);
+    Route::get('pesanan-layanan', [DokterController::class, 'pesananLayanan']);
+
+    // PROFIL DOKTER
+    Route::get('profil-dokter', [DokterController::class, 'profilDokter']);
 });
-// -------------------- END DOKTER
+// {{-------------------- END DOKTER --------------------}}
+// {{----------------------------------------------------}}
 
 // -------------------- ADMIN
 Route::middleware([AdminMiddleware::class])->group(function () {

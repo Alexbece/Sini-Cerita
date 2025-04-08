@@ -1,0 +1,16 @@
+{
+    "client": {
+      "token": {
+        "hmac_secret_key": "QJAR9bZlxW6n2CMI5TAja7Aw7XQgbCFQ06BVjJe8"
+      },
+      "allowed_origins": ["*"]
+    },
+    "http_api": {
+      "key": "UbpyVFeolLbpF8U8f5eQ1dEq58tEt1J8RoY0bS5u"
+    },
+    "admin": {
+      "password": "password",
+      "secret": "Q6TOw0tN9TOblA7iN3TiG2WOULb2CdSYbYAD7GD0",
+      "enabled": true
+    }
+  }
