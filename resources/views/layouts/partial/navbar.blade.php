@@ -125,13 +125,16 @@
             <div class="w-full">
                 <div class="flex items-center gap-3 px-2 pb-3 border-b-2">
                     <a href="{{ route('profil-user') }}">
-                        <div class="rounded-full h-14 w-14 bg-biru-6"></div>
+                        <div class="rounded-full overflow-hidden h-14 w-14">
+                            <img src="{{ Str::startsWith(Auth::user()->foto_profil, ['http', 'https']) ? Auth::user()->foto_profil : asset('storage/' . Auth::user()->foto_profil) }}" class="object-cover"
+                                alt="">
+                        </div>
                     </a>
                     <div class="grid place-items-start place-content-center">
                         <p class="text-xl font-semibold font-raleway text-hitam-800"><a
-                                href="{{ route('profil-user') }}">Farrel Yassar Kurniawan</a></p>
+                                href="{{ route('profil-user') }}">{{ Auth::user()->nama_lengkap }}</a></p>
                         <p class="text-sm font-medium text-hitam-400"><a
-                                href="{{ route('profil-user') }}">farrel26yassar@gmail.com</a></p>
+                                href="{{ route('profil-user') }}">{{ Auth::user()->email }}</a></p>
                     </div>
                 </div>
             </div>

@@ -13,15 +13,15 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: {
-        host: "0.0.0.0", // Pastikan Vite bisa diakses dari luar
-        port: 5173,
-        strictPort: true,
-        hmr: {
-            protocol: "wss",
-            host: "https://f6d3-111-94-163-251.ngrok-free.app",
-            clientPort: 443,
-        },
-        cors: true, // Izinkan akses dari luar
-    },
+    // server: {
+    //     host: "0.0.0.0", // Pastikan Vite bisa diakses dari luar
+    //     port: 5173,
+    //     strictPort: true,
+    //     hmr: {
+    //         protocol: "wss",
+    //         host: "f222-111-94-163-251.ngrok-free.app",
+    //         clientPort: 443,
+    //     },
+    //     cors: true, // Izinkan akses dari luar
+    // },
 });

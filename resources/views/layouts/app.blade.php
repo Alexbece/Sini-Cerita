@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div class="@yield('section-content', 'items-center justify-center w-full md:px-6 lg:px-24 h-max py-6 ')">
+    <div class="@yield('section-content', 'items-center justify-center w-full md:px-6 lg:px-24 h-max py-6')">
         @yield('app-content')
     </div>
 

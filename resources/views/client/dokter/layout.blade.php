@@ -116,35 +116,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/pesanan-layanan"
+                            <a href="/sesi-chat-dokter"
                                 class="btn flex justify-start shadow-none border-none font-medium 
-                                {{ request()->is('pesanan-layanan') ? 'bg-biru-1 text-biru-6 hover:bg-biru-1 hover:text-biru-6 hover:shadow-none' : 'hover:shadow-none bg-white text-hitam-800 hover:bg-biru-1 hover:text-biru-6' }}">
-                                <span class="icon-[tabler--message] size-5"></span>
-                                Pesanan Layanan
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="btn flex justify-start shadow-none border-none font-medium 
-                                {{ request()->is('riwayat-konsultasi-dokter') ? 'bg-biru-1 text-biru-6 hover:bg-biru-1 hover:text-biru-6 hover:shadow-none' : 'hover:shadow-none bg-white text-hitam-800 hover:bg-biru-1 hover:text-biru-6' }}">
-                                <span class="icon-[tabler--mail] size-5"></span>
-                                Email
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="btn flex justify-start shadow-none border-none font-medium 
-                                {{ request()->is('riwayat-konsultasi-dokter') ? 'bg-biru-1 text-biru-6 hover:bg-biru-1 hover:text-biru-6 hover:shadow-none' : 'hover:shadow-none bg-white text-hitam-800 hover:bg-biru-1 hover:text-biru-6' }}">
-                                <span class="icon-[tabler--calendar] size-5"></span>
-                                Calendar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="btn flex justify-start shadow-none border-none font-medium 
-                                {{ request()->is('riwayat-konsultasi-dokter') ? 'bg-biru-1 text-biru-6 hover:bg-biru-1 hover:text-biru-6 hover:shadow-none' : 'hover:shadow-none bg-white text-hitam-800 hover:bg-biru-1 hover:text-biru-6' }}">
-                                <span class="icon-[tabler--shopping-bag] size-5"></span>
-                                Product
+                                {{ request()->is('sesi-chat-dokter') ? 'bg-biru-1 text-biru-6 hover:bg-biru-1 hover:text-biru-6 hover:shadow-none' : 'hover:shadow-none bg-white text-hitam-800 hover:bg-biru-1 hover:text-biru-6' }}">
+                                <span class="icon-[material-symbols--chat] size-5"></span>
+                                Sesi Chat
                             </a>
                         </li>
                     </ul>

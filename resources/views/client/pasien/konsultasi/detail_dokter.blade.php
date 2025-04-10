@@ -2,15 +2,16 @@
 
 @section('title', 'Detail Konselor - Sini Cerita')
 
-@section('section-content', 'py-0 px-24')
+@section('section-content', 'py-6 px-2 md:px-6 xl:px-24')
 @section('app-content')
     <section class="container-profil px-4 py-4 w-full h-max bg-white rounded-[20px] grid gap-2">
         <div class="grid w-full gap-2 h-max">
-            <div class="w-full relative h-[300px] rounded-xl">
-                <div class="w-full h-52 bg-biru-6 rounded-xl"></div>
-                <div class="absolute flex justify-center w-full -mt-20">
+            <div class="w-full relative h-[150px] md:h-[300px] rounded-xl">
+                <div class="w-full h-24 md:h-52 bg-biru-6 rounded-xl"></div>
+                <div class="absolute flex justify-center w-full -mt-10 md:-mt-20">
                     <img src="{{ asset('storage/' . $dokter->foto_profil) }}"
-                        class="rounded-full absolute border-white border-[5px] object-cover w-44 h-44" alt="">
+                        class="rounded-full absolute border-white border md:border-[5px] object-cover md:w-44 w-24 md:h-44 h-24"
+                        alt="">
                 </div>
             </div>
             <div class="flex flex-col items-center w-full">
@@ -20,22 +21,22 @@
                 <p class="text-2xl font-semibold text-hitam-800">dr. {{ $dokter->nama_lengkap }} {{ $gelar }}</p>
                 <p class="text-lg text-hitam-800">{{ $dokter->jenis_dokter }}</p>
             </div>
-            <nav class="w-full p-1 space-x-1 overflow-x-auto bg-gray-100 tabs rounded-xl rounded-field" aria-label="Tabs"
-                role="tablist" aria-orientation="horizontal">
+            <nav class="grid w-full p-1 space-x-1 overflow-x-auto bg-gray-100 sm:tabs rounded-xl rounded-field"
+                aria-label="Tabs" role="tablist" aria-orientation="horizontal">
                 <button type="button"
-                    class="btn btn-text text-hitam-600 active-tab:bg-biru-6 active-tab:text-white hover:text-biru-6 active hover:bg-transparent"
+                    class="text-xs btn btn-text md:text-base text-hitam-600 active-tab:bg-biru-6 active-tab:text-white hover:text-biru-6 active hover:bg-transparent"
                     id="tabs-segment-item-1" data-tab="#tabs-segment-1" aria-controls="tabs-segment-1" role="tab"
                     aria-selected="true">
                     Biodata
                 </button>
                 <button type="button"
-                    class="btn btn-text text-hitam-600 active-tab:bg-biru-6 active-tab:text-white hover:text-biru-6 hover:bg-transparent"
+                    class="text-xs btn btn-text md:text-base text-hitam-600 active-tab:bg-biru-6 active-tab:text-white hover:text-biru-6 hover:bg-transparent"
                     id="tabs-segment-item-2" data-tab="#tabs-segment-2" aria-controls="tabs-segment-2" role="tab"
                     aria-selected="false">
                     Rating & Ulasan
                 </button>
                 <button type="button"
-                    class="btn btn-text text-hitam-600 active-tab:bg-biru-6 active-tab:text-white hover:text-biru-6 hover:bg-transparent"
+                    class="text-xs btn btn-text md:text-base text-hitam-600 active-tab:bg-biru-6 active-tab:text-white hover:text-biru-6 hover:bg-transparent"
                     id="tabs-segment-item-3" data-tab="#tabs-segment-3" aria-controls="tabs-segment-3" role="tab"
                     aria-selected="false">
                     Lanjut Konsultasi
@@ -45,7 +46,7 @@
 
         <div class="mt-3">
             <div id="tabs-segment-1" role="tabpanel" aria-labelledby="tabs-segment-item-1">
-                <div class="grid w-full grid-cols-4 gap-6 p-5 bg-biru-1/50 place-content-center rounded-xl">
+                <div class="grid w-full gap-6 p-5 sm:grid-cols-4 bg-biru-1/50 place-content-center rounded-xl">
                     <div class="grid gap-1 place-items-start">
                         <h4 class="text-sm text-semibold text-hitam-600">NAMA LENGKAP</h4>
                         <p class="text-lg font-bold text-hitam-800">{{ $dokter->nama_lengkap }}</p>
@@ -75,13 +76,14 @@
             </div>
             <div id="tabs-segment-2" class="hidden" role="tabpanel" aria-labelledby="tabs-segment-item-2">
                 <div class="grid gap-4">
-                    <h5 class="text-3xl font-semibold text-hitam-800">Nilai & Ulasan</h5>
-                    <div class="flex items-start w-full gap-4">
+                    <h5 class="text-xl font-semibold sm:text-3xl text-hitam-800">Nilai & Ulasan</h5>
+                    <div class="grid w-full gap-4 md:flex md:items-start">
                         <div class="bg-transparent border card sm:max-w-sm">
                             <div class="card-body w-[400px]">
-                                <h4 class="mb-3 text-4xl font-semibold text-hitam-800">Nilai</h4>
-                                <h5 class="flex items-center gap-3 mb-8 text-4xl card-title text-hitam-800 "><span
-                                        class="icon-[mdi--like]"></span>50%</h5>
+                                <h4 class="mb-3 text-lg font-semibold sm:text-4xl text-hitam-800">Nilai</h4>
+                                <h5 class="flex items-center gap-3 mb-8 text-kg sm:text-4xl card-title text-hitam-800 ">
+                                    <span class="icon-[mdi--like]"></span>50%
+                                </h5>
                                 <div class="grid gap-4">
                                     <div class="grid w-full gap-1">
                                         <div class="w-full">
@@ -103,23 +105,25 @@
 
                         <div class="w-full bg-transparent border card">
                             <div class="grid w-full gap-6 card-body">
-                                <h4 class="mb-3 text-4xl font-semibold text-hitam-800">Ulasan</h4>
-                                <div class="grid w-full grid-cols-2 gap-3">
-                                    <div class="bg-transparent border card sm:max-w-sm">
-                                        <div class="grid gap-3 card-body">
+                                <h4 class="mb-1 text-xl font-semibold sm:mb-3 sm:text-4xl text-hitam-800">Ulasan</h4>
+                                <div class="grid w-full gap-3 sm:grid-cols-2">
+                                    <div class="bg-transparent border card">
+                                        <div class="grid w-full gap-3 card-body">
                                             <div class="flex items-center gap-2">
                                                 <div class="avatar">
-                                                    <div class="rounded-full size-12">
+                                                    <div class="rounded-full size-10 sm:size-12">
                                                         <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png"
                                                             alt="avatar" />
                                                     </div>
                                                 </div>
                                                 <div class="grid">
-                                                    <h5 class="text-xl card-title text-hitam-800">Mamen Mahmudi</h5>
-                                                    <p class="text-sm text-hitam-400">Pengguna Sini Cerita</p>
+                                                    <h5 class="text-sm sm:text-xl card-title text-hitam-800">Mamen Mahmudi
+                                                    </h5>
+                                                    <p class="text-xs sm:text-sm text-hitam-400">Pengguna Sini Cerita</p>
                                                 </div>
                                             </div>
-                                            <p class="mb-4 text-sm text-hitam-600">Lorem ipsum dolor sit amet, consectetur
+                                            <p class="mb-4 text-xs sm:text-sm text-hitam-600">Lorem ipsum dolor sit amet,
+                                                consectetur
                                                 adipisicing elit.
                                                 Veritatis consectetur voluptatem architecto facilis perferendis nulla enim
                                                 eum
@@ -127,118 +131,14 @@
                                                 quisquam accusamus?</p>
                                             <div class="card-actions">
                                                 <button href="#" type="button"
-                                                    class="no-underline link text-biru-6" aria-expanded="false"
-                                                    aria-controls="middle-center-modal"
+                                                    class="text-sm no-underline sm:text-base link text-biru-6"
+                                                    aria-expanded="false" aria-controls="middle-center-modal"
                                                     data-overlay="#BacaUlasanLengkap">Baca Selengkapnya</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="bg-transparent border card sm:max-w-sm">
-                                        <div class="grid gap-3 card-body">
-                                            <div class="flex items-center gap-2">
-                                                <div class="avatar">
-                                                    <div class="rounded-full size-12">
-                                                        <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png"
-                                                            alt="avatar" />
-                                                    </div>
-                                                </div>
-                                                <div class="grid">
-                                                    <h5 class="text-xl card-title text-hitam-800">Mamen Mahmudi</h5>
-                                                    <p class="text-sm text-hitam-400">Pengguna Sini Cerita</p>
-                                                </div>
-                                            </div>
-                                            <p class="mb-4 text-sm text-hitam-600">Lorem ipsum dolor sit amet, consectetur
-                                                adipisicing elit.
-                                                Veritatis consectetur voluptatem architecto facilis perferendis nulla enim
-                                                eum
-                                                at,
-                                                quisquam accusamus?</p>
-                                            <div class="card-actions">
-                                                <a href="#" class="no-underline link text-biru-6">Baca
-                                                    Selengkapnya</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="bg-transparent border card sm:max-w-sm">
-                                        <div class="grid gap-3 card-body">
-                                            <div class="flex items-center gap-2">
-                                                <div class="avatar">
-                                                    <div class="rounded-full size-12">
-                                                        <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png"
-                                                            alt="avatar" />
-                                                    </div>
-                                                </div>
-                                                <div class="grid">
-                                                    <h5 class="text-xl card-title text-hitam-800">Mamen Mahmudi</h5>
-                                                    <p class="text-sm text-hitam-400">Pengguna Sini Cerita</p>
-                                                </div>
-                                            </div>
-                                            <p class="mb-4 text-sm text-hitam-600">Lorem ipsum dolor sit amet, consectetur
-                                                adipisicing elit.
-                                                Veritatis consectetur voluptatem architecto facilis perferendis nulla enim
-                                                eum
-                                                at,
-                                                quisquam accusamus?</p>
-                                            <div class="card-actions">
-                                                <a href="#" class="no-underline link text-biru-6">Baca
-                                                    Selengkapnya</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="bg-transparent border card sm:max-w-sm">
-                                        <div class="grid gap-3 card-body">
-                                            <div class="flex items-center gap-2">
-                                                <div class="avatar">
-                                                    <div class="rounded-full size-12">
-                                                        <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png"
-                                                            alt="avatar" />
-                                                    </div>
-                                                </div>
-                                                <div class="grid">
-                                                    <h5 class="text-xl card-title text-hitam-800">Mamen Mahmudi</h5>
-                                                    <p class="text-sm text-hitam-400">Pengguna Sini Cerita</p>
-                                                </div>
-                                            </div>
-                                            <p class="mb-4 text-sm text-hitam-600">Lorem ipsum dolor sit amet, consectetur
-                                                adipisicing elit.
-                                                Veritatis consectetur voluptatem architecto facilis perferendis nulla enim
-                                                eum
-                                                at,
-                                                quisquam accusamus?</p>
-                                            <div class="card-actions">
-                                                <a href="#" class="no-underline link text-biru-6">Baca
-                                                    Selengkapnya</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="bg-transparent border card sm:max-w-sm">
-                                        <div class="grid gap-3 card-body">
-                                            <div class="flex items-center gap-2">
-                                                <div class="avatar">
-                                                    <div class="rounded-full size-12">
-                                                        <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png"
-                                                            alt="avatar" />
-                                                    </div>
-                                                </div>
-                                                <div class="grid">
-                                                    <h5 class="text-xl card-title text-hitam-800">Mamen Mahmudi</h5>
-                                                    <p class="text-sm text-hitam-400">Pengguna Sini Cerita</p>
-                                                </div>
-                                            </div>
-                                            <p class="mb-4 text-sm text-hitam-600">Lorem ipsum dolor sit amet, consectetur
-                                                adipisicing elit.
-                                                Veritatis consectetur voluptatem architecto facilis perferendis nulla enim
-                                                eum
-                                                at,
-                                                quisquam accusamus?</p>
-                                            <div class="card-actions">
-                                                <a href="#" class="no-underline link text-biru-6">Baca
-                                                    Selengkapnya</a>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
-                                <ul class="flex items-center justify-center w-full h-10 -space-x-px text-base">
+                                {{-- <ul class="flex items-center justify-center w-full h-10 -space-x-px text-base">
                                     <li>
                                         <a href="#"
                                             class="flex items-center justify-center h-10 px-4 leading-tight text-white border ms-0 border-e-0 rounded-s-lg border-biru-6 bg-biru-6 hover:bg-white hover:text-biru-6">
@@ -281,7 +181,7 @@
                                             </svg>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                     </div>

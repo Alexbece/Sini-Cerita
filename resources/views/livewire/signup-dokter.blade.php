@@ -214,69 +214,6 @@
         </form>
 
         <form wire:submit.prevent="submitForm" class="{{ $currentStep != 3 ? 'hidden' : '' }} py-4">
-            <h1 class="text-2xl font-bold text-center text-hitam-800">Step 3 - Periksa Data</h1>
-            <div class="grid w-full grid-cols-2 mt-4 gap-y-3 place-items-center">
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Nama lengkap</h4>
-                    <p class="text-hitam-800">: {{ $nama_lengkap }}</p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Tanggal lahir</h4>
-                    <p class="text-hitam-800">: {{ $tanggal_lahir }}</p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Jenis kelamin</h4>
-                    <p class="text-hitam-800">: {{ $jenis_kelamin }}</p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Alamat</h4>
-                    <p class="text-hitam-800">: {{ $alamat }}</p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Email</h4>
-                    <p class="text-hitam-800">: {{ $email }}</p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">No. Telepon</h4>
-                    <p class="text-hitam-800">: {{ $no_telp }}</p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Harga Layanan</h4>
-                    <p class="text-hitam-800">: {{ $harga_layanan }}</p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Foto Profil</h4>
-                    <p class="text-hitam-800">: @if ($foto_profil)
-                            <a href="{{ $foto_profil->temporaryUrl() }}" target="_blank" class="underline">Foto
-                                Profil</a>
-                        @endif
-                    </p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Foto Wajah</h4>
-                    <p class="text-hitam-800">: <a href=""></a></p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Foto KTP</h4>
-                    <p class="text-hitam-800">: <a href=""></a></p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Foto STRPK</h4>
-                    <p class="text-hitam-800">: <a href=""></a></p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Nomor STRPK</h4>
-                    <p class="text-hitam-800">: {{ $no_strpk }}</p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Foto SIPPK</h4>
-                    <p class="text-hitam-800">: <a href=""></a></p>
-                </div>
-                <div class="w-full grid place-items-start grid-cols-[150px,1fr]">
-                    <h4 class="text-hitam-800">Nomor SIPPK</h4>
-                    <p class="text-hitam-800">: {{ $no_sippk }}</p>
-                </div>
-            </div>
             <div class="flex items-center justify-between w-full mt-4">
                 <button class="btn btn-danger nextBtn btn-lg pull-right" type="button"
                     wire:click="back(2)">Kembali</button>

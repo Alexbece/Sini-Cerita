@@ -1,12 +1,5 @@
 <?php
 
-use App\Models\User;
-use App\Models\Dokter;
-use App\Events\OrderPaid;
-use App\Events\MessageSent;
-use App\Models\ChatMessage;
-use App\Livewire\SignupDokter;
-use App\Http\Middleware\GuestOnly;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UserMiddleware;
 use App\Http\Controllers\AuthController;
@@ -21,7 +14,6 @@ use App\Http\Controllers\Admin\DaftarUserController;
 use App\Http\Controllers\Admin\DaftarDokterController;
 use App\Http\Controllers\Konsultasi\KonsultasiController;
 use App\Http\Controllers\Pembayaran\PembayaranController;
-use Livewire\Features\SupportFileUploads\FileUploadController;
 
 // INDEX APP
 Route::get('/', function () {
@@ -102,6 +94,7 @@ Route::middleware([DokterMiddleware::class])->group(function () {
 
     Route::get('riwayat-konsultasi-dokter', [DokterController::class, 'riwayatKonsultasi']);
     Route::get('pesanan-layanan', [DokterController::class, 'pesananLayanan']);
+    Route::get('sesi-chat-dokter', [DokterController::class, 'sesiChat']);
 
     // PROFIL DOKTER
     Route::get('profil-dokter', [DokterController::class, 'profilDokter']);

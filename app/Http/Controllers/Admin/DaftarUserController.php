@@ -10,7 +10,7 @@ class DaftarUserController extends Controller
 {
     public function show()
     {
-        $daftarUser = User::where('role', 'pasien')->paginate(10);
+        $daftarUser = User::where('role_id', 1)->paginate(10);
 
         return view('client.admin.daftar-user.index', compact('daftarUser'));
     }

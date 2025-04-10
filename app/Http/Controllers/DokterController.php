@@ -7,10 +7,7 @@ use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
-use function Laravel\Prompts\password;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 
 class DokterController extends Controller
 {
@@ -84,7 +81,6 @@ class DokterController extends Controller
     public function indexDokter()
     {
         $dokter = Auth::guard('dokter')->user();
-        // $totalLayanan = Pembayaran::where('dokter_id', $dokter->id)->count();
 
         return view('client.dokter.index', compact('dokter'));
     }
@@ -142,5 +138,10 @@ class DokterController extends Controller
     {
         $dokter = Auth::guard('dokter')->user();
         return view('client.dokter.profil_dokter', compact('dokter'));
+    }
+    public function sesiChat()
+    {
+        $dokter = Auth::guard('dokter')->user();
+        return view('client.dokter.sesi_chat', compact('dokter'));
     }
 }

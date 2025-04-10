@@ -87,14 +87,6 @@
             </li>
             <!-- All About Artikel Dropdown -->
 
-            {{-- Daftar Tantangan --}}
-            <li>
-                <a href="/list-tantangan">
-                    <span class="icon-[material-symbols--task] size-5"></span>
-                    Daftar Tantangan
-                </a>
-            </li>
-
             {{-- Daftar User --}}
             <li>
                 <a href="/list-user">

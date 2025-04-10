@@ -49,7 +49,13 @@ class AuthController extends Controller
         Auth::login($user);
         session(['role_id' => $user->role_id]);
 
-        return redirect('/')->with('berhasil-login', 'Selamat, Anda berhasil login!');
+        if ($user->role_id == 1) {
+            return redirect('/')->with('berhasil-login', 'Selamat, Anda berhasil login!');
+        } elseif ($user->role_id == 3) {
+            return redirect('/dashboard-admin')->with('berhasil-login', 'Selamat, Anda berhasil login!');
+        } else {
+            return redirect('/')->with('berhasil-login', 'Selamat, Anda berhasil login!');
+        }
     }
 
 
