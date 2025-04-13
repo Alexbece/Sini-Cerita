@@ -277,7 +277,7 @@
             </div>
         </div>
     </div>
-
+    @stack('scripts')
     @yield('script')
 </body>
 

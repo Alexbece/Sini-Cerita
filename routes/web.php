@@ -21,7 +21,10 @@ use App\Http\Controllers\Admin\DaftarUserController;
 use App\Http\Controllers\Admin\DaftarDokterController;
 use App\Http\Controllers\Konsultasi\KonsultasiController;
 use App\Http\Controllers\Pembayaran\PembayaranController;
-use Livewire\Features\SupportFileUploads\FileUploadController;
+use App\Http\Controllers\LiveChatController;
+use App\Http\Controllers\RiwayatChatController;
+use App\Http\Controllers\ChatMessageController;
+use App\Http\Controllers\DashboardController;
 
 // INDEX APP
 Route::get('/', function () {
@@ -73,6 +76,9 @@ Route::post('/midtrans/callback', [PembayaranController::class, 'midtransCallbac
     ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])
     ->name('midtrans.callback');
 
+
+
+
 // ARTIKEL EDUKASI
 Route::get('/artikel-edukasi', [ArtikelController::class, 'showPasien'])->name('artikel-edukasi');
 Route::get('/artikel-edukasi/{id_artikel}', [ArtikelController::class, 'Artikel'])->name('app-artikel')->middleware(EnsureUserIsNotGuest::class);
@@ -94,17 +100,21 @@ Route::get('/nama-tantangan-yoga', function () {
 // {{-------------------- DOKTER --------------------}}
 Route::middleware([DokterMiddleware::class])->group(function () {
     // DASHBOARD DOKTER
-    Route::get('dashboard-dokter', [DokterController::class, 'indexDokter']);
+    Route::get('dashboard-dokter', [DokterController::class, 'indexDokter'])->name('dokter.dashboard');
     Route::get('/dokter/notifikasi-terbaru', [DokterController::class, 'getLatestNotifications'])->name('dokter.notifikasi');
 
     // GANTI STATUS DOKTER
     Route::post('dashboard-dokter', [DokterController::class, 'changeStatus'])->name('changeStatus');
 
     Route::get('riwayat-konsultasi-dokter', [DokterController::class, 'riwayatKonsultasi']);
+    Route::get('/dokter/riwayat-konsultasi/{id}', [DokterController::class, 'riwayatKonsultasiDetail'])
+        ->name('riwayat.konsultasi.detail');
     Route::get('pesanan-layanan', [DokterController::class, 'pesananLayanan']);
 
     // PROFIL DOKTER
     Route::get('profil-dokter', [DokterController::class, 'profilDokter']);
+
+
 });
 // {{-------------------- END DOKTER --------------------}}
 // {{----------------------------------------------------}}
@@ -147,3 +157,16 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::delete('/list-user/{id}', [DaftarUserController::class, 'deleteUser'])->name('user.delete');
 });
 // -------------------- END ADMIN
+
+Route::middleware('auth.userOrDokter')->group(function () {
+    Route::get('/livechat/start/{pembayaranId}', [LiveChatController::class, 'start'])->name('livechat.start');
+    Route::get('/dokter/livechat/{chatId}', [LiveChatController::class, 'accessByDokter'])->name('dokter.livechat');
+    Route::post('/dokter/livechat/{chatId}/end', [LiveChatController::class, 'endSession'])->name('dokter.endChat');
+
+
+    // Kirim pesan
+    Route::post('/chat/send', [ChatMessageController::class, 'send'])->name('chat.send');
+});
+
+// 🟢 Broadcast route: Pusher private channel
+Broadcast::routes(['middleware' => ['auth.userOrDokter']]);

@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Midtrans\Snap;
 use Midtrans\Config;
 use App\Models\Dokter;
-use App\Events\OrderPaid;
+use App\Events\PembayaranBerhasil;
 use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 use App\Helpers\CentrifugoHelper;
