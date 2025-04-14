@@ -65,8 +65,12 @@
                         window.snap.pay(data.snap_token, {
                             onSuccess: function(result) {
                                 alert('Pembayaran berhasil!');
-                                window.location.href =
-                                    "{{ route('app-index') }}"; // Redirect ke halaman utama
+                                // Ambil pembayaranId dari order_id (ORDER-1234)
+                                let pembayaranId = result.order_id.replace('ORDER-', '');
+
+                                // Redirect langsung ke halaman live chat setelah pembayaran sukses
+                                window.location.href = "{{ url('/livechat/start') }}/" +
+                                    pembayaranId;
                             },
                             onPending: function(result) {
                                 alert('Menunggu pembayaran...');

@@ -17,8 +17,6 @@
             href="{{ route('konsultasi-index') }}">Konsultasi</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{ route('artikel-edukasi') }}">Artikel Edukasi</a></li>
-    <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="">
-            Konsultasi</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm"
             href="{{ route('app-tantangan') }}">Tantangan</a></li>
     <li class="text-sm text-hitam-800 text-nowrap hover:text-biru-6"><a class="text-sm" href="">Tentang Kami</a>
@@ -52,9 +50,6 @@
                 <div class="grid w-full gap-4 p-3 border-b-2">
                     <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
                         <i class='text-xl bx bx-user'></i><a href="{{ route('profil-user') }}">Lihat akun</a>
-                    </div>
-                    <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
-                        <i class='text-xl bx bx-cog'></i><a href="">Pengaturan</a>
                     </div>
                     <div class="flex items-center gap-1 text-sm transition-all hover:text-biru-6 w-max text-hitam-600">
                         <i class='text-xl bx bx-history'></i><a href="">Riwayat</a>
@@ -125,7 +120,7 @@
             <div class="w-full">
                 <div class="flex items-center gap-3 px-2 pb-3 border-b-2">
                     <a href="{{ route('profil-user') }}">
-                        <div class="rounded-full overflow-hidden h-14 w-14">
+                        <div class="overflow-hidden rounded-full h-14 w-14">
                             <img src="{{ Str::startsWith(Auth::user()->foto_profil, ['http', 'https']) ? Auth::user()->foto_profil : asset('storage/' . Auth::user()->foto_profil) }}" class="object-cover"
                                 alt="">
                         </div>

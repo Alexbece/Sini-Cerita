@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -30,14 +31,14 @@
         @yield('app-content')
     </div>
 
-    <div class="items-center justify-center w-full mt-6 md:px-6 lg:px-24 py-6 h-max @yield('section-footer')">
+    <div class=" @yield('section-footer', 'items-center justify-center w-full mt-6 md:px-6 lg:px-24 py-6 h-max')">
         <footer
             class="bg-white rounded-[30px] grid xl:grid-cols-2 shadow-lg gap-12 place-items-center h-max justify-center p-6 md:p-16 transition-all ease-out duration-300">
 
             @include ('layouts.partial.footer')
         </footer>
     </div>
-
+    @stack('scripts')
     @yield('script')
     @include('layouts.partial.script')
 </body>

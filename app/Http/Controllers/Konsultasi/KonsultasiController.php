@@ -8,11 +8,18 @@ use Illuminate\Http\Request;
 
 class KonsultasiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $dokters = Dokter::where('status', 'online')
-            ->where('status_validasi_data', 'approved')
-            ->get();
+        $jenisDokter = $request->jenis_dokter;
+
+        $dokter = Dokter::query();
+
+        // Jika ada jenis_dokter di URL, filter berdasarkan itu
+        if ($jenisDokter) {
+            $dokter->where('jenis_dokter', $jenisDokter);
+        }
+
+        $dokters = $dokter->paginate(3)->withQueryString();
 
         return view('client.pasien.konsultasi.index', compact('dokters'));
     }

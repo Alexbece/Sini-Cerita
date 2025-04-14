@@ -9,24 +9,24 @@
     @include('layouts.partial.link')
 </head>
 
-<body class="dokter bg-white">
+<body class="bg-white dokter">
     <div class="flex flex-col min-h-svh min-w-svh">
         <nav
-            class="navbar shadow-md bg-white border max-sm:rounded-box max-sm:shadow-sm sm:border-b border-base-content/25 relative">
+            class="relative bg-white border shadow-md navbar max-sm:rounded-box max-sm:shadow-sm sm:border-b border-base-content/25">
             <button type="button" class="btn btn-text max-sm:btn-square sm:hidden me-2" aria-haspopup="dialog"
                 aria-expanded="false" aria-controls="with-navbar-sidebar" data-overlay="#with-navbar-sidebar">
                 <span class="icon-[tabler--menu-2] size-5"></span>
             </button>
-            <div class="flex flex-1 items-center">
-                <a class="text-hitam-800 text-xl font-semibold no-underline" href="#">
+            <div class="flex items-center flex-1">
+                <a class="text-xl font-semibold no-underline text-hitam-800" href="#">
                     Sini Cerita
                 </a>
             </div>
-            <div class="navbar-end flex items-center gap-4">
+            <div class="flex items-center gap-4 navbar-end">
                 <div class="dropdown relative inline-flex [--auto-close:inside] [--offset:8] [--placement:bottom-end]">
-                    <button id="dropdown-scrollable" type="button" class="dropdown-toggle flex items-center"
+                    <button id="dropdown-scrollable" type="button" class="flex items-center dropdown-toggle"
                         aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-                        <div class="avatar indicator relative">
+                        <div class="relative avatar indicator">
                             <span
                                 class="indicator-item {{ $dokter->status == 'online' ? 'bg-success' : ($dokter->status == 'sibuk' ? 'bg-warning' : ($dokter->status == 'offline' ? 'bg-error' : 'bg-error')) }} top-1 right-1 size-3 rounded-full"></span>
                             <div class="size-9.5 rounded-full">
@@ -34,17 +34,17 @@
                             </div>
                         </div>
                     </button>
-                    <ul class="dropdown-menu dropdown-open:opacity-100 bg-white border hidden min-w-60" role="menu"
+                    <ul class="hidden bg-white border dropdown-menu dropdown-open:opacity-100 min-w-60" role="menu"
                         aria-orientation="vertical" aria-labelledby="dropdown-avatar">
-                        <li class="dropdown-header gap-2">
+                        <li class="gap-2 dropdown-header">
                             <div class="avatar">
                                 <div class="w-10 rounded-full">
                                     <img src="{{ asset('storage/' . $dokter->foto_profil) }}" alt="avatar" />
                                 </div>
                             </div>
                             <div>
-                                <div class="flex gap-2 items-center">
-                                    <h6 class="text-hitam-800 text-lg font-semibold">John Doe</h6>
+                                <div class="flex items-center gap-2">
+                                    <h6 class="text-lg font-semibold text-hitam-800">John Doe</h6>
                                     <span
                                         class="badge badge-soft {{ $dokter->status == 'online' ? 'badge-success' : ($dokter->status == 'offline' ? 'badge-error' : ($dokter->status == 'sibuk' ? 'badge-warning' : 'badge-error')) }} text-xs p-1">
                                         <span
@@ -80,10 +80,10 @@
                                 FAQs
                             </a>
                         </li>
-                        <li class="dropdown-footer gap-2">
+                        <li class="gap-2 dropdown-footer">
                             <form action="{{ route('logout.dokter') }}" method="POST" class="w-full">
                                 @csrf
-                                <button class="btn btn-error justify-start btn-soft btn-block">
+                                <button class="justify-start btn btn-error btn-soft btn-block">
                                     <span class="icon-[tabler--logout]"></span>
                                     Keluar
                                 </button>
@@ -95,10 +95,10 @@
         </nav>
 
         <div class="flex w-full min-h-svh">
-            <aside id="with-navbar-sidebar" class="min-h-svh bg-white shadow-lg w-max sm:translate-x-0" role="dialog"
+            <aside id="with-navbar-sidebar" class="bg-white shadow-lg min-h-svh w-max sm:translate-x-0" role="dialog"
                 tabindex="-1">
-                <div class="drawer-body rounded-lg h-full min-w-64 px-4 pt-4">
-                    <ul class="menu gap-1 bg-white p-0">
+                <div class="h-full px-4 pt-4 rounded-lg drawer-body min-w-64">
+                    <ul class="gap-1 p-0 bg-white menu">
                         <li>
                             <a href="/dashboard-dokter"
                                 class="btn flex justify-start shadow-none border-none font-medium 
@@ -116,9 +116,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/sesi-chat-dokter"
+                            <a href="/pesanan-layanan"
                                 class="btn flex justify-start shadow-none border-none font-medium 
-                                {{ request()->is('sesi-chat-dokter') ? 'bg-biru-1 text-biru-6 hover:bg-biru-1 hover:text-biru-6 hover:shadow-none' : 'hover:shadow-none bg-white text-hitam-800 hover:bg-biru-1 hover:text-biru-6' }}">
+                                {{ request()->is('pesanan-layanan') ? 'bg-biru-1 text-biru-6 hover:bg-biru-1 hover:text-biru-6 hover:shadow-none' : 'hover:shadow-none bg-white text-hitam-800 hover:bg-biru-1 hover:text-biru-6' }}">
                                 <span class="icon-[material-symbols--chat] size-5"></span>
                                 Sesi Chat
                             </a>
@@ -128,11 +128,11 @@
             </aside>
 
             {{-- CONTENT --}}
-            <div class="grid h-max w-full p-4">
+            <div class="grid w-full p-4 h-max">
                 {{-- STATISTIC CARDS --}}
                 <div class="@yield('stat-card', 'flex w-full justify-between gap-6 mb-8')">
-                    <div class="p-4 w-full rounded-lg shadow-xs overflow-hidden bg-white border shadow-md">
-                        <div class=" flex items-center">
+                    <div class="w-full p-4 overflow-hidden bg-white border rounded-lg shadow-xs shadow-md">
+                        <div class="flex items-center ">
                             <div
                                 class="p-3 rounded-full text-white {{ $dokter->status == 'online' ? 'bg-success' : ($dokter->status == 'sibuk' ? 'bg-warning' : ($dokter->status == 'offline' ? 'bg-error' : 'bg-error')) }} mr-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -172,10 +172,10 @@
                                 data-overlay="#ubah-status-modal" class="text-sm text-biru-5">Ubah Status</button>
                         </div>
                     </div>
-                    <div class="p-4 w-full rounded-lg shadow-xs overflow-hidden bg-white border shadow-md">
-                        <div class=" flex items-center">
+                    <div class="w-full p-4 overflow-hidden bg-white border rounded-lg shadow-xs shadow-md">
+                        <div class="flex items-center ">
                             <div
-                                class="p-3 rounded-full text-green-500 dark:text-green-100 bg-green-100 dark:bg-green-500 mr-4">
+                                class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
                                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5">
                                     <path fill-rule="evenodd"
                                         d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
@@ -195,10 +195,10 @@
                             <a href="#" class="text-sm text-biru-5">Tarik Saldo</a>
                         </div>
                     </div>
-                    <div class="p-4 w-full rounded-lg shadow-xs overflow-hidden bg-white border shadow-md">
-                        <div class=" flex items-center">
+                    <div class="w-full p-4 overflow-hidden bg-white border rounded-lg shadow-xs shadow-md">
+                        <div class="flex items-center ">
                             <div
-                                class="p-3 rounded-full text-orange-500 dark:text-orange-100 bg-orange-100 dark:bg-orange-500 mr-4">
+                                class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
                                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5">
                                     <path
                                         d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
@@ -224,10 +224,10 @@
                             <a href="#" class="text-sm text-biru-5">Lihat Semua</a>
                         </div>
                     </div>
-                    <div class="p-4 w-full rounded-lg shadow-xs overflow-hidden bg-white border shadow-md">
-                        <div class=" flex items-center">
+                    <div class="w-full p-4 overflow-hidden bg-white border rounded-lg shadow-xs shadow-md">
+                        <div class="flex items-center ">
                             <div
-                                class="p-3 rounded-full text-blue-500 dark:text-blue-100 bg-blue-100 dark:bg-blue-500 mr-4">
+                                class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
                                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5">
                                     <path
                                         d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z">
@@ -252,8 +252,64 @@
                 @yield('dokter-content')
             </div>
         </div>
+        {{-- MODAL --}}
+        {{-- UBAH STATUS --}}
+        <div id="ubah-status-modal"
+            class="hidden overlay modal overlay-open:opacity-100 overlay-open:duration-300 modal-middle"
+            role="dialog" tabindex="-1">
+            <div class="modal-dialog overlay-open:opacity-100 overlay-open:duration-300">
+                <div class="bg-white modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-hitam-800">Ubah Status</h3>
+                        <button type="button" class="absolute btn btn-text btn-circle btn-sm end-3 top-3"
+                            aria-label="Close" data-overlay="#ubah-status-modal">
+                            <span class="icon-[tabler--x] size-4"></span>
+                        </button>
+                    </div>
+                    <form action="{{ route('changeStatus') }}" method="POST">
+                        @csrf
+                        <div class="modal-body">
+                            <ul
+                                class="border-base-content/25 divide-base-content/25 rounded-box flex w-full flex-col border *:w-full *:cursor-pointer max-sm:divide-y sm:flex-row sm:divide-x">
+                                <li>
+                                    <label class="flex items-center gap-2 p-3">
+                                        <input type="radio" name="status" value="online"
+                                            class="bg-white radio radio-info ms-3"
+                                            @if ($dokter->status == 'online') disabled @endif
+                                            @if ($dokter->status != 'offline') checked @endif />
+                                        <span
+                                            class="label-text {{ $dokter->status == 'online' ? 'text-gray-300' : 'text-hitam-800' }}">
+                                            Online
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center gap-2 p-3">
+                                        <input type="radio" name="status" value="offline"
+                                            class="bg-white radio radio-info ms-3"
+                                            @if ($dokter->status == 'offline') disabled @endif
+                                            @if ($dokter->status != 'online') checked @endif />
+                                        <span
+                                            class="label-text {{ $dokter->status == 'offline' ? 'text-gray-300' : 'text-hitam-800' }}">
+                                            Offline
+                                        </span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-soft btn-secondary"
+                                data-overlay="#ubah-status-modal">Close</button>
+                            <button type="submit"
+                                class="text-white border-none btn bg-biru-6 hover:bg-biru-5">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{-- END UBAH STATUS --}}
     </div>
-
+    @stack('scripts')
     @yield('script')
 </body>
 

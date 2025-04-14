@@ -3,28 +3,34 @@
 @section('title', 'Tantangan Yoga - Sini Cerita')
 
 @section('app-hero')
-    <div class="flex justify-center relative overflow-hidden w-full py-8 h-[530px] px-28 hero-section gap-7">
-        <div class="w-[50%] flex flex-col items-start justify-center gap-3">
-            <p class="text-5xl font-bold text-hitam-800 max-w-[80%]">Tantangan Yoga Sini Cerita</p>
-            <p class="text-wrap text-hitam-800 max-w-[500px]">Latihan harian untuk meningkatkan keseimbangan,
+    <div
+        class="flex justify-center relative overflow-hidden w-full py-8 sm:h-[530px] h-[300px] px-2 sm:px-28 hero-section gap-7">
+        <div class="md:w-[50%] w-full flex flex-col items-center md:items-start justify-center gap-3">
+            <p class="sm:text-5xl text-2xl text-center md:text-start font-bold text-hitam-800 w-full md:max-w-[80%]">
+                Tantangan Yoga Sini
+                Cerita</p>
+            <p class="text-wrap text-xs sm:text-base text-center md:text-start text-hitam-800 w-full md:max-w-[500px]">
+                Latihan harian
+                untuk meningkatkan
+                keseimbangan,
                 fleksibilitas, dan ketenangan, membantu merawat tubuh dan mental.
             </p>
             <button id="to-list-tantangan"
-                class="flex gap-1 text-lg font-semibold text-white border-none items-bottom btn bg-biru-6 hover:bg-biru-5 h-max">Mulai
+                class="flex gap-1 text-sm font-semibold text-white border-none sm:text-lg items-bottom btn bg-biru-6 hover:bg-biru-5 h-max">Mulai
                 Yoga<span class="icon-[line-md--arrow-down]"></span></button>
         </div>
-        <div class="w-[50%] flex justify-center items-center h-max">
+        <div class="w-[50%] hidden md:flex justify-center items-center h-max">
             <img src="{{ asset('client/img/tantangan/tantangan_hero.png') }}" alt=""
-                class="object-cover object-center w-auto h-[400px]">
+                class="object-cover  object-center w-auto h-[400px]">
         </div>
-        <div class="absolute z-10 rounded-full h-52 w-52 -bottom-10 -left-12 bg-biru-4"></div>
-        <div class="absolute z-0 rounded-full h-52 w-52 -bottom-14 -left-3 bg-biru-2"></div>
-        <div class="absolute z-0 rounded-full h-52 w-52 -right-20 bg-biru-4"></div>
-        <div class="absolute z-0 rounded-full h-52 w-52 -right-32 bottom-40 bg-biru-2"></div>
+        <div class="absolute z-10 hidden rounded-full xl:flex h-52 w-52 -bottom-10 -left-12 bg-biru-4"></div>
+        <div class="absolute z-0 hidden rounded-full xl:flex h-52 w-52 -bottom-14 -left-3 bg-biru-2"></div>
+        <div class="absolute z-0 hidden rounded-full xl:flex h-52 w-52 -right-20 bg-biru-4"></div>
+        <div class="absolute z-0 hidden rounded-full xl:flex h-52 w-52 -right-32 bottom-40 bg-biru-2"></div>
     </div>
 @endsection
 
-@section('section-content', 'px-8')
+@section('section-content', 'items-center justify-center w-full md:px-6 lg:px-24 h-max py-6')
 @section('app-content')
     <!-- List Tantangan -->
     <div class="w-full h-full px-8 py-6 mt-4">
@@ -34,7 +40,7 @@
                 <h2 class="text-3xl font-semibold text-center text-hitam-800">Tantangan Yoga</h2>
                 <p>Coba sehatkan diri dan pikiran dengan melakukan tantangan beryoga dari Sini Cerita.</p>
             </div>
-            <div class="z-10 grid w-full grid-cols-4 gap-6 h-max">
+            <div class="z-10 grid w-full gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-max">
                 <!-- Card 1 -->
                 <div class="relative flex flex-col w-full gap-4">
                     <p
@@ -110,7 +116,7 @@
                     <div class="grid w-full gap-2">
                         <p class="text-sm text-wrap text-hitam-400">Momen istimewa di pagi hari yang membangkitkan
                             semangat, inspirasi, dan energi positif untuk memulai hari dengan penuh keyakinan.</p>
-                        <a href="{{ route('yoga') }}"
+                        <a href="{{ route('page-tantangan-yoga') }}"
                             class="flex items-center mt-2 text-white border-none rounded-full bg-biru-6 btn w-max hover:bg-biru-5 hover:text-white">Mulai
                             Tantangan
                         </a>

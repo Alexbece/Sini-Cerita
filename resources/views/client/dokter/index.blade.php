@@ -18,7 +18,7 @@
 @endphp
 
 @section('dokter-content')
-    <div class="w-full container gap-4 flex mb-8">
+    <div class="container flex w-full gap-4 mb-8">
         {{-- DATA PENJUALAN LAYANAN PERBULAN --}}
         <div class="pt-6 px-2 w-[70%] pb-0 border rounded-md">
             <div id="bar-chart"></div>
@@ -27,9 +27,9 @@
 
         {{-- NOTIFIKASI PASIEN BARU --}}
         <div class="rounded-lg border pt-6 px-2 w-[30%] flex flex-col">
-            <h1 class="text-center text-hitam-800 font-semibold text-xl">Notifikasi</h1>
-            <div class="divider my-1"></div>
-            <div id="notifikasi-dropdown" class="grid gap-2 w-full">
+            <h1 class="text-xl font-semibold text-center text-hitam-800">Notifikasi</h1>
+            <div class="my-1 divider"></div>
+            <div id="notifikasi-dropdown" class="grid w-full gap-2">
                 @forelse($notifikasi as $notif)
                 @empty
                 @endforelse
@@ -39,9 +39,9 @@
     </div>
 
     {{-- DATA RIWAYAT KONSULTASI --}}
-    <div class="border-base-content/25 h-full rounded-lg overflow-x-auto border">
-        <div class="w-full flex justify-between items-center px-5 py-3 border-b">
-            <h1 class="font-semibold text-lg">Riwayat Konsultasi</h1>
+    <div class="h-full overflow-x-auto border rounded-lg border-base-content/25">
+        <div class="flex items-center justify-between w-full px-5 py-3 border-b">
+            <h1 class="text-lg font-semibold">Riwayat Konsultasi</h1>
             <a href="/riwayat-konsultasi-dokter" class="text-sm font-medium text-biru-5">Lihat Semua</a>
         </div>
         <table class="table">
@@ -59,7 +59,7 @@
                     <td>{{ Str::limit('farrelyassar.k@gmail.com', 18) }}</td>
                     <td>March 1, 2024</td>
                     <td>
-                        <button class="btn rounded-full btn-warning btn-soft btn-sm flex items-center gap-1"
+                        <button class="flex items-center gap-1 rounded-full btn btn-warning btn-soft btn-sm"
                             aria-label="Action button"><span class="icon-[mdi--eye-outline] size-5"></span>Detail</button>
                     </td>
                 </tr>
@@ -68,7 +68,7 @@
                     <td>{{ Str::limit('farrelyassar.k@gmail.com', 18) }}</td>
                     <td>March 2, 2024</td>
                     <td>
-                        <button class="btn rounded-full btn-warning btn-soft btn-sm flex items-center gap-1"
+                        <button class="flex items-center gap-1 rounded-full btn btn-warning btn-soft btn-sm"
                             aria-label="Action button"><span class="icon-[mdi--eye-outline] size-5"></span>Detail</button>
                     </td>
                 </tr>
@@ -77,7 +77,7 @@
                     <td>{{ Str::limit('farrelyassar.k@gmail.com', 18) }}</td>
                     <td>March 3, 2024</td>
                     <td>
-                        <button class="btn rounded-full btn-warning btn-soft btn-sm flex items-center gap-1"
+                        <button class="flex items-center gap-1 rounded-full btn btn-warning btn-soft btn-sm"
                             aria-label="Action button"><span class="icon-[mdi--eye-outline] size-5"></span>Detail</button>
                     </td>
                 </tr>
@@ -86,7 +86,7 @@
                     <td>{{ Str::limit('farrelyassar.k@gmail.com', 18) }}</td>
                     <td>March 4, 2024</td>
                     <td>
-                        <button class="btn rounded-full btn-warning btn-soft btn-sm flex items-center gap-1"
+                        <button class="flex items-center gap-1 rounded-full btn btn-warning btn-soft btn-sm"
                             aria-label="Action button"><span class="icon-[mdi--eye-outline] size-5"></span>Detail</button>
                     </td>
                 </tr>
@@ -94,106 +94,59 @@
         </table>
     </div>
     {{-- END DATA RIWAYAT KONSULTASI --}}
-
-    {{-- MODAL --}}
-    {{-- UBAH STATUS --}}
-    <div id="ubah-status-modal" class="overlay modal overlay-open:opacity-100 overlay-open:duration-300 modal-middle hidden"
-        role="dialog" tabindex="-1">
-        <div class="modal-dialog overlay-open:opacity-100 overlay-open:duration-300">
-            <div class="modal-content bg-white">
-                <div class="modal-header">
-                    <h3 class="modal-title text-hitam-800">Ubah Status</h3>
-                    <button type="button" class="btn btn-text btn-circle btn-sm absolute end-3 top-3" aria-label="Close"
-                        data-overlay="#ubah-status-modal">
-                        <span class="icon-[tabler--x] size-4"></span>
-                    </button>
-                </div>
-                <form action="{{ route('changeStatus') }}" method="POST">
-                    @csrf
-                    <div class="modal-body">
-                        <ul
-                            class="border-base-content/25 divide-base-content/25 rounded-box flex w-full flex-col border *:w-full *:cursor-pointer max-sm:divide-y sm:flex-row sm:divide-x">
-                            <li>
-                                <label class="flex items-center gap-2 p-3">
-                                    <input type="radio" name="status" value="online"
-                                        class="radio radio-info bg-white ms-3"
-                                        @if ($dokter->status == 'online') disabled @endif
-                                        @if ($dokter->status != 'offline') checked @endif />
-                                    <span
-                                        class="label-text {{ $dokter->status == 'online' ? 'text-gray-300' : 'text-hitam-800' }}">
-                                        Online
-                                    </span>
-                                </label>
-                            </li>
-                            <li>
-                                <label class="flex items-center gap-2 p-3">
-                                    <input type="radio" name="status" value="offline"
-                                        class="radio radio-info bg-white ms-3"
-                                        @if ($dokter->status == 'offline') disabled @endif
-                                        @if ($dokter->status != 'online') checked @endif />
-                                    <span
-                                        class="label-text {{ $dokter->status == 'offline' ? 'text-gray-300' : 'text-hitam-800' }}">
-                                        Offline
-                                    </span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-soft btn-secondary"
-                            data-overlay="#ubah-status-modal">Close</button>
-                        <button type="submit" class="btn bg-biru-6 hover:bg-biru-5 text-white border-none">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END UBAH STATUS --}}
 @endsection
 
 @section('script')
     <script>
-        // Fungsi untuk mengambil notifikasi terbaru
+        let lastNotifId = null; // untuk menyimpan ID notifikasi terakhir
+
         function loadNotifikasi() {
-            fetch('/dokter/notifikasi-terbaru')
+            fetch('/dokter/notifikasi-terbaru') // harus return array of latest, misal 5 item
                 .then(res => res.json())
                 .then(data => {
+                    if (!Array.isArray(data)) return;
+
                     const notifContainer = document.getElementById('notifikasi-dropdown');
-                    notifContainer.innerHTML = ''; // reset
 
-                    if (data.length > 0) {
-                        data.forEach(notif => {
-                            const newNotif = document.createElement('div');
-                            newNotif.className = 'flex dropdown-item m-0 p-2 items-center gap-2 w-max';
+                    // Cari notifikasi terbaru yang ID-nya belum pernah ditampilkan
+                    const notifBaru = data.find(n => n.id !== lastNotifId);
 
-                            newNotif.innerHTML = `
-            <div class="avatar avatar-away-bottom">
-                <div class="w-10 rounded-full">
-                    <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png" alt="User Avatar" />
-                </div>
-            </div>
-            <div class="w-60 sm:w-60">
-                <h6 class="text-hitam-800 font-medium text-base notif-nama">${notif.user.nama_lengkap ?? 'Pasien Baru'}</h6>
-                <p class="text-hitam-500 text-xs notif-ket">Memesan layanan konsultasi Anda</p>
-            </div>
-        `;
+                    if (notifBaru) {
+                        lastNotifId = notifBaru.id; // update ID notifikasi terakhir
 
-                            notifContainer.appendChild(newNotif);
-                        });
-                    } else {
-                        notifContainer.innerHTML = `
-            <div class="text-center text-gray-400 text-sm break-words">Tidak ada notifikasi baru.</div>
-    `;
+                        // Kosongkan container
+                        notifContainer.innerHTML = '';
+
+                        const createdAt = new Date(notifBaru.created_at);
+                        const satuJamLalu = new Date(Date.now() - 60 * 1000);
+                        const isBaru = createdAt > satuJamLalu;
+
+                        const newNotif = document.createElement('div');
+                        newNotif.className =
+                            `flex dropdown-item m-0 p-2 items-center gap-2 w-max rounded-md transition-all duration-300 ${isBaru ? 'bg-biru-1' : ''}`;
+
+                        newNotif.innerHTML = `
+                        <div class="avatar avatar-away-bottom">
+                            <div class="w-10 rounded-full">
+                                <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png" alt="User Avatar" />
+                            </div>
+                        </div>
+                        <div class="w-60 sm:w-60">
+                            <h6 class="text-base font-medium text-hitam-800 notif-nama">${notifBaru.user?.nama_lengkap ?? 'Pasien Baru'}</h6>
+                            <p class="text-xs text-hitam-500 notif-ket">Memesan layanan konsultasi Anda</p>
+                        </div>
+                    `;
+
+                        notifContainer.appendChild(newNotif);
                     }
                 })
                 .catch(error => console.error('Error fetching notifications:', error));
         }
 
-
         loadNotifikasi();
-
-        setInterval(loadNotifikasi, 30000);
+        setInterval(loadNotifikasi, 30000); // 30 detik sekali
     </script>
+
     <script>
         const chartConfig = {
             series: [{

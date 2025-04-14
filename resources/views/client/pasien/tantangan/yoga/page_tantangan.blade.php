@@ -4,27 +4,28 @@
 
 @section('app-hero')
     <section
-        class="flex relative overflow-hidden flex-col items-center h-[600px] justify-center w-full gap-4 py-8 px-28 hero-section">
-        <p class="font-bold text-center text-7xl text-hitam-800">Morning Magic</p>
-        <p class="text-wrap text-hitam-800 max-w-[500px] text-center">Temukan ketenangan, kenali diri lebih
+        class="flex relative overflow-hidden flex-col items-center h-[350px] sm:h-[600px] justify-center w-full gap-4 py-8 px-3 sm:px-28 hero-section">
+        <p class="text-3xl font-bold text-center sm:text-7xl text-hitam-800">Morning Magic</p>
+        <p class="text-wrap text-hitam-800 sm:max-w-[500px] w-full text-sm sm:text-base text-center">Temukan ketenangan,
+            kenali diri lebih
             dalam, dan
             jalani hidup dengan penuh kesadaran, satu napas dalam satu waktu.
         </p>
         <button id="to-konten-tantangan"
-            class="flex gap-1 text-lg font-semibold text-white border-none items-bottom btn bg-biru-6 hover:bg-biru-5 h-max">Mulai
+            class="flex gap-1 text-sm font-semibold text-white border-none sm:text-lg items-bottom btn bg-biru-6 hover:bg-biru-5 h-max">Mulai
             Tantangan<span class="icon-[line-md--arrow-down]"></span></button>
-        <img src="{{ asset('client/img/tantangan/Group 2104.svg') }}" class="absolute bottom-0 rounded-br-[20px] right-0 z-0"
-            alt="">
+        <img src="{{ asset('client/img/tantangan/Group 2104.svg') }}"
+            class="absolute hidden md:flex bottom-0 rounded-br-[20px] right-0 z-0" alt="">
         <img src="{{ asset('client/img/tantangan/Group 2103.svg') }}"
-            class="absolute left-0 z-0 -bottom-4 rounded-bl-[20px] " alt="">
+            class="absolute hidden md:flex left-0 z-0 -bottom-4 rounded-bl-[20px] " alt="">
     </section>
 @endsection
 
-@section('section-content', 'px-0')
+@section('section-content', 'items-center justify-center w-full md:px-6 px-0 lg:px-24 h-max py-6')
 
 @section('app-content')
     <!-- Kontent Tantangan -->
-    <div class="w-full h-full px-12 py-6 mt-4" id="konten-tantangan">
+    <div class="w-full h-full px-0 py-6 mt-4 sm:px-12" id="konten-tantangan">
         <div
             class="relative flex flex-col items-start justify-center w-full gap-6 p-6 overflow-hidden bg-white rounded-2xl">
             <div class="z-20 flex justify-center w-full">

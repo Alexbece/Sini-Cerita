@@ -56,9 +56,9 @@ class SignupDokter extends Component
                 'email'         => 'required|email|unique:dokter,email|unique:users,email',
                 'no_telp'       => ['required', 'regex:/^[0-9]+$/'],
                 'password'      => 'required|min:6',
-                'foto_profil'   => 'required|image|mimes:jpg,jpeg,png|max:2048',
-                'foto_wajah'    => 'required|image|mimes:jpg,jpeg,png|max:2048',
-                'foto_ktp'      => 'required|image|mimes:jpg,jpeg,png|max:2048',
+                'foto_profil'   => 'required|image|file|mimes:jpg,jpeg,png|max:2048',
+                'foto_wajah'    => 'required|image|file|mimes:jpg,jpeg,png|max:2048',
+                'foto_ktp'      => 'required|image|file|mimes:jpg,jpeg,png|max:2048',
             ]
         );
 
@@ -69,12 +69,12 @@ class SignupDokter extends Component
     public function secondStepSubmit()
     {
         $this->validate([
-            'foto_ijazah'   => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'foto_strpk'    => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'foto_ijazah'   => 'required|image|file|mimes:jpg,jpeg,png|max:2048',
+            'foto_strpk'    => 'required|image|file|mimes:jpg,jpeg,png|max:2048',
             'no_strpk'      => 'required|unique:dokter,no_strpk',
-            'foto_sippk'    => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'foto_sippk'    => 'required|image|file|mimes:jpg,jpeg,png|max:2048',
             'no_sippk'      => 'required|unique:dokter,no_sippk',
-            'harga_layanan' => 'required',
+            'harga_layanan' => 'required|numeric',
         ]);
 
         $this->currentStep = 3;

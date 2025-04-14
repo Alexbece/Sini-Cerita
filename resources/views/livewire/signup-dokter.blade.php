@@ -8,9 +8,9 @@
                 <p class="text-hitam-800">Biodata</p>
             </div>
             <div class="flex items-center gap-2">
-                <button wire:click="$set('currentStep', 2)"
+                <button wire:click=""
                     class="btn btn-circle {{ $currentStep != 2 ? 'btn bg-white hover:bg-white text-hitam-800 hover:text-hitam-800 border-biru-6 hover:border-biru-6' : 'btn bg-biru-6 hover:bg-biru-6  hover:text-white text-white border-none' }}"
-                    type="button" href="#step-2">2</button>
+                    type="button" href="">2</button>
                 <p class="text-hitam-800">Dokumen Kedokteran</p>
             </div>
             <div class="flex items-center gap-2">
@@ -36,7 +36,7 @@
                 <div>
                     <label class="label label-text text-hitam-800" for="tanggal_lahir">Tanggal Lahir</label>
                     <input type="text" wire:model="tanggal_lahir"
-                        class="bg-white text-hitam-800 input focus:border-biru-6" placeholder="Januari 01, 2025"
+                        class="bg-white text-hitam-800 input focus:border-biru-6" placeholder="2000-12-30"
                         id="tanggal_lahir" name="tanggal_lahir" required />
                     @error('tanggal_lahir')
                         <span class="text-sm text-red-500">{{ $message }}</span>
@@ -201,7 +201,7 @@
                 <div>
                     <div class="label label-text text-hitam-800">Harga Layanan / Jam</div>
                     <input id="harga_layanan" wire:model="harga_layanan" type="harga_layanan" name="harga_layanan"
-                        placeholder="Rp 12.000" class="bg-white input text-hitam-800 focus:border-biru-6" required />
+                        placeholder="1200000" class="bg-white input text-hitam-800 focus:border-biru-6" required />
                     @error('harga_layanan')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -239,7 +239,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         flatpickr("#tanggal_lahir", {
             altInput: true,
-            altFormat: 'F j, Y',
+            altFormat: 'Y-m-d',
             dateFormat: 'Y-m-d'
         });
     });

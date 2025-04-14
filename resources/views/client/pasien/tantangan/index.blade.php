@@ -4,11 +4,13 @@
 
 @section('app-hero')
     <div
-        class="relative overflow-hidden flex w-full py-8 h-[550px] items-center justify-center px-16 xl:px-28 hero-section gap-7">
-        <div class="w-[50%] flex flex-col items-start justify-center gap-3">
-            <p class="text-5xl md:text-start text-center font-bold text-hitam-800 max-w-[85%]">Sini Sehat Dengan Tantangan
+        class="relative overflow-hidden grid sm:flex w-full py-8 sm:h-[550px] h-[300px] items-center justify-center px-6 sm:px-16 xl:px-28 hero-section gap-7">
+        <div class="flex flex-col items-center justify-center w-full gap-3 sm:items-start">
+            <p class="text-lg sm:text-5xl md:text-start text-center font-bold text-hitam-800 sm:max-w-[85%]">Sini Sehat
+                Dengan
+                Tantangan
             </p>
-            <p class="text-wrap md:text-start text-center text-hitam-800 max-w-[400px]"> Bahagia dengan sehatkan pikiran,
+            <p class="text-wrap md:text-start text-center text-hitam-800 lg:max-w-[400px]"> Bahagia dengan sehatkan pikiran,
                 tubuh, dan
                 mental
                 Anda adalah kunci untuk mencapai keseimbangan hidup yang penuh semangat. </p>
@@ -16,22 +18,22 @@
                 class="flex gap-1 text-lg font-semibold text-white border-none items-bottom btn bg-biru-6 hover:bg-biru-5 h-max">Mulai<span
                     class="icon-[line-md--arrow-down]"></span></button>
         </div>
-        <div class="w-[50%] hidden md:flex justify-center items-center h-max">
+        <div class="w-[80%] hidden md:flex justify-center items-center h-max">
             <img src="{{ asset('client/img/tantangan/tantangan_hero.png') }}" alt=""
-                class="object-cover object-center w-auto h-[400px]">
+                class="object-cover object-center w-auto h-[300px] xl:h-[400px]">
         </div>
-        <div class="absolute z-10 rounded-full h-52 w-52 -bottom-10 -left-12 bg-biru-4"></div>
-        <div class="absolute z-0 rounded-full h-52 w-52 -bottom-14 -left-3 bg-biru-2"></div>
-        <div class="absolute z-0 rounded-full h-52 w-52 -right-20 bg-biru-4"></div>
-        <div class="absolute z-0 rounded-full h-52 w-52 -right-32 bottom-60 bg-biru-2"></div>
+        <div class="absolute z-10 hidden rounded-full xl:flex h-52 w-52 -bottom-10 -left-12 bg-biru-4"></div>
+        <div class="absolute z-0 hidden rounded-full xl:flex h-52 w-52 -bottom-14 -left-3 bg-biru-2"></div>
+        <div class="absolute z-0 hidden rounded-full xl:flex h-52 w-52 -right-20 bg-biru-4"></div>
+        <div class="absolute z-0 hidden rounded-full xl:flex h-52 w-52 -right-32 bottom-60 bg-biru-2"></div>
     </div>
 @endsection
 
-@section('section-content', 'px-8')
+@section('section-content', 'sm:px-8 px-0')
 
 @section('app-content')
 
-    <div class="flex justify-center w-full h-full px-24 py-6 mt-4">
+    <div class="justify-center hidden w-full h-full px-24 py-6 mt-4 md:flex">
         <div class="flex items-center h-full gap-4 p-6 shadow-md bg-biru-2 rounded-xl w-max">
             <div class="flex items-center justify-center col-span-1 row-span-2 rounded-lg shadow-md w-max h-max">
                 <img src="{{ asset('client/img/tantangan/yoga_1.jpg') }}" alt=""
@@ -60,7 +62,7 @@
             <h2 class="text-3xl font-semibold text-hitam-800">Kategori Tantangan</h2>
             <p>Tiga jenis kategori tantangan yang bisa anda coba untuk menyehatkan pikiran Anda</p>
         </div>
-        <div class="z-10 flex justify-center w-full gap-6 h-max">
+        <div class="z-10 flex justify-start w-full gap-6 overflow-x-auto md:justify-center md:overflow-hidden h-max">
             <!-- Card 1 -->
             <div class="flex flex-col w-full gap-4">
                 <img src="{{ asset('client/img/tantangan/yoga_2.jpg') }}" alt=""
@@ -117,7 +119,7 @@
             class="absolute z-0 bottom-8 -rotate-90 -left-32 w-[450px] opacity-55 h-auto"></img>
     </div>
 
-    <div class="w-full h-full px-24 py-6 mt-14">
+    <div class="hidden w-full h-full px-24 py-6 md:flex mt-14">
         <div
             class="grid items-center justify-center w-full grid-cols-2 overflow-hidden shadow-lg h-max rounded-xl bg-biru-6">
             <div class="flex flex-col items-center h-[600px] justify-center gap-2">

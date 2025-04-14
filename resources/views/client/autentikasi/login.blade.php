@@ -25,7 +25,7 @@
                 Mari sehat <br>dengan<br>bercerita.</p>
 
 
-            <img src="{{ asset('client/img/trung-thanh-rzJ4TEQZe4M-unsplash 1.png') }}" alt=""
+            <img src="{{ asset('client/img/trung-thanh-rzJ4TEQZe4M-unsplash1.png') }}" alt=""
                 class="object-cover h-full img-login">
         </div>
 

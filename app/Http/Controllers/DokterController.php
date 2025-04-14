@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dokter;
 use App\Models\Pembayaran;
+use App\Models\SesiChat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -22,15 +23,15 @@ class DokterController extends Controller
     public function loginDokter(Request $request)
     {
         $request->validate([
-            'no_strpk'  => 'required',
-            'email'     => 'required|email:rfc,dns',
-            'password'  => 'required|min:6',
+            'no_strpk' => 'required',
+            'email' => 'required|email:rfc,dns',
+            'password' => 'required|min:6',
         ], [
             'no_strpk.required' => 'No. STRPK wajib diisi!',
-            'email.required'    => 'Email wajib diisi!',
-            'email.email'       => 'Isi email dengan benar!',
+            'email.required' => 'Email wajib diisi!',
+            'email.email' => 'Isi email dengan benar!',
             'password.required' => 'Password wajib diisi!',
-            'password.min'      => 'Password memiliki minimal 6 huruf!',
+            'password.min' => 'Password memiliki minimal 6 huruf!',
         ]);
 
         $dokter = Dokter::where('no_strpk', $request->no_strpk)->first();
@@ -111,13 +112,43 @@ class DokterController extends Controller
 
     public function riwayatKonsultasi()
     {
-        $dokter = Dokter::find(Session::get('dokter_id'));
-        return view('client.dokter.riwayat_konsultasi.index', compact('dokter'));
+        $dokterId = Auth::guard('dokter')->id();
+
+        $sesiChats = SesiChat::with('user')
+            ->where('dokter_id', $dokterId)
+            ->where('status', 'selesai')
+            ->orderByDesc('waktu_mulai')
+            ->get();
+
+        $dokter = Auth::guard('dokter')->user();
+
+        return view('client.dokter.riwayat_konsultasi.index', compact('sesiChats', 'dokter'));
     }
 
-    public function getLatestNotifications(Request $request)
+
+    public function riwayatKonsultasiDetail($id)
     {
-        // Ambil 5 notifikasi terbaru dengan status 'paid'
+        $dokterId = Auth::guard('dokter')->id();
+
+        // Ambil sesi chat yang sesuai dengan ID dan milik dokter yang sedang login
+        $chat = SesiChat::with(['user', 'messages'])
+            ->where('id', $id)
+            ->where('dokter_id', $dokterId)
+            ->where('status', 'selesai') // hanya yang sudah selesai
+            ->firstOrFail();
+
+        $dokter = Auth::guard('dokter')->user();
+
+        return view('client.dokter.riwayat_konsultasi.detail', compact('chat', 'dokter'));
+    }
+
+    public function getLatestNotifications()
+    {
+        // Cek apakah dokter masih login
+        if (!auth()->guard('dokter')->check()) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
         $notifikasi = Pembayaran::with('user')
             ->where('dokter_id', auth()->guard('dokter')->user()->id)
             ->where('status', 'paid')
@@ -128,20 +159,24 @@ class DokterController extends Controller
         return response()->json($notifikasi);
     }
 
+
     public function pesananLayanan()
     {
         $dokter = Auth::guard('dokter')->user();
-        return view('client.dokter.pesanan_layanan', compact('dokter'));
+
+        $sesiChats = SesiChat::with('user')
+            ->where('dokter_id', $dokter->id)
+            ->where('status', 'aktif') // ambil yang statusnya aktif
+            ->orderBy('waktu_mulai', 'asc')
+            ->get();
+
+        return view('client.dokter.livechat.pesanan_layanan', compact('sesiChats', 'dokter'));
     }
+
 
     public function profilDokter()
     {
         $dokter = Auth::guard('dokter')->user();
         return view('client.dokter.profil_dokter', compact('dokter'));
-    }
-    public function sesiChat()
-    {
-        $dokter = Auth::guard('dokter')->user();
-        return view('client.dokter.sesi_chat', compact('dokter'));
     }
 }

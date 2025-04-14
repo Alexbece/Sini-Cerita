@@ -1,9 +1,6 @@
 <div class="flex flex-col justify-center w-full h-full gap-4 transition-all duration-300 ease-out">
     <h3 class="text-5xl font-bold text-biru-6">Sini Cerita</h3>
-    <p class="text-wrap text-hitam-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque aspernatur
-        veritatis sit
-        laborum, nobis illo quae
-        dolores beatae sunt reiciendis fugiat explicabo ducimus fugit maxime!</p>
+    <p class="text-wrap text-hitam-600">Kami ada di sini untuk mendengarkan. Dapatkan bantuan profesional untuk kesehatan mentalmu dengan mudah dan aman.!</p>
 </div>
 
 <div class="grid w-full gap-6 transition-all duration-300 ease-out sm:grid-cols-2 lg:grid-cols-3 place-content-between">

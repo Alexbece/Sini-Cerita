@@ -25,42 +25,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>{{ Str::limit('farrelyassar.k@gmail.com', 18) }}</td>
-                    <td>March 1, 2024</td>
-                    <td>
-                        <button class="btn rounded-full btn-warning btn-soft btn-sm flex items-center gap-1"
-                            aria-label="Action button"><span class="icon-[mdi--eye-outline] size-5"></span>Detail</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>{{ Str::limit('farrelyassar.k@gmail.com', 18) }}</td>
-                    <td>March 2, 2024</td>
-                    <td>
-                        <button class="btn rounded-full btn-warning btn-soft btn-sm flex items-center gap-1"
-                            aria-label="Action button"><span class="icon-[mdi--eye-outline] size-5"></span>Detail</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alice Johnson</td>
-                    <td>{{ Str::limit('farrelyassar.k@gmail.com', 18) }}</td>
-                    <td>March 3, 2024</td>
-                    <td>
-                        <button class="btn rounded-full btn-warning btn-soft btn-sm flex items-center gap-1"
-                            aria-label="Action button"><span class="icon-[mdi--eye-outline] size-5"></span>Detail</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Bob Brown</td>
-                    <td>{{ Str::limit('farrelyassar.k@gmail.com', 18) }}</td>
-                    <td>March 4, 2024</td>
-                    <td>
-                        <button class="btn rounded-full btn-warning btn-soft btn-sm flex items-center gap-1"
-                            aria-label="Action button"><span class="icon-[mdi--eye-outline] size-5"></span>Detail</button>
-                    </td>
-                </tr>
+                @forelse ($sesiChats as $chat)
+                    <tr class="border-t border-gray-200">
+                        <td class="px-4 py-2">{{ optional($chat->user)->nama_lengkap ?? 'Tidak Diketahui' }}</td>
+                        <td class="px-4 py-2">{{ Str::limit(optional($chat->user)->email ?? '-', 18) }}</td>
+                        <td class="px-4 py-2">{{ $chat->waktu_mulai->format('d M Y') }}</td>
+                        <td class="px-4 py-2">
+                            <a href="{{ route('riwayat.konsultasi.detail', $chat->id) }}"
+                                class="btn rounded-full btn-warning btn-soft btn-sm flex items-center gap-1"
+                                aria-label="Action button">
+                                <span class="icon-[mdi--eye-outline] size-5"></span>Detail
+                            </a>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="4" class="text-center text-gray-500 py-4">Tidak ada riwayat sesi selesai.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
