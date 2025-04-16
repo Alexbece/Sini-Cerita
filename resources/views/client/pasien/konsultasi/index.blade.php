@@ -74,9 +74,6 @@
 
             @include('client.pasien.konsultasi.list_konselor')
 
-            <div class="flex justify-center mt-6">
-                {{ $dokters->appends(request()->query())->links() }}
-            </div>
             
         </div>
     </div>
